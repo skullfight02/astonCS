@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<!-- saved from url=(0139)https://vle.aston.ac.uk/bbcswebdav/pid-2215433-dt-content-rid-15145926_1/courses/2020_CS1OOP_P1_P2/TP2/week07-jcf/oop-2021-jcf/index.html#0 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  
+  <title>CS1OOP Lab 7 (JCF and Generics)</title>
+  <link rel="stylesheet" href="./CS1OOP Lab 7 (JCF and Generics)_files/css">
+  <link rel="stylesheet" href="./CS1OOP Lab 7 (JCF and Generics)_files/icon">
+  <link rel="stylesheet" href="./CS1OOP Lab 7 (JCF and Generics)_files/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+<script src="./CS1OOP Lab 7 (JCF and Generics)_files/analytics.js.download"></script></head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14" environment="web" category="null"></google-codelab-analytics>
+  <google-codelab codelab-gaid="" id="oop-2021-jcf" environment="web" feedback-link="mailto:a.garcia-dominguez@aston.ac.uk" selected="0" google-codelab-ready="" codelab-title="CS1OOP Lab 7 (JCF and Generics)" anayltics-ready="anayltics-ready"><div id="drawer"><div class="codelab-time-container" style="display: none;"></div><div class="steps"><ol><li completed="" selected=""><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2215433-dt-content-rid-15145926_1/courses/2020_CS1OOP_P1_P2/TP2/week07-jcf/oop-2021-jcf/index.html#0"><span class="step"><span>Welcome</span></span></a></li><li><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2215433-dt-content-rid-15145926_1/courses/2020_CS1OOP_P1_P2/TP2/week07-jcf/oop-2021-jcf/index.html#1"><span class="step"><span>Importing the project</span></span></a></li><li><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2215433-dt-content-rid-15145926_1/courses/2020_CS1OOP_P1_P2/TP2/week07-jcf/oop-2021-jcf/index.html#2"><span class="step"><span>List: to-do app and microbenchmarking</span></span></a></li><li><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2215433-dt-content-rid-15145926_1/courses/2020_CS1OOP_P1_P2/TP2/week07-jcf/oop-2021-jcf/index.html#3"><span class="step"><span>Set and Map: word guessing game</span></span></a></li><li><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2215433-dt-content-rid-15145926_1/courses/2020_CS1OOP_P1_P2/TP2/week07-jcf/oop-2021-jcf/index.html#4"><span class="step"><span>Generics: shuffling, duplicating, and BestOf</span></span></a></li><li><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2215433-dt-content-rid-15145926_1/courses/2020_CS1OOP_P1_P2/TP2/week07-jcf/oop-2021-jcf/index.html#5"><span class="step"><span>Submit to AutoFeedback and Blackboard</span></span></a></li></ol></div><div class="metadata"><a target="_blank" href="mailto:a.garcia-dominguez@aston.ac.uk"><i class="material-icons">bug_report</i> Report a mistake</a></div></div><div id="codelab-title"><div id="codelab-nav-buttons"><a href="https://vle.aston.ac.uk/" id="arrow-back"><i class="material-icons">close</i></a><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2215433-dt-content-rid-15145926_1/courses/2020_CS1OOP_P1_P2/TP2/week07-jcf/oop-2021-jcf/index.html#" id="menu"><i class="material-icons">menu</i></a></div><h1 is-upgraded="" class="title">CS1OOP Lab 7 (JCF and Generics)</h1><div class="codelab-time-container" style="display: none;"></div><devsite-user></devsite-user></div><div id="main"><div id="steps"><google-codelab-step label="Welcome" duration="0" step="1" selected=""><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">1. Welcome</h2>
+        <p>This is the seventh lab of term 2 of the CS1OOP module. Work through every section of this lab in sequence, and be careful of not missing any steps.</p>
+<h2 is-upgraded="">Introduction</h2>
+<p>In this lab, you will practice with the main interfaces of the Java Collections Framework, and their most common implementations. You will also use generics to write functions that can work with containers of multiple types of elements, and to write your own container classes.</p>
+<h2 is-upgraded="">What you should already know</h2>
+<p>You should be able to:</p>
+<ul>
+<li>Read UML class diagrams</li>
+<li>Write <code>for(;;)</code>, <code>for(T e: l)</code> loops, and <code>while</code> loops</li>
+<li>Write Java classes, including their fields, constructors, and methods</li>
+<li>Understand static vs dynamic types</li>
+<li>Understand the difference between abstract classes and interfaces</li>
+</ul>
+<h2 is-upgraded="">What you'll need</h2>
+<p>You will need a computer with this software installed:</p>
+<ul>
+<li>A Java 11 or newer JDK: download it from <a href="https://www.oracle.com/java/technologies/javase-downloads.html#JDK11" target="_blank">Oracle</a> or <a href="https://adoptopenjdk.net/" target="_blank">AdoptOpenJDK</a></li>
+<li><a href="https://www.eclipse.org/downloads/packages/release/2020-12/r/eclipse-ide-java-developers" target="_blank">Eclipse for Java Developers</a></li>
+</ul>
+<p>If you are using a lab computer or a student VDI machine, launch Eclipse 2019-06 through AstonApps (you will need to launch Java 11.0.5 first).</p>
+<h2 class="checklist" is-upgraded="">What you'll learn</h2>
+<ul class="checklist">
+<li>How to use the <code>List</code> interface to keep track of an ordered sequence of objects.</li>
+<li>How to use the <code>Set</code> interface to keep track of a group of objects, without repetitions.</li>
+<li>How to use the <code>Map</code> interface to maintain a key-value mapping (like a dictionary).</li>
+<li>The practical differences between the most common implementations of the <code>List</code>, <code>Set</code>, and <code>Map</code> interfaces.</li>
+<li>How to use generics to write functions that can work on containers of several types of elements.</li>
+<li>How to use generics to write your own container classes.</li>
+</ul>
+<h2 is-upgraded="">What you'll do</h2>
+<p>As a quick summary, you will:</p>
+<ul>
+<li>Use <code>List</code> to finish the code of a text-based application to track your "to do" list.</li>
+<li>Use a <a href="https://github.com/openjdk/jmh" target="_blank">microbenchmark</a> to compare <code>LinkedList</code> and <code>ArrayList</code> at certain tasks.</li>
+<li>Use <code>Set</code> and <code>Map</code> to complete the implementation of a text-based word guessing game.</li>
+<li>Write generic functions for shuffling elements, and adding N copies of an object to a list.</li>
+<li>Write a generic class for keeping the "top 10" of a set of objects of a type that implements <code>Comparable</code>.</li>
+</ul>
+<p>Check the next sections for the details!</p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Importing the project" duration="0" step="2"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">2. Importing the project</h2>
+        <p>Download the starting code from Blackboard. You don't need to unpack the <code>.zip</code> file.</p>
+<p>Import the project by using "File - Import - Existing Projects into Workspace", then pick "Archive file" and select the <code>.zip</code> file you downloaded.</p>
+<p>One project called <code>uk.ac.aston.oop.jcf</code> should come up. Press OK to import this project.</p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="List: to-do app and microbenchmarking" duration="0" step="3"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">3. List: to-do app and microbenchmarking</h2>
+        <p>In this first section, we will practice with the <code>List</code> JCF interface. We will complete the key class in a to-do list application, and compared LinkedList and ArrayList with a microbenchmark.</p>
+<h2 is-upgraded="">To-do app</h2>
+<p>You are going to complete the implementation of a text-based to-do list app. By the end of the section, it should work as in this video:</p>
+<iframe class="embedded-iframe" src="./CS1OOP Lab 7 (JCF and Generics)_files/Embed.html"></iframe>
+<p><em>Step 1.</em> Go to the <code>uk.ac.aston.oop.jcf.todo</code> package, and have a quick browse through the classes in this package. We are going to complete the implementation of an application for managing to-do lists. Here is a UML diagram with the main elements of the program (ignoring private fields and methods):</p>
+<p class="image-container"><img alt="To-do app UML" src="./CS1OOP Lab 7 (JCF and Generics)_files/43df61e172e6301b.png"></p>
+<ul>
+<li>The <code>ToDoMain</code> class provides the <code>main</code> method, and implements all the interactions with the user by creating and using <code>MenuOption</code> objects. You do not have to make any changes to these classes.</li>
+<li>The <code>ToDoList</code> class is the main data structure in this program. It uses internally a <code>List&lt;ToDoItem&gt; items</code> field to hold the various items in the list, and provides a number of methods to be used from the text-based user interface of <code>ToDoMain</code>.</li>
+</ul>
+<p>In this exercise, you will only need to complete the implementation of <code>ToDoList</code>, by writing the code of a few methods that are still empty.</p>
+<p><em>Step 2.</em> The first method that needs to be completed in <code>ToDoList</code> is <code>markDone</code>. It should get the <code>i</code>-th element of the <code>items</code> and then use its <code>setDone</code> method to mark it as done.</p>
+<p><em>Step 3.</em> Next is <code>removeAllContaining</code>. This one requires filtering the list, so using an iterator, looping while <code>hasNext()</code> is true and removing any matching elements is needed. You can follow this structure:</p>
+<ol type="1">
+<li>Create an iterator over the <code>ToDoItem</code> objects in <code>items</code> by calling <code>iterator()</code>.</li>
+<li>While that iterator says it has a next element (<code>hasNext()</code>):  <ol type="1">
+<li>Fetch the next <code>ToDoItem</code>.</li>
+<li>If the description of the item contains <code>substring</code>, then use the iterator to remove the item that was just fetched.</li>
+</ol>
+</li>
+</ol>
+<p><em>Step 4.</em> The previous structure of using an iterator to loop over a collection and remove some objects is very common. In fact, <code>removeAllDone</code> should follow pretty much the same structure, but checking if the item <code>isDone()</code> or not. Complete its implementation.</p>
+<p><em>Step 5.</em> After those two methods, we will complete <code>moveToTop</code> while practicing a bit with the <code>List</code>-specific <code>remove(int)</code> and <code>add(int, Object)</code> methods. Follow this structure:</p>
+<ol type="1">
+<li>If <code>i</code> is greater than 0:  <ol type="1">
+<li>Use the version of <code>remove</code> in <code>List</code> that takes an <code>int</code> to remove the element at position <code>i</code>, and store it in a local variable (say, <code>item</code>).</li>
+<li>Use the version of <code>add</code> in <code>List</code> that takes an <code>int</code> and an object to add the removed element at position 0 (the first position).</li>
+</ol>
+</li>
+</ol>
+<p><em>Step 6.</em> Finally, complete the implementation of <code>shuffle</code> by following this structure:</p>
+<ol type="1">
+<li>Loop over every position <code>i</code> in <code>items</code>:  <ol type="1">
+<li>Get the element at position <code>i</code> and store it in a local variable <code>item</code>.</li>
+<li>Use the <code>Random rnd</code> parameter to generate a random position in the list, and store it in a local variable <code>otherPosition</code>.</li>
+<li>Use the <code>set</code> method in <code>List</code> to set the element at position <code>i</code> to the element which is in position <code>otherPosition</code>.</li>
+<li>Use the <code>set</code> method again, this time to set the element at position <code>otherPosition</code> to <code>item</code>.</li>
+</ol>
+</li>
+</ol>
+<p>This way, you will loop over every position in the array, and choose a random position to perform a swap with.</p>
+<p><em>Step 7.</em> Try running <code>ToDoMain</code> and using it for a bit. You should be getting behaviour similar to that in the video.</p>
+<h2 is-upgraded="">Microbenchmarking ArrayList and LinkedList with JMH</h2>
+<p>The previous section gave you a refresher on what <code>List</code> implementations like <code>ArrayList</code> can do. However, <code>ArrayList</code> is not the only one: for instance, <code>LinkedList</code> could also be used.</p>
+<p>The specific choice depends on the situation: normally you will pick an implementation with good performance for the things you will be doing most often. You will study the specific details of how <code>ArrayList</code> and <code>LinkedList</code> differ internally next year, but for now we can simply try running <em>microbenchmarks</em> on specific situations. We will use the <a href="https://github.com/openjdk/jmh" target="_blank">Java Microbenchmark Harness</a> (JMH) which is part of the OpenJDK project for this.</p>
+<p><em>Step 8.</em> Go to the <code>uk.ac.aston.oop.jcf.bench.ListBenchmarks</code> class, which will contain all the methods we need. Add a protected method called <code>addToEnd</code> that does not return anything and takes two parameters: a <code>List&lt;Integer&gt;</code> called <code>l</code>, and an <code>int</code> called <code>n</code>. It should have a loop over <code>i</code> from 0 (included) until <code>n</code> (not included), which adds <code>i</code> to the end of the list (<code>l.add(i)</code>). By the time the loop finishes, the list should have numbers 0 from <code>n-1</code> in ascending order.</p>
+<p><em>Step 9.</em> Add another method like the previous one, but called <code>addToBeginning</code>. It should loop in the same way, but this time it should add <code>i</code> to the <em>beginning</em> of the list (<code>l.add(0, i)</code>). By the time the loop finishes, the list should have numbers <code>n-1</code> to 0 in descending order.</p>
+<p><em>Step 10.</em> Let's start creating the benchmarks themselves, which is actually quite easy! Create a method called <code>addToEndArrayList</code> that takes no parameters and returns nothing, and have it call <code>addToEnd</code> by passing a new <code>ArrayList</code> as the list to be used, and <code>ELEMENTS</code> as the number of elements to be added. Annotate the method with <code>@Benchmark</code>, in the same way as you would annotate with <code>@Override</code>.</p>
+<aside class="special"><p>You will need to import the <code>org.openjdk.jmh.annotations.Benchmark</code> class.</p>
+</aside>
+<p><em>Step 11.</em> Create an <code>addToEndLinkedList</code> method in the same way, but this time passing a new <code>LinkedList</code>.</p>
+<p><em>Step 12.</em> Create the <code>addToBeginningArrayList</code> and <code>addToBeginningLinkedList</code> as in the previous two steps, but calling <code>addToBeginning</code> instead.</p>
+<p><em>Step 13.</em> By this point in time, you will have four <code>@Benchmark</code> methods that try adding elements at the beginning and the end, both with an <code>ArrayList</code> and with a <code>LinkedList</code>. Now, run the benchmarks by right-clicking on the <code>Run List benchmarks.launch</code> file and selecting "Run As - Run List benchmarks".</p>
+<aside class="warning"><p>If you are using a different IDE from Eclipse, you can do the same thing by running a Maven build from the included <code>pom.xml</code> file with <code>clean compile exec:java</code> as the goals to be run. Check the documentation in your IDE on how to do this.</p>
+</aside>
+<p>It will take 5-10 minutes, but after some time you will see output like this:</p>
+<pre><code><span class="pln">REMEMBER</span><span class="pun">:</span><span class="pln"> </span><span class="typ">The</span><span class="pln"> numbers below are just data</span><span class="pun">.</span><span class="pln"> </span><span class="typ">To</span><span class="pln"> gain reusable insights</span><span class="pun">,</span><span class="pln"> you need to follow up on
+why the numbers are the way they are</span><span class="pun">.</span><span class="pln"> </span><span class="typ">Use</span><span class="pln"> profilers </span><span class="pun">(</span><span class="pln">see </span><span class="pun">-</span><span class="pln">prof</span><span class="pun">,</span><span class="pln"> </span><span class="pun">-</span><span class="pln">lprof</span><span class="pun">),</span><span class="pln"> design factorial
+experiments</span><span class="pun">,</span><span class="pln"> perform baseline </span><span class="kwd">and</span><span class="pln"> negative tests that provide experimental control</span><span class="pun">,</span><span class="pln"> make sure
+the benchmarking environment </span><span class="kwd">is</span><span class="pln"> safe on JVM</span><span class="pun">/</span><span class="pln">OS</span><span class="pun">/</span><span class="pln">HW level</span><span class="pun">,</span><span class="pln"> ask </span><span class="kwd">for</span><span class="pln"> reviews </span><span class="kwd">from</span><span class="pln"> the domain experts</span><span class="pun">.</span><span class="pln">
+</span><span class="typ">Do</span><span class="pln"> </span><span class="kwd">not</span><span class="pln"> assume the numbers tell you what you want them to tell</span><span class="pun">.</span><span class="pln">
+
+</span><span class="typ">Benchmark</span><span class="pln">                                 </span><span class="typ">Mode</span><span class="pln">  </span><span class="typ">Cnt</span><span class="pln">        </span><span class="typ">Score</span><span class="pln">       </span><span class="typ">Error</span><span class="pln">  </span><span class="typ">Units</span><span class="pln">
+</span><span class="typ">ListBenchmarks</span><span class="pun">.</span><span class="pln">addToBeginningArrayList   thrpt    </span><span class="lit">5</span><span class="pln">   </span><span class="lit">414939.170</span><span class="pln"> </span><span class="pun">±</span><span class="pln">  </span><span class="lit">4820.670</span><span class="pln">  ops</span><span class="pun">/</span><span class="pln">s
+</span><span class="typ">ListBenchmarks</span><span class="pun">.</span><span class="pln">addToBeginningLinkedList  thrpt    </span><span class="lit">5</span><span class="pln">  </span><span class="lit">1292681.291</span><span class="pln"> </span><span class="pun">±</span><span class="pln"> </span><span class="lit">35418.446</span><span class="pln">  ops</span><span class="pun">/</span><span class="pln">s
+</span><span class="typ">ListBenchmarks</span><span class="pun">.</span><span class="pln">addToEndArrayList         thrpt    </span><span class="lit">5</span><span class="pln">  </span><span class="lit">2611680.137</span><span class="pln"> </span><span class="pun">±</span><span class="pln"> </span><span class="lit">23079.105</span><span class="pln">  ops</span><span class="pun">/</span><span class="pln">s
+</span><span class="typ">ListBenchmarks</span><span class="pun">.</span><span class="pln">addToEndLinkedList        thrpt    </span><span class="lit">5</span><span class="pln">  </span><span class="lit">2346568.415</span><span class="pln"> </span><span class="pun">±</span><span class="pln"> </span><span class="lit">17789.930</span><span class="pln">  ops</span><span class="pun">/</span><span class="pln">s</span></code></pre>
+<p>The numbers are measured in operations/second: how many times it was possible to run the benchmark per second on average. You will notice that <code>LinkedList</code> was much faster than <code>ArrayList</code> at adding things at the beginning, but <code>ArrayList</code> was slightly faster at adding elements at the end. Obviously, in order to fully confirm these findings you would need to look at the code and think about why that was the case, as the <code>REMEMBER</code> note says! You will learn more about the reasons behind those differences next year.</p>
+<p>The reason why these benchmarks took so long as it that because of how quick a modern processor can run such a small computation, it is necessary to run it many times before we can have a consistent enough estimation. Modern operating systems have many programs sharing the CPU at any time, which can further confuse things, and Java itself optimizes its code on the fly when it notices a particular section is being used very often: this is known as Just-in-Time (JIT) compilation, and it is a popular technique in emulators, JavaScript engines in browsers, and virtual machines like Java's. JIT is the reason why we had those "warmup" iterations, by the way: we let Java optimise itself a little before starting the real measurements.</p>
+<p><em>Step 14.</em> At this point, you can submit to AutoFeedback: you should be passing the tests starting with <code>uk.ac.aston.oop.jcf.bench</code> and <code>uk.ac.aston.oop.jcf.todo</code>.</p>
+<h2 is-upgraded="">Optional</h2>
+<p>Try adding a microbenchmark for getting the element at 100 random positions in a list of numbers from 1 to 100. You should be getting much better performance at that from <code>ArrayList</code> than from <code>LinkedList</code>: this is because all elements in an <code>ArrayList</code> are stored in a contiguous area of memory, so we can just jump to that offset in that memory region. In a <code>LinkedList</code>, the elements are "strung" together but kept in separate areas of memory, so we have to "count the beads" before we get to the element we wanted.</p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Set and Map: word guessing game" duration="0" step="4"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">4. Set and Map: word guessing game</h2>
+        <p>For practicing with <code>Set</code> and <code>Map</code>, we will complete the implementation of yet another small text-based application. This one is a word guessing game, based on the <a href="http://wordlist.aspell.net/dicts/" target="_blank">Hunspell British English spell checking dictionary</a>. By the time you are done with this section, the application should work as follows:</p>
+<iframe class="embedded-iframe" src="./CS1OOP Lab 7 (JCF and Generics)_files/Embed(1).html"></iframe>
+<p>In the video, we started from the set of all words that start with "h" and have "po" in them, then we removed the ones with "y" in them (like "hyper"), narrowed it down to the ones with "t", and then entered a word to go into the word guessing part of the program. We guessed "hippopotamus", and it turned out to be in that set: if we had guessed an incorrect word, we would see on screen all the options that were available to us.</p>
+<aside class="special"><p>Note that this simple application does not consider verb conjugations, plural forms and all other variations words can have. It could be done, but we wanted to keep it as simple as possible!</p>
+</aside>
+<p>For this application, we will first complete one version using just <code>Set</code>, and then optimise it a bit by combining <code>Map</code> and <code>Set</code>.</p>
+<h2 is-upgraded="">Completing the base version</h2>
+<p><em>Step 1.</em> Go to the <code>uk.ac.aston.oop.jcf.words</code> package, and give <code>WordGuessMain</code> and <code>WordList</code> a look:</p>
+<ul>
+<li><code>WordGuessMain</code> does all the interaction with the user. Most importantly, it contains a <code>wordList</code> that it uses to build up a <code>Set</code> of <code>candidates</code> with all the words valid for guessing, and it has two methods <code>askUserToGuess</code> and <code>processLine</code> that you will need to complete.</li>
+<li><code>WordList</code> does the heavy lifting of reading the Hunspell data into a <code>Set</code> of <code>words</code>, and providing a <code>searchWords</code> to find all the words starting with a letter that also contain a certain substring. You will not need to change it for this base version, but we will be making some improvements later on.</li>
+</ul>
+<aside class="special"><p>Note that neither of these are the ideal data structure for this, really: a <a href="https://en.wikipedia.org/wiki/Suffix_tree" target="_blank">suffix tree</a> would have been better, but it is definitely outside the scope of this module and most likely even this course!</p>
+</aside>
+<p><em>Step 2.</em> Write the code for <code>askUserToGuess</code>, following this structure:</p>
+<ol type="1">
+<li>If <code>candidates</code> is empty (using <code>isEmpty()</code>), print a message saying "No candidates left".</li>
+<li>Otherwise:  <ol type="1">
+<li>Prompt the user for a guess, using the <code>promptString</code> method (pass it the question to ask the user, e.g. "Make a guess: ").</li>
+<li>If <code>candidates</code> contains the guess, print a message saying "Correct".</li>
+<li>If <code>candidates</code> does not contain the guess, print a message saying "Incorrect" and print out what would have been the valid <code>candidates</code>.</li>
+</ol>
+</li>
+</ol>
+<p><em>Step 3.</em> Write the code for <code>processLine</code>, which is the one responsible for updating <code>candidates</code> in response to a pattern entered by the user:</p>
+<ol type="1">
+<li>If <code>pattern</code> is the empty string (<code>isEmpty</code>), return <code>true</code> (meaning that the buildup of the <code>candidates</code> is done and the program should switch to asking the user to make a guess).</li>
+<li>Get the first character in <code>pattern</code> (e.g. with <code>charAt(0)</code>) and store it in a local variable <code>cmd</code>.</li>
+<li>Get the rest of the <code>pattern</code> (e.g. with <code>substring(1)</code>, the substring from the second character onwards), and store it in a local variable <code>substring</code>.</li>
+<li>If <code>cmd</code> is ‘+', search for all the words starting with <code>firstLetter</code> and containing <code>substring</code> (calling <code>searchWords</code> on the <code>wordList</code>), then add all the results to <code>candidates</code> (using <code>addAll</code>). Essentially, you are updating <code>candidates</code> so it is the set union of <code>candidates</code> and the results you just obtained.</li>
+<li>If <code>cmd</code> is ‘-', do the same search, but this time remove from <code>candidates</code> all the results (using <code>removeAll</code>). In this case, you are updating <code>candidates</code> so it is the set difference of its old value and the results.</li>
+<li>If <code>cmd</code> is ‘*', do the same search, but this time only retain the elements in <code>candidates</code> that are also in the results (using <code>retainAll</code>). From a mathematical point of view, you are updating <code>candidates</code> to the intersection of its old value and the results.</li>
+<li>If <code>cmd</code> is none of those, print a message mentioning <code>cmd</code> and that it is "not recognized".</li>
+<li>Return <code>false</code> (we are not done building up the set of candidates yet).</li>
+</ol>
+<p><em>Step 4.</em> Try running the program and entering the input in the video: you should be getting similar behaviour. We heavily* recommend you get this working before you move on to the optimisation work in the next part.</p>
+<h2 is-upgraded="">Using a Map to speed up searches</h2>
+<p>You may have noticed that the way we find words that start with a letter <em>and</em> have a certain substring is very simple: we go through all words and check both things. This is simple to implement, but it is slow: it would be much faster if we organised the words from the beginning by their first letter, so when the user searches we only need to go through the words that start by that letter.</p>
+<p><em>Step 5.</em> Go to <code>WordList</code>, and replace its <code>Set&lt;String&gt; words</code> field with a <code>Map&lt;Character, Set&lt;String&gt;&gt; wordsByLetter</code> field. This map will use the first letter as a key (e.g. ‘h'), and then has a <code>Set&lt;String&gt;</code> with all the words in the dictionary that start with that letter.</p>
+<p><em>Step 6.</em> In <code>readWords</code>, replace the line setting <code>words</code> to a new <code>HashSet</code> with a line that sets <code>wordsByLetter</code> to a new <code>HashMap</code>. It's best to simply do <code>new HashMap&lt;&gt;()</code>, rather than <code>new HashMap&lt;Character, Set&lt;String&gt;&gt;()</code>: it's much faster to type, easier to read, and you won't need to go back to it if you changed the type arguments of <code>wordsByLetter</code> in the future.</p>
+<p><em>Step 7.</em> Inside the loop in <code>readWords</code>, instead of adding to <code>words</code> (which doesn't exist anymore), follow this approach:</p>
+<ol type="1">
+<li>Get the first letter of <code>parts[0]</code> (the actual word) by using <code>charAt(0)</code>, and store it in a local variable <code>firstLetter</code>.</li>
+<li>Get the <code>Set&lt;String&gt;</code> currently associated with <code>firstLetter</code> from <code>wordsByLetter</code>, by using <code>get</code>. Assign it to a local variable <code>words</code>.</li>
+<li>If <code>words</code> is null (it's the first time we come across a letter starting with that letter):  <ol type="1">
+<li>Set <code>words</code> to a new <code>HashSet</code>.</li>
+<li>Put <code>words</code> into the <code>wordsByLetter</code> using <code>firstLetter</code> as the key (use <code>put</code>).</li>
+</ol>
+</li>
+<li>Add <code>parts[0]</code> to <code>words</code>.</li>
+</ol>
+<p><em>Step 8.</em> Inside <code>searchWords</code>, we will have a compilation error since we do not have a <code>words</code> field anymore in <code>WordList</code>. Right before the <code>for</code> loop, add a line that gets the <code>Set&lt;String&gt;</code> associated with <code>firstLetter</code> (using <code>get</code>). If that set is not null, then loop through its entries as normal: otherwise, do nothing and just return an empty set of results.</p>
+<p><em>Step 9.</em> Run your program again, and check that it is still working like before. This is an example of how we can optimise a class without impacting the rest of the program, by keeping to the same methods and parameters.</p>
+<p><em>Step 10.</em> Before moving on, submit to AutoFeedback and check that you are passing all the tests starting with <code>uk.ac.aston.oop.jcf.words</code>.</p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Generics: shuffling, duplicating, and BestOf" duration="0" step="5"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">5. Generics: shuffling, duplicating, and BestOf</h2>
+        <p>In this last section, we will practice a bit with generics. We will write two generic functions that can take containers with elements of multiple types, and then write a new generic container class.</p>
+<h2 is-upgraded="">Writing generic duplicating and shuffling functions</h2>
+<p><em>Step 1.</em> Go to the <code>uk.ac.aston.oop.jcf.generics.GenericDuplicateShuffle</code> class. You will see it only has a <code>main</code> method with sample code that has all been commented out: the goal is to complete the code of this class so it can compile and run. The program is intended to create first a <code>List&lt;Object&gt;</code> with several copies of several strings, which then gets shuffled and printed out. Afterwards, we do the same, but this time with a <code>List&lt;Number&gt;</code> and a mix of floating-point and integer numbers.</p>
+<p><em>Step 2.</em> Let's walk before we run: normally with generics, it's best to write a non-generic version and then add type parameters/wildcards as we need them. Copy over your <code>shuffle</code> method from <code>ToDoList</code>, but make the following changes:</p>
+<ul>
+<li>Make it <code>static</code>, as we intend this function to be a general <code>List</code>-shuffling utility rather than part of any object.</li>
+<li>Add a <code>List&lt;Object&gt; items</code> parameter, which you should be looping over now.</li>
+</ul>
+<p>You shouldn't really need any more changes than this: we essentially just took out <code>shuffle</code> from the <code>List</code> and made it into a method anyone can call with <code>GenericDuplicateShuffle.shuffle(rnd, l)</code>.</p>
+<p><em>Step 3.</em> Likewise, let's add a non-generic version of <code>duplicate</code> before we make it generic. Add a public static method called <code>duplicate</code> which does not return anything, and takes three parameters: an <code>Object elem</code>, an <code>int n</code>, and a <code>List&lt;Object&gt; items</code>. It should simply add <code>n</code> times the <code>elem</code> at the end of the <code>items</code>.</p>
+<p><em>Step 4.</em> Uncomment the first <code>/* */</code> section in <code>main</code>, and check that it works as it should.</p>
+<p><em>Step 5.</em> Uncomment the second <code>/* */</code> section in <code>main</code>. You will notice compilation errors like this:</p>
+<pre><code><span class="typ">The</span><span class="pln"> method duplicate</span><span class="pun">(</span><span class="typ">Object</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">int</span><span class="pun">,</span><span class="pln"> </span><span class="typ">List</span><span class="pun">&lt;</span><span class="typ">Object</span><span class="pun">&gt;)</span><span class="pln"> </span><span class="kwd">in</span><span class="pln"> the type </span><span class="typ">GenericDuplicateShuffle</span><span class="pln"> </span><span class="kwd">is</span><span class="pln"> </span><span class="kwd">not</span><span class="pln"> applicable </span><span class="kwd">for</span><span class="pln"> the arguments </span><span class="pun">(</span><span class="kwd">float</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">int</span><span class="pun">,</span><span class="pln"> </span><span class="typ">List</span><span class="pun">&lt;</span><span class="typ">Number</span><span class="pun">&gt;)</span></code></pre>
+<p>This is Java's way of telling you "<code>duplicate</code> wants a <code>List&lt;Object&gt;</code>, but <code>List&lt;Number&gt;</code> is-not-a <code>List&lt;Object&gt;</code>". We need to make <code>duplicate</code> and <code>shuffle</code> more flexible.</p>
+<p><em>Step 6.</em> For <code>shuffle</code>, we need to think about several things:</p>
+<ul>
+<li>Do we need to relate the types of several things in some way? If so, we need to introduce type parameters to establish those relationships.</li>
+<li>Do we need to get elements from the list, put elements in the list, or both? We need to consider the get-put rule (only get = extends, only put = super, both = neither of them).</li>
+</ul>
+<p>In this case, we have to relate the type of the elements in <code>items</code> with the type of the <code>item</code> local variable), and we get <em>and</em> put things (<code>get()</code> and <code>set()</code>), so we need to use type parameters (<code>T</code> is a common name for a type parameter in Java) and we cannot use neither <code>extends</code> nor <code>super</code> (so it has to be exactly <code>T</code>).</p>
+<p>In concrete terms, we want to add the type parameter <code>T</code> to the function, and use it wherever we refer to the elements of <code>items</code>. Specifically:</p>
+<ol type="1">
+<li>Add <code>&lt;T&gt;</code> before the <code>void</code> return type in the declaration of <code>shuffle</code>. This declares the type parameter.</li>
+<li>The type of the <code>items</code> parameter should now be <code>List&lt;T&gt;</code>.</li>
+<li>The type of the <code>item</code> local variable should now be <code>T</code>.</li>
+</ol>
+<p>With these changes, the function will work with <em>any</em><code>List&lt;T&gt;</code> (where <code>T</code> is some type), rather than just <code>List&lt;Object&gt;</code>.</p>
+<p><em>Step 7.</em> For <code>duplicate</code>, we follow the same process:</p>
+<ul>
+<li>Do we need to relate the types of several things in some way? The answer is <em>yes</em>: the <code>elem</code> parameter must be of a type that can be added to <code>items</code>. Let's use the <code>T</code> type parameter to represent the unknown type of <code>elem</code>.</li>
+<li>Do we need to get elements from the list, put elements in the list, or both? In this case, we are only putting elements, so to keep it as general as possible we should use <code>super</code> to allow any list that we can add an <code>elem</code> of type <code>T</code> to. This turns out to be <code>? super T</code>: we do not need to refer to the specific type of element of the list anywhere, but we do want it to be <code>T</code> or a supertype of <code>T</code> (according to the get-put rule).</li>
+</ul>
+<p>In concrete terms:</p>
+<ol type="1">
+<li>Add <code>&lt;T&gt;</code> before the <code>void</code> return type in the declaration of <code>duplicate</code>, declaring the type parameter.</li>
+<li>Change the type of the <code>elem</code> parameter to <code>T</code>, our type parameter.</li>
+<li>Change the type of the <code>items</code> parameter to <code>List&lt;? super T&gt;</code>, meaning "any List we can add elements of type <code>T</code> to".</li>
+</ol>
+<p>Now, the function will work with any pair of compatible <code>elem</code> and <code>items</code>, like these:</p>
+<ul>
+<li>Duplicating a <code>String</code> into a <code>List&lt;String&gt;</code> (since a <code>String</code> is-a <code>String</code>).</li>
+<li>Duplicating a <code>String</code> into a <code>List&lt;Object&gt;</code> (since all objects in Java inherit from <code>Object</code>).</li>
+<li>Duplicating an <code>Integer</code> into a <code>List&lt;Integer&gt;</code> (an <code>Integer</code> is-an <code>Integer</code>).</li>
+<li>Duplicating an <code>Integer</code> into a <code>List&lt;Number&gt;</code> (an <code>Integer</code> is-a <code>Number</code>).</li>
+<li>Duplicating an <code>Integer</code> into a <code>List&lt;Object&gt;</code> (an <code>Integer</code> is-an <code>Object</code>).</li>
+</ul>
+<p><em>Step 8.</em> The entire <code>main</code> method should now compile. Try running the program and checking that it produces the expected results.</p>
+<h2 is-upgraded="">Creating a generic container: BestOf</h2>
+<p>This is the last exercise in the lab: in this lab, you will create a generic container that stores only the best <code>N</code> elements added so far, and keeps them in ascending order. With "best", we mean the "biggest" <code>N</code> objects according to their implementation of <code>Comparable</code>. Consider the (for now commented out) sample code in the <code>BestOf</code> class:</p>
+<pre><code><span class="kwd">final</span><span class="pln"> </span><span class="typ">BestOf</span><span class="pln"> bestScores </span><span class="pun">=</span><span class="pln"> </span><span class="kwd">new</span><span class="pln"> </span><span class="typ">BestOf</span><span class="pun">(</span><span class="lit">3</span><span class="pun">);</span><span class="pln">
+bestScores</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="lit">3000</span><span class="pun">);</span><span class="pln">
+bestScores</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="lit">4200</span><span class="pun">);</span><span class="pln">
+bestScores</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="lit">2600</span><span class="pun">);</span><span class="pln">
+bestScores</span><span class="pun">.</span><span class="pln">add</span><span class="pun">(</span><span class="lit">1500</span><span class="pun">);</span><span class="pln">
+
+</span><span class="kwd">for</span><span class="pln"> </span><span class="pun">(</span><span class="typ">Comparable</span><span class="pln"> c </span><span class="pun">:</span><span class="pln"> bestScores</span><span class="pun">.</span><span class="pln">getItems</span><span class="pun">())</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  </span><span class="typ">System</span><span class="pun">.</span><span class="kwd">out</span><span class="pun">.</span><span class="pln">println</span><span class="pun">(</span><span class="pln">c</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<p>That should be printing 2600, 3000 and 4200 in that order. It should have thrown out 1500.</p>
+<p>Unfortunately, the class right now is empty. Time to get started!</p>
+<p><em>Step 8.</em> Create the basic skeleton of the class, like this:</p>
+<p class="image-container"><img alt="Skeleton of BestOf" src="./CS1OOP Lab 7 (JCF and Generics)_files/813b616419ed72d2.png"></p>
+<p><em>Step 9.</em> The constructor should set <code>items</code> to a new <code>ArrayList</code>, and it should set the <code>maxItems</code> field to the value of the <code>maxItems</code> parameter.</p>
+<p><em>Step 10.</em> The <code>getItems()</code> method should return an <em>unmodifiable view</em> of the <code>items</code>: we do not want someone breaking our "best of" functionality because they added elements without us knowing. To do this, instead of directly returning <code>items</code>, return <code>Collections.unmodifiableList(items)</code>. This will wrap the <code>items</code> with a decorator (remember the Decorator pattern from last week?) that will throw an exception if anyone tries to modify it.</p>
+<p><em>Step 11.</em> The <code>add</code> method should follow this structure:</p>
+<ol type="1">
+<li>Add <code>c</code> to the end of the list.</li>
+<li>Use <code>Collections.sort(items)</code> to sort the list again. Usually, <code>Collections.sort</code> is very fast for "nearly-ordered lists" where only one element is out of position.</li>
+<li>If the size of the list is greater than <code>maxItems</code>, remove the first element (the minimum according to <code>Comparable</code>): use <code>remove(0)</code> on <code>items</code>.</li>
+</ol>
+<p><em>Step 12.</em> With this, you should be able to uncomment the code in <code>main</code> and have it run and produce the right output (2600, 3000, 4200).</p>
+<p><em>Step 13.</em> Unfortunately, you will notice a number of warnings around "raw types" and type safety. The main reason is that this is not type safe enough: we may end up allowing users of <code>BestOf</code> to add things that are not comparable to each other. For instance, try changing 1500 to "example" in <code>main</code>: you will see that it does compile, but when it runs it will crash as it was trying to compare an <code>Integer</code> with a <code>String</code>. This simply shouldn't be compiling at all!</p>
+<p><em>Step 14.</em> We want to put some constraints on what goes into our <code>items</code>. Assuming that the type of our <code>items</code> field was <code>List&lt;T&gt;</code>, for an unknown type <code>T</code>, think about what are the conditions that <code>T</code> should meet:</p>
+<ul>
+<li>First of all, <code>T</code> should implement <code>Comparable</code>, since otherwise we cannot do sorting. Keep in mind that in generics, you would still use <code>T extends Comparable</code> even though <code>Comparable</code> is an interface: generics think in the more general terms of subtypes and supertypes, and do not treat classes or interfaces any differently.</li>
+<li>We cannot just do <code>T extends Comparable</code>, because <code>Comparable</code> is a generic type as well (we need to put something between the <code>&lt;&gt;</code> in<code>Comparable&lt;...&gt;</code>). <code>Comparable&lt;T&gt;</code> is the type of "anything that can be compared with a <code>T</code>". We could use <code>T extends Comparable&lt;T&gt;</code> ("the type of anything that can compare its own objects"), as a start.</li>
+<li>Unfortunately, <code>T extends Comparable&lt;T&gt;</code> is a bit too limiting: for instance, we could have an <code>AnythingGoes</code> class that implemented <code>Comparable&lt;Object&gt;</code>, and <code>T extends Comparable&lt;T&gt;</code> would reject such a class even though its objects can perfectly compare themselves with anything. Instead, we want <code>T extends Comparable&lt;? super T&gt;</code>, which means "the type of anything that can compare its objects against those of itself or a superclass".</li>
+</ul>
+<p>That is as general as we can get while staying safe. In concrete terms:</p>
+<ol type="1">
+<li>In the class declaration (<code>public class BestOf</code>), add the type parameters and their bounds (<code>&lt;T extends Comparable&lt;? super T&gt;&gt;</code>) right after the name of the class <code>BestOf</code> and before the opening brace <code>{</code>.</li>
+<li>Change the type of <code>items</code> to <code>List&lt;T&gt;</code>.</li>
+<li>Change the return type of <code>getItems</code> to <code>List&lt;T&gt;</code>.</li>
+<li>Change the type of the only parameter of <code>add</code> to <code>T</code>.</li>
+<li>Change the type of <code>bestSocres</code> in <code>main</code> to <code>BestOf&lt;Integer&gt;</code>.</li>
+</ol>
+<p><em>Step 15.</em> After this, if you still had "potato" instead of 1500 you would be getting a compilation error (as it should be, since <code>String</code>s are not comparable with <code>Integer</code>s!). Replace it back with 1500, and check that your code works again.</p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Submit to AutoFeedback and Blackboard" duration="0" step="6"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">6. Submit to AutoFeedback and Blackboard</h2>
+        <p>Now that you have completed the lab, you should use the <code>Submit Lab 7 to AutoFeedback</code> file that corresponds to your operating system to submit your code to AutoFeedback.</p>
+<p>For the details on how to use AutoFeedback, please refer to the last section of Lab 1.</p>
+<p>In this lab, we didn't ask you to write any tests: instead, AutoFeedback has its own tests that check the various things you should have done as part of this lab. Please review the provided feedback, and let us know if anything is unclear.</p>
+<p>Once you have passed the tests from AutoFeedback, you can upload the <code>submission.zip</code> file it generated to Blackboard.</p>
+
+
+      </div></div></google-codelab-step></div><div id="controls"><div id="fabs"><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2215433-dt-content-rid-15145926_1/courses/2020_CS1OOP_P1_P2/TP2/week07-jcf/oop-2021-jcf/index.html#" id="previous-step" title="Previous step" disappear="">Back</a><div class="spacer"></div><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2215433-dt-content-rid-15145926_1/courses/2020_CS1OOP_P1_P2/TP2/week07-jcf/oop-2021-jcf/index.html#" id="next-step" title="Next step">Next</a><a href="https://vle.aston.ac.uk/" id="done" hidden="" title="Codelab complete">Done</a></div></div></div></google-codelab>
+
+  <script src="./CS1OOP Lab 7 (JCF and Generics)_files/native-shim.js.download"></script>
+  <script src="./CS1OOP Lab 7 (JCF and Generics)_files/custom-elements.min.js.download"></script>
+  <script src="./CS1OOP Lab 7 (JCF and Generics)_files/prettify.js.download"></script>
+  <script src="./CS1OOP Lab 7 (JCF and Generics)_files/codelab-elements.js.download"></script>
+  <script src="./CS1OOP Lab 7 (JCF and Generics)_files/api.js.download"></script>
+
+
+
+</body></html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<!-- saved from url=(0150)https://vle.aston.ac.uk/bbcswebdav/pid-2209328-dt-content-rid-15046095_1/courses/2020_CS1OOP_P1_P2/TP2/week06-patterns/oop-2021-dpatterns/index.html#0 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  
+  <title>CS1OOP Lab 6 (Design Patterns)</title>
+  <link rel="stylesheet" href="./CS1OOP Lab 6 (Design Patterns)_files/css">
+  <link rel="stylesheet" href="./CS1OOP Lab 6 (Design Patterns)_files/icon">
+  <link rel="stylesheet" href="./CS1OOP Lab 6 (Design Patterns)_files/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+<script src="./CS1OOP Lab 6 (Design Patterns)_files/analytics.js.download"></script></head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14" environment="web" category="null"></google-codelab-analytics>
+  <google-codelab codelab-gaid="" id="oop-2021-dpatterns" environment="web" feedback-link="mailto:a.garcia-dominguez@aston.ac.uk" selected="0" google-codelab-ready="" codelab-title="CS1OOP Lab 6 (Design Patterns)" anayltics-ready="anayltics-ready"><div id="drawer"><div class="codelab-time-container" style="display: none;"></div><div class="steps"><ol><li completed="" selected=""><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2209328-dt-content-rid-15046095_1/courses/2020_CS1OOP_P1_P2/TP2/week06-patterns/oop-2021-dpatterns/index.html#0"><span class="step"><span>Welcome</span></span></a></li><li><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2209328-dt-content-rid-15046095_1/courses/2020_CS1OOP_P1_P2/TP2/week06-patterns/oop-2021-dpatterns/index.html#1"><span class="step"><span>Importing the project</span></span></a></li><li><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2209328-dt-content-rid-15046095_1/courses/2020_CS1OOP_P1_P2/TP2/week06-patterns/oop-2021-dpatterns/index.html#2"><span class="step"><span>Singleton: Dice Roller</span></span></a></li><li><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2209328-dt-content-rid-15046095_1/courses/2020_CS1OOP_P1_P2/TP2/week06-patterns/oop-2021-dpatterns/index.html#3"><span class="step"><span>Factory Method: Command Runner</span></span></a></li><li><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2209328-dt-content-rid-15046095_1/courses/2020_CS1OOP_P1_P2/TP2/week06-patterns/oop-2021-dpatterns/index.html#4"><span class="step"><span>Abstract Factory: Drawing Factory</span></span></a></li><li><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2209328-dt-content-rid-15046095_1/courses/2020_CS1OOP_P1_P2/TP2/week06-patterns/oop-2021-dpatterns/index.html#5"><span class="step"><span>Submit to AutoFeedback and Blackboard</span></span></a></li></ol></div><div class="metadata"><a target="_blank" href="mailto:a.garcia-dominguez@aston.ac.uk"><i class="material-icons">bug_report</i> Report a mistake</a></div></div><div id="codelab-title"><div id="codelab-nav-buttons"><a href="https://vle.aston.ac.uk/" id="arrow-back"><i class="material-icons">close</i></a><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2209328-dt-content-rid-15046095_1/courses/2020_CS1OOP_P1_P2/TP2/week06-patterns/oop-2021-dpatterns/index.html#" id="menu"><i class="material-icons">menu</i></a></div><h1 is-upgraded="" class="title">CS1OOP Lab 6 (Design Patterns)</h1><div class="codelab-time-container" style="display: none;"></div><devsite-user></devsite-user></div><div id="main"><div id="steps"><google-codelab-step label="Welcome" duration="0" step="1" selected=""><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">1. Welcome</h2>
+        <p>This is the sixth lab of term 2 of the CS1OOP module. Work through every section of this lab in sequence, and be careful of not missing any steps.</p>
+<h2 is-upgraded="">Introduction</h2>
+<p>In this lab, you will get some practice with the various design patterns that we discuss in the core content. To speed things up, some of the code will already be written for you: you will have to add the appropriate code while applying the design pattern. We will be focusing on three very common creational design patterns: <a href="https://refactoring.guru/design-patterns/singleton" target="_blank">Singleton</a>, <a href="https://refactoring.guru/design-patterns/factory-method" target="_blank">Factory Method</a>, and <a href="https://refactoring.guru/design-patterns/abstract-factory" target="_blank">Abstract Factory</a>.</p>
+<h2 is-upgraded="">What you should already know</h2>
+<p>You should be able to:</p>
+<ul>
+<li>Read UML class diagrams</li>
+<li>Write Java classes from a UML diagram</li>
+</ul>
+<h2 is-upgraded="">What you'll need</h2>
+<p>You will need a computer with this software installed:</p>
+<ul>
+<li>A Java 11 or newer JDK: download it from <a href="https://www.oracle.com/java/technologies/javase-downloads.html#JDK11" target="_blank">Oracle</a> or <a href="https://adoptopenjdk.net/" target="_blank">AdoptOpenJDK</a></li>
+<li><a href="https://www.eclipse.org/downloads/packages/release/2020-12/r/eclipse-ide-java-developers" target="_blank">Eclipse for Java Developers</a></li>
+</ul>
+<p>If you are using a lab computer or a student VDI machine, launch Eclipse 2019-06 through AstonApps (you will need to launch Java 11.0.5 first).</p>
+<h2 class="checklist" is-upgraded="">What you'll learn</h2>
+<ul class="checklist">
+<li>How to apply the Singleton design pattern to ensure there is exactly one instance of a class, which is globally available.</li>
+<li>How to apply the Factory Method design pattern to provide a method to create objects in a superclass, but leave the decision of which specific class to instantiate to a subclass.</li>
+<li>How to apply the Abstract Factory design pattern to create a family of related objects without specifying their concrete classes.</li>
+</ul>
+<h2 is-upgraded="">What you'll do</h2>
+<p>As a quick summary:</p>
+<ul>
+<li>You will use the Singleton pattern to provide a central source of randomness for a dice rolling program.</li>
+<li>You will use the Factory Method design pattern to implement a text-based interface for a <code>Robot</code> which can run in a "real" and "dry run" mode, while keeping the code for each mode contained in its own class.</li>
+<li>You will use the Abstract Factory design pattern to implement the same graphical program in two frameworks at once (JavaFX and Swing), without having to change most of the code of the application.</li>
+</ul>
+<p>Check the next sections for the details!</p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Importing the project" duration="0" step="2"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">2. Importing the project</h2>
+        <p>Download the starting code from Blackboard. You don't need to unpack the <code>.zip</code> file.</p>
+<p>Import the project by using "File - Import - Existing Projects into Workspace", then pick "Archive file" and select the <code>.zip</code> file you downloaded.</p>
+<p>One project called <code>uk.ac.aston.oop.dpatterns</code> should come up. Press OK to import this project.</p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Singleton: Dice Roller" duration="0" step="3"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">3. Singleton: Dice Roller</h2>
+        <p>The first creational design pattern we will practice with is Singleton. Singleton is useful when we want to make sure there is exactly one instance of a class, which is accessible everywhere in our program.</p>
+<h2 is-upgraded="">Existing code</h2>
+<p><em>Step 1.</em> Go to the <code>uk.ac.aston.oop.dpatterns.singleton</code> package, and check the <code>SingletonMain</code> class. You don't need to change this class, but you will need to add more code in this package to get it to work.</p>
+<p>The existing <code>main</code> method follows these steps:</p>
+<ol type="1">
+<li>It creates two <code>Player</code> objects: each <code>Player</code> represents someone playing with a dice with a certain number of faces.</li>
+<li>It plays a number of rounds, keeping track of who rolled the highest value, and how many times there was a tie.</li>
+<li>It prints out the results.</li>
+</ol>
+<p>This program is incomplete: <code>Player</code> is not finished yet. Let's complete its implementation.</p>
+<h2 is-upgraded="">Creating Player instances</h2>
+<p>We need to finish implementing the <code>Player</code> class. Here is a UML diagram for it:</p>
+<p class="image-container"><img alt="Player class" src="./CS1OOP Lab 6 (Design Patterns)_files/61db8b0b566e9cad.png"></p>
+<p><em>Step 2.</em> Add the <code>dieFaces</code> private int field to <code>Player</code>, and make sure you set it from the <code>Player</code> constructor and return it from <code>getDieFaces()</code>.</p>
+<h2 is-upgraded="">Starting the DiceRoller class</h2>
+<p>The question is how to implement the <code>roll</code> method in <code>Player</code>. That has to return a random integer between 1 and <code>dieFaces</code>. There are several options:</p>
+<ul>
+<li>Each <code>Player</code> could create its own <code>java.util.Random</code> object.</li>
+<li><code>SingletonMain</code> could create a <code>java.util.Random</code> object and pass it into the <code>Player</code> class.</li>
+<li>We could ensure there is a global source for random numbers, which is used by all <code>Player</code> objects.</li>
+</ul>
+<p>These options have various consequences:</p>
+<ol type="1">
+<li>If each <code>Player</code> creates its own <code>Random</code>, it will be very difficult to control the seed used to generate the dice rolls. It will also use more memory than necessary.</li>
+<li>Having <code>SingletonMain</code> create the <code>Random</code> object and passing it to the <code>Player</code> constructor is a form of Dependency Injection (another pattern, which we do not discuss in the module). However, this does complicate slightly the use of the <code>Player</code> class.</li>
+<li>Having a global source of random numbers would allow for easier control of the seed, without having to change the constructor of <code>Player</code>. It complicates testing, though, as it is harder to swap out the <code>Random</code> used in <code>Player</code> for a fake one that returns predetermined results (something we have used in AutoFeedback quite a bit!).</li>
+</ol>
+<p>Option 1 is bad in general, whereas options 2 and 3 depend on the situation. In past labs, we have usually gone for option 2, but for this lab we will follow option 3 so we can practice with the Singleton pattern.</p>
+<p>We will apply the Singleton pattern by creating a <code>DiceRoller</code> class, which will provide a global source of random dice rolls. We will do a first version with eager initialisation now: we'll improve on it later.</p>
+<p><em>Step 3.</em> Write the Java code for this UML diagram:</p>
+<p class="image-container"><img alt="diceRoller V1" src="./CS1OOP Lab 6 (Design Patterns)_files/72c7c8279ca39f2b.png"></p>
+<p>Some notes:</p>
+<ul>
+<li>Remember that in UML, underlined fields and methods are <code>static</code>.</li>
+<li><code>instance</code> should be set to a <code>new DiceRoller()</code> in the same line where you declare it.</li>
+<li><code>random</code> should be <code>final</code>, and should be set in the <code>DiceRoller</code> constructor. For this first version, just set it to <code>new Random()</code>: this means the seed will be different every time we run the program.</li>
+<li><code>getInstance()</code> should just return the one <code>instance</code> of <code>DiceRoller</code>.</li>
+<li>The constructor is private, to ensure that only <code>DiceRoller</code> can create instances of itself.</li>
+<li><code>roll(faces)</code> should return a random number between 1 and <code>faces</code>, both included.</li>
+</ul>
+<p><em>Step 4.</em> Go back to the <code>Player.roll()</code> method, and use <code>DiceRoller</code> to do the roll. Remember that you will need to get the one <code>DiceRoller</code> instance, and then use its <code>roll(faces)</code> method.</p>
+<p><em>Step 5.</em> Run the <code>SingletonMain</code> class now: you should see a few rolls happening now.</p>
+<aside class="warning"><p>Try running it a few times: do you always get the same results? Do you remember why is that?</p>
+</aside>
+<h2 is-upgraded="">Changing DiceRoller to lazy initialisation</h2>
+<p>One problem with this <code>DiceRoller</code> singleton is that the <code>Random</code> instance is created as soon as anyone references <code>DiceRoller</code>. That means we have no chance to influence how the <code>Random</code> object should be created (e.g. providing a seed). We will change the class so we can set a seed before we call <code>getInstance()</code> for the first time.</p>
+<p><em>Step 6.</em> Change the code in <code>DiceRoller</code> so it looks like this:</p>
+<p class="image-container"><img alt="diceRoller V2" src="./CS1OOP Lab 6 (Design Patterns)_files/e494dbd593b7289f.png"></p>
+<p>You will notice these changes:</p>
+<ul>
+<li>We have added a static <code>seed</code> field, which is a <code>Long</code> and not a <code>long</code> since we want to tell apart the case when a seed has not been set (which will be when <code>seed</code> is null).</li>
+<li>We have added a static <code>setSeed</code> method. This method should set the <code>seed</code> if the <code>instance</code> is still <code>null</code>, and otherwise complain without doing anything by printing a message to <code>System.err</code>.</li>
+</ul>
+<p><em>Step 7.</em> Change the declaration of your static <code>instance</code> field, setting it initially to <code>null</code> instead of creating a new <code>DiceRoller</code>. We want to postpone the creation of the <code>DiceRoller</code> to the first call of <code>getInstance()</code>.</p>
+<p><em>Step 8.</em> Change the code in <code>getInstance()</code> so it follows this structure:</p>
+<ol type="1">
+<li>If <code>instance</code> is null, set it to a new <code>DiceRoller</code>.</li>
+<li>Return <code>instance</code>.</li>
+</ol>
+<p><em>Step 9.</em> Change the constructor of <code>DiceRoller</code> so if the <code>seed</code> parameter is not null, it will use that seed to create the <code>Random</code> object. Otherwise, create the <code>Random</code> object without specifying a seed.</p>
+<p><em>Step 10.</em> Once you have done these changes, uncomment this line in <code>SingletonMain</code>:</p>
+<pre><code><span class="com">//DiceRoller.setSeed(10L);</span></code></pre>
+<aside class="warning"><p>Try running the program several times now. Do you get the same results always, or not? Why is that?</p>
+</aside>
+<p><em>Step 11.</em> Before you go on, submit your code to AutoFeedback: you should be passing all tests in the <code>uk.ac.aston.oop.singleton</code> package: <code>PlayerTest</code>, <code>DiceRollerTest</code>, and <code>DiceRollerSetSeedTest</code>.</p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Factory Method: Command Runner" duration="0" step="4"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">4. Factory Method: Command Runner</h2>
+        <p>In this section, you will practice with the Factory Method design pattern. You will be writing a simple console program where you can go <code>left</code>, <code>right</code>, <code>up</code>, <code>down</code>, or <code>exit</code>. We want to have the program support two modes:</p>
+<ul>
+<li>Executing mode: have us start at (0, 0) and keep track of our position as we move.</li>
+<li>"Dry run" mode: just print out what the command would do, but do not keep track of the current position.</li>
+</ul>
+<p>We want to do this without adding conditionals all over the place: we want to cleanly separate the code for both modes.</p>
+<h2 is-upgraded="">Existing code</h2>
+<p><em>Step 1.</em> Go to the <code>uk.ac.aston.oop.dpatterns.fmethod</code> package and read the existing code. The <code>FMethodMain</code> class has our <code>main</code> method, which follows these steps:</p>
+<ol type="1">
+<li>Pick the right <code>AbstractCommandReader</code> subclass based on the program arguments: if "dryrun" is provided, use the dry run one, otherwise use the executing one.</li>
+<li>Ask the chosen <code>AbstractCommandReader</code> to <code>run()</code> its "read-evaluate-print" loop (REPL), where it will keep asking the user for a command, run it, and print its result.</li>
+</ol>
+<p>Right now, the lines that create the <code>DryRunCommandReader</code> and <code>ExecutingCommandReader</code> classes are commented out to avoid compilation errors. We need to finish the code in <code>AbstractCommandReader</code> and create those two classes to make this program work.</p>
+<h2 is-upgraded="">Completing AbstractCommandReader</h2>
+<p>Go to <code>AbstractCommandReader</code>: you have two <code>TODO</code>s in the code. Let's fix them. The overall UML diagram for this package should end up like this (dashed lines with black arrowheads only indicate that a class uses another one: these only reflect our program behaviour and do not result in any fields being added):</p>
+<p class="image-container"><img alt="Factory Method UML" src="./CS1OOP Lab 6 (Design Patterns)_files/e331fa4941a234da.png"></p>
+<p><em>Step 2.</em> Item 1 in our to do list for <code>AbstractCommandReader</code> is the <code>abstract</code> and <code>protected</code> factory method <code>createMovementCommand</code>, which receives the desired change in the X and Y coordinates, and should return an object which implements the command. This object will implement the <code>java.util.Runnable</code> interface, which only has a <code>run()</code> method that does not return anything.</p>
+<p><em>Step 3.</em> Once you have added that method, it's time to do item 2 in the TODO list. You should complete the body of <code>processLine</code> in <code>AbstractCommandReader</code> so it does different things depending on the value of the <code>line</code> parameter:</p>
+<ul>
+<li><code>left</code> should create a movement command with (-1, 0), call <code>run()</code> on it, and return <code>false</code> (not done yet: let the loop continue).</li>
+<li><code>right</code> should create a movement command with (1, 0), run it, and return <code>false</code>.</li>
+<li><code>down</code> should create a movement command with (0, 1), run it, and return <code>false</code>.</li>
+<li><code>up</code> should create a movement command with (0, -1), run it, and return <code>false</code>.</li>
+<li><code>exit</code> should return <code>true</code>, indicating we are done: exit the loop.</li>
+<li>Any other value should print to <code>System.err</code> a message about the command not being recognized, and then having the loop continue by returning <code>false</code>.</li>
+</ul>
+<p>With this finished, look back at what you have done. You have an abstract base class that has a reusable read-eval-print loop, and an abstract method that allows you to specify in subclasses the class that should run those commands.</p>
+<h2 is-upgraded="">Writing the DryRunCommandReader</h2>
+<p>The next part is to write the concrete subclasses of <code>AbstractCommandReader</code>. We will do the first one in this subsection.</p>
+<p><em>Step 4.</em> Write the <code>DryRunCommand</code> class first, which should implement <code>Runnable</code>. <code>Runnable</code> is a predefined interface in Java for anything that has a <code>run()</code> method which does not return anything. Follow these guidelines:</p>
+<ul>
+<li>The constructor should take the <code>message</code> parameter and store it in its <code>message</code> field.</li>
+<li>The <code>run()</code> method should print the <code>message</code> to <code>System.out</code>.</li>
+</ul>
+<p><em>Step 5.</em> Write the <code>DryRunCommandReader</code> class next, which should extend <code>AbstractCommandReader</code>. It should override the <code>createMovementCommand</code> so it returns new <code>DryRunCommand</code>s with messages of the form "Move dx horizontally and dy vertically", where you should replace the <code>dx</code> and <code>dy</code> values.</p>
+<h2 is-upgraded="">Writing the ExecutingCommandReader</h2>
+<p><em>Step 6.</em> The <code>ExecutingCommand</code> class needs to refer to a <code>ExecutingCommandReader</code> so it can call its getter and setter methods. This requires creating an initial skeleton of <code>ExecutingCommandReader</code> first. Create the <code>ExecutingCommandReader</code> class, and make it extend <code>AbstractCommandReader</code>. Let's implement what we can so far:</p>
+<ul>
+<li>Add the <code>x</code> and <code>y</code> private <code>int</code> fields, setting them initially to 0 (that's what the "= 0" in the UML diagram means).</li>
+<li>Add the getter and setter methods for <code>x</code> and <code>y</code> (<code>getX</code>, <code>getY</code>, <code>setX</code>, and <code>setY</code>) as in the UML diagram.</li>
+<li>Override <code>createMovementCommand</code> but just make it return <code>null</code>: we'll come back to it later.</li>
+</ul>
+<p><em>Step 7.</em> Now, create the <code>ExecutingCommand</code> class, which should implement <code>Runnable</code>. Follow these guidelines:</p>
+<ul>
+<li>Add the private fields mentioned in the UML diagram, and set them from the constructor.</li>
+<li>In the <code>run</code> method, use the getter and setter methods of the <code>ExecutingCommandReader</code> to update its position (adding <code>dx</code> to the X position, and <code>dy</code> to the Y position), and then print out a message that mentions the new position.</li>
+</ul>
+<p><em>Step 8.</em> Go back to <code>ExecutingCommandReader</code>, and complete the <code>createMovementCommand</code> method so it returns a new <code>ExecutingCommand</code>, passing its constructor a reference to the reader creating the command (<code>this</code>: remember <code>Grid</code> and <code>GridCell</code>?) and the <code>dx</code> and <code>dy</code> values.</p>
+<h2 is-upgraded="">Completing the implementation</h2>
+<p>We are almost there!</p>
+<p><em>Step 9.</em> Go back to <code>FMethodMain</code> and uncomment the two lines that created the <code>DryRunCommandReader</code> and <code>ExecutingCommandReader</code>.</p>
+<p><em>Step 10.</em> Try right-clicking on <code>Run FMethodMain (dry run).launch</code> and selecting <code>Run As &gt; Run FMethodMain (dry run)</code>. You should see the expected dry run behaviour.</p>
+<p><em>Step 11.</em> Try doing the same with <code>Run FMethodMain (normal).launch</code>, and you should see the actual behaviour where it moves around. The good thing about this is that you could reuse the same read-eval-print loop code: the "dry run" logic was neatly separated into its own classes as needed.</p>
+<p><em>Step 12.</em> Submit to AutoFeedback, and make sure you are passing all the tests in the package <code>uk.ac.aston.oop.dpatterns.fmethod</code>.</p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Abstract Factory: Drawing Factory" duration="0" step="5"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">5. Abstract Factory: Drawing Factory</h2>
+        <p>The last creational pattern we will discuss in this lab is the Abstract Factory design pattern. In the <code>uk.ac.aston.oop.patterns.afactory</code> package, we have created a small graphical program that uses an old Java GUI framework (Swing) to draw some circles. We want to be able to reuse the same program with the newer JavaFX GUI framework.</p>
+<p>We have the basic structure already done for Swing, and a bit of the JavaFX work has been done as well. In this section, you will first study the existing code first, and then complete the JavaFX version of the program.</p>
+<h2 is-upgraded="">Existing code</h2>
+<p><em>Step 1.</em> Check the below diagram about the existing code, and read the text below:</p>
+<p class="image-container"><img alt="Abstract Factory starting code" src="./CS1OOP Lab 6 (Design Patterns)_files/54001ae7038f9190.png"></p>
+<p>Keep in mind this diagram is simplified: we have omitted private fields, and any classes or interfaces that are not our own. The main package <code>uk.ac.aston.oop.dpatterns.afactory</code> has these types:</p>
+<ul>
+<li><code>AFactoryMain</code> has the <code>main</code> method we need to run the program, the <code>start</code> method that sets up the drawing, and a protected <code>createFactory</code> method that decides which factory will be used. Right now <code>createFactory</code> always uses the Swing one, but we will work on that later.</li>
+<li><code>DrawingFactory</code> is the interface for the AbstractFactory participant in our application of the pattern. We could have used an abstract class, but we do not have any implementation to reuse, and an interface is much more flexible.</li>
+<li><code>Circle</code> and <code>Drawing</code> are the interfaces for the AbstractProduct participants in the pattern. Again, they are interfaces as we want to be as flexible as possible. In fact, if you check the code of <code>SwingDrawing</code>, it was very important for <code>Drawing</code> to be an interface, since <code>SwingDrawing</code> needed to inherit from the Swing <code>JPanel</code> class (which we omitted from the diagram to keep things simple, as it is not our own class).</li>
+</ul>
+<p>The <code>uk.ac.aston.oop.dpatterns.afactory.swing</code> package implements the Swing family of concrete products, as well as the Swing concrete factory. You can skip these details if you want, but in case you are curious:</p>
+<ul>
+<li>The <code>SwingDrawingFactory</code> creates its own <code>JFrame</code> (a Swing window), and keeps track of the current <code>SwingDrawing</code> so it can place the new circles inside it.</li>
+<li>The way to draw shapes on the screen in Swing is to subclass <code>JPanel</code> and override <code>paintComponent</code>. That is what <code>SwingDrawing</code> does: in its <code>paintComponent</code> method, it fills the drawing (providing a background color), and then asks the <code>SwingCircle</code> objects to draw themselves.</li>
+<li><code>SwingCircle</code> uses the <code>java.awt.Graphics</code> object to draw itself in its <code>draw(Graphics)</code> method.</li>
+</ul>
+<h2 is-upgraded="">Implementing the JavaFX family</h2>
+<p>Now that we have an idea of the overall structure of the code, it's time to implement the JavaFX concrete factory and concrete products.</p>
+<p><em>Step 2.</em> First, create the basic skeleton of the <code>JFXCircle</code> and <code>JFXDrawing</code> classes according to the UML diagram below. For now, just leave the constructor and methods empty:</p>
+<p class="image-container"><img alt="JavaFX family" src="./CS1OOP Lab 6 (Design Patterns)_files/6fd98dcea3727921.png"></p>
+<h3 is-upgraded="">JFXCircle</h3>
+<p><em>Step 3.</em> Complete the constructor of <code>JFXCircle</code>, making follow these steps:</p>
+<ol type="1">
+<li>Set the <code>circle</code> field to a new <code>javafx.scene.shape.Circle</code>. You will need to specify the full name of the class, as you will have already imported <code>Circle</code> from our own program.</li>
+<li>Set the center X of the <code>circle</code>, by calling its <code>setCenterX</code> method.</li>
+<li>Set the center Y of the <code>circle</code>, by calling its <code>setCenterY</code> method.</li>
+<li>Set the radius of the <code>circle</code>, by calling its <code>setRadius</code> method.</li>
+<li>Get the children of the <code>container</code> by calling its <code>getChildren</code> method, and then <code>add</code> the circle to that list.</li>
+</ol>
+<p><em>Step 4.</em> Complete the <code>setFill</code> method of <code>JFXCircle</code>:</p>
+<ol type="1">
+<li>Create a JavaFX <code>Color</code> (a <code>javafx.scene.paint.Color</code>, to be more precise) from the provided red/greeen/blue coordinates by using <code>Color.rgb(r, g, b)</code>, and store that in a local variable.</li>
+<li>Pass the <code>Color</code> to the <code>setFill</code> method of the <code>circle</code>.</li>
+</ol>
+<h3 is-upgraded="">JFXDrawing</h3>
+<p><em>Step 5.</em> The <code>JFXDrawing</code> class is very similar. The constructor should follows these steps:</p>
+<ol type="1">
+<li>Set the <code>rectangle</code> field to a new <code>javafx.scene.shape.Rectangle</code>. In this case, you can just type <code>Rectangle</code> and let Eclipse import the right class, since you won't have to refer to multiple classes with the same name as with <code>Circle</code> in <code>JFXCircle</code>.</li>
+<li>Set the width of the <code>rectangle</code>, by calling its <code>setWidth</code> method.</li>
+<li>Set the height of the <code>rectangle</code>, by calling its <code>setHeight</code> method.</li>
+<li>Get the children of the <code>container</code> by calling its <code>getChildren</code> method, and then <code>add</code> the rectangle to that list.</li>
+</ol>
+<p><em>Step 6.</em>  Complete the <code>setFill</code> method of <code>JFXDrawing</code> in the same way as you did for <code>JFXCircle</code>, but targeting the <code>rectangle</code> field instead.</p>
+<h3 is-upgraded="">JFXDrawingFactory</h3>
+<p>In this case, we have written most of the code of <code>JFXDrawingFactory</code> for you, except for two places (marked with <code>TODO</code> comments).</p>
+<p><em>Step 7.</em> First <code>TODO</code> item: make the <code>createDrawing</code> method return a new <code>JFXDrawing</code>, using the <code>container</code> field and the provided width (<code>w</code>) and height (<code>h</code>). You may now remove the <code>TODO</code> comment.</p>
+<p><em>Step 8.</em> Second <code>TODO</code> item: make the <code>createCircle</code> method return a new <code>JFXCircle</code>, using the <code>container</code> field and the provided center X (<code>cx</code>), center Y (<code>cy</code>) and radius (<code>radius</code>). This method does not need to check if <code>container</code> is null, because we assume that users will always call <code>createDrawing</code> first, and <em>then</em> call <code>createCircle</code> as needed.</p>
+<h2 is-upgraded="">Running the two families</h2>
+<p><em>Step 9.</em> Go to <code>AFactoryMain</code> and change the body of <code>createFactory</code> so it follows this structure:</p>
+<ol type="1">
+<li>If <code>parameters</code> contains <code>"swing"</code>, return a new <code>SwingDrawingFactory</code>.</li>
+<li>Otherwise, return a new <code>JFXDrawingFactory</code> (you will need to pass the <code>Stage</code> to its constructor).</li>
+</ol>
+<p>Remove the <code>TODO</code> comment once you are done.</p>
+<p><em>Step 10.</em> Run <code>Run AFactoryMain (JavaFX)</code> and <code>Run AFactoryMain (Swing)</code>. You should see roughly the same drawing in both cases, but you will be using different GUI frameworks to implement them. You will notice that the Swing version looks a bit "rougher", as it does not do antialiasing, but that is to be expected as it is an older library.</p>
+<aside class="special"><p>Think once more about what we have achieved: we can show the same drawing in JavaFX or Swing, by swapping the concrete factory we are using. In general, Abstract Factory is a useful pattern when trying to write code that works across multiple similar technologies.</p>
+</aside>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Submit to AutoFeedback and Blackboard" duration="0" step="6"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">6. Submit to AutoFeedback and Blackboard</h2>
+        <p>Now that you have completed the lab, you should use the <code>Submit Lab 6 to AutoFeedback</code> file that corresponds to your operating system to submit your code to AutoFeedback.</p>
+<p>For the details on how to use AutoFeedback, please refer to the last section of Lab 1.</p>
+<p>In this lab, we didn't ask you to write any tests: instead, AutoFeedback has its own tests that check the various things you should have done as part of this lab. Please review the provided feedback, and let us know if anything is unclear.</p>
+<p>Once you have passed the tests from AutoFeedback, you can upload the <code>submission.zip</code> file it generated to Blackboard.</p>
+
+
+      </div></div></google-codelab-step></div><div id="controls"><div id="fabs"><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2209328-dt-content-rid-15046095_1/courses/2020_CS1OOP_P1_P2/TP2/week06-patterns/oop-2021-dpatterns/index.html#" id="previous-step" title="Previous step" disappear="">Back</a><div class="spacer"></div><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2209328-dt-content-rid-15046095_1/courses/2020_CS1OOP_P1_P2/TP2/week06-patterns/oop-2021-dpatterns/index.html#" id="next-step" title="Next step">Next</a><a href="https://vle.aston.ac.uk/" id="done" hidden="" title="Codelab complete">Done</a></div></div></div></google-codelab>
+
+  <script src="./CS1OOP Lab 6 (Design Patterns)_files/native-shim.js.download"></script>
+  <script src="./CS1OOP Lab 6 (Design Patterns)_files/custom-elements.min.js.download"></script>
+  <script src="./CS1OOP Lab 6 (Design Patterns)_files/prettify.js.download"></script>
+  <script src="./CS1OOP Lab 6 (Design Patterns)_files/codelab-elements.js.download"></script>
+  <script src="./CS1OOP Lab 6 (Design Patterns)_files/api.js.download"></script>
+
+
+
+</body></html>

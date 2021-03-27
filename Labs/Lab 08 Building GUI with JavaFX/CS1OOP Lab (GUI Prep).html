@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<!-- saved from url=(0144)https://vle.aston.ac.uk/bbcswebdav/pid-2226631-dt-content-rid-15218616_1/courses/2020_CS1OOP_P1_P2/TP2/week08-gui/oop-2021-gui-prep/index.html#4 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  
+  <title>CS1OOP Lab (GUI Prep)</title>
+  <link rel="stylesheet" href="./CS1OOP Lab (GUI Prep)_files/css">
+  <link rel="stylesheet" href="./CS1OOP Lab (GUI Prep)_files/icon">
+  <link rel="stylesheet" href="./CS1OOP Lab (GUI Prep)_files/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+<script src="./CS1OOP Lab (GUI Prep)_files/analytics.js.download"></script></head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14" environment="web" category="null"></google-codelab-analytics>
+  <google-codelab codelab-gaid="" id="oop-2021-gui-prep" environment="web" feedback-link="mailto:a.garcia-dominguez@aston.ac.uk" selected="4" google-codelab-ready="" codelab-title="CS1OOP Lab (GUI Prep)" anayltics-ready="anayltics-ready"><div id="drawer"><div class="codelab-time-container" style="display: none;"></div><div class="steps"><ol><li completed=""><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2226631-dt-content-rid-15218616_1/courses/2020_CS1OOP_P1_P2/TP2/week08-gui/oop-2021-gui-prep/index.html#0"><span class="step"><span>Welcome</span></span></a></li><li completed=""><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2226631-dt-content-rid-15218616_1/courses/2020_CS1OOP_P1_P2/TP2/week08-gui/oop-2021-gui-prep/index.html#1"><span class="step"><span>Importing the project</span></span></a></li><li completed=""><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2226631-dt-content-rid-15218616_1/courses/2020_CS1OOP_P1_P2/TP2/week08-gui/oop-2021-gui-prep/index.html#2"><span class="step"><span>Designing the List scene</span></span></a></li><li completed=""><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2226631-dt-content-rid-15218616_1/courses/2020_CS1OOP_P1_P2/TP2/week08-gui/oop-2021-gui-prep/index.html#3"><span class="step"><span>Adding behaviour to the List scene</span></span></a></li><li completed="" selected=""><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2226631-dt-content-rid-15218616_1/courses/2020_CS1OOP_P1_P2/TP2/week08-gui/oop-2021-gui-prep/index.html#4"><span class="step"><span>Creating a custom "Remove" dialog</span></span></a></li><li><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2226631-dt-content-rid-15218616_1/courses/2020_CS1OOP_P1_P2/TP2/week08-gui/oop-2021-gui-prep/index.html#5"><span class="step"><span>Submit to AutoFeedback</span></span></a></li></ol></div><div class="metadata"><a target="_blank" href="mailto:a.garcia-dominguez@aston.ac.uk"><i class="material-icons">bug_report</i> Report a mistake</a></div></div><div id="codelab-title"><div id="codelab-nav-buttons"><a href="https://vle.aston.ac.uk/" id="arrow-back"><i class="material-icons">close</i></a><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2226631-dt-content-rid-15218616_1/courses/2020_CS1OOP_P1_P2/TP2/week08-gui/oop-2021-gui-prep/index.html#" id="menu"><i class="material-icons">menu</i></a></div><h1 is-upgraded="" class="title">CS1OOP Lab (GUI Prep)</h1><div class="codelab-time-container" style="display: none;"></div><devsite-user></devsite-user></div><div id="main"><div id="steps"><google-codelab-step label="Welcome" duration="0" step="1"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">1. Welcome</h2>
+        <p>In this lab, you will practice how to develop GUIs using JavaFX. This should prepare you for the assessed lab next week, where you will start from a model solution of this lab and improve it based on a specification.</p>
+<h2 is-upgraded="">Introduction</h2>
+<p>In this lab, you will learn how to use JavaFX to create graphical user interfaces. You will design the GUI with the JavaFX SceneBuilder, and write Java code to associate behaviour to the GUI.</p>
+<h2 is-upgraded="">What you should already know</h2>
+<p>You should be able to:</p>
+<ul>
+<li>Write basic control structures (if/else if/else).</li>
+<li>Write Java classes, including their fields, constructors, and methods.</li>
+<li>Understand the differences between static fields, non-static fields, parameters, arguments, and local variables.</li>
+<li>Read UML class diagrams.</li>
+</ul>
+<h2 is-upgraded="">What you'll need</h2>
+<p>You will need a computer with this software installed:</p>
+<ul>
+<li>A Java 11 or newer JDK: download it from <a href="https://www.oracle.com/java/technologies/javase-downloads.html#JDK11" target="_blank">Oracle</a> or <a href="https://adoptopenjdk.net/" target="_blank">AdoptOpenJDK</a></li>
+<li><a href="https://www.eclipse.org/downloads/packages/release/2020-12/r/eclipse-ide-java-developers" target="_blank">Eclipse for Java Developers</a></li>
+<li><a href="https://www.oracle.com/java/technologies/javafxscenebuilder-1x-archive-downloads.html" target="_blank">Oracle JavaFX Scene Builder 2.0</a>, which requires registering for a free Oracle account. If this is a problem for you, try the <a href="https://gluonhq.com/products/scene-builder/" target="_blank">Gluon SceneBuilder</a>, but please do not use any of the Gluon-specific components as these are not included with standard JavaFX 11 distributions.</li>
+</ul>
+<p>If you are using a lab computer or a student VDI machine, launch Eclipse 2019-06 through AstonApps (you will need to launch Java 11.0.5 first). This should also set up the JavaFX SceneBuilder 2.0 for you: to start the Scene Builder, go to the Windows Start menu and search for "Scene Builder".</p>
+<h2 class="checklist" is-upgraded="">What you'll learn</h2>
+<ul class="checklist">
+<li>How to use the Scene Builder to visually design JavaFX-based graphical user interfaces.</li>
+<li>How to write the main method of a JavaFX application.</li>
+<li>How to create controllers to associate behaviour with JavaFX GUI components.</li>
+<li>How to implement a modal dialog that communicates with the main application window.</li>
+</ul>
+<h2 is-upgraded="">What you'll do</h2>
+<p>As a quick summary, you will:</p>
+<ul>
+<li>Visually design a GUI that lists the items of a media library (similar to the classes a few labs ago).</li>
+<li>Use FXML Cascading Style Sheets to style some of the components.</li>
+<li>Create Java code that shows the GUI, and implements buttons for shuffling the list of items, removing an item, or quitting.</li>
+<li>Visually design a custom modal dialog that replaces the built-in confirmation dialog.</li>
+<li>Write Java code that implements the behaviour of your custom modal dialog, and integrates it with the rest of the application.</li>
+</ul>
+<p>Check the next sections for the details!</p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Importing the project" duration="0" step="2"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">2. Importing the project</h2>
+        <p>Download the starting code from Blackboard. You don't need to unpack the <code>.zip</code> file.</p>
+<p>Import the project by using "File - Import - Existing Projects into Workspace", then pick "Archive file" and select the <code>.zip</code> file you downloaded.</p>
+<p>One project called <code>uk.ac.aston.oop.javafx.prep</code> should come up. Press OK to import this project.</p>
+<p>The code of the project is structured as follows:</p>
+<ul>
+<li><code>uk.ac.aston.oop.javafx.prep</code> has the <code>Main</code> class that you will be working on. You will also have to create the FXML file and the controller class here.</li>
+<li><code>uk.ac.aston.oop.javafx.prep.model</code> has a version of the media library classes that you worked on a few labs ago. You will not need to change them.</li>
+<li><code>module-info.java</code> specifies the Java modules that should be available to this application. It exports the main package of this application, and it opens the package to the FXML loader.</li>
+</ul>
+<p>Here is a UML diagram for these classes:</p>
+<p class="image-container"><img alt="UML diagram for multimedia collection" src="./CS1OOP Lab (GUI Prep)_files/6d75fb7612636443.png"></p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Designing the List scene" duration="0" step="3"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">3. Designing the List scene</h2>
+        <p>The goal of this lab is to have a GUI that can:</p>
+<ul>
+<li>List the entries in a predefined <code>Database</code>.</li>
+<li>Remove the selected item in the list after asking for confirmation.</li>
+</ul>
+<p>We will need an FXML file to arrange the various components, and write Java controller classes to add behaviour. In this section, you will be creating the FXML file with the Scene Builder.</p>
+<p><em>Step 1.</em> Open the Scene Builder - in Windows, the installer will have added an entry to your Start menu. In Linux, you will have to unpack an archive and manually run the main executable inside the folder it contained. In Mac, the <code>.dmg</code> should also have added an entry to your applications list.</p>
+<p><em>Step 2.</em> On the left third of the window, go to the "Library" section, open the "Containers" pane, and drag a <code>VBox</code> into the "Hierarchy" pane of the "Document" section. The window should now look like this:</p>
+<p class="image-container"><img alt="Scene Builder for the List scene — initial state" src="./CS1OOP Lab (GUI Prep)_files/c4a1d33520a13e69.png"></p>
+<p><em>Step 3.</em> Before we start making any more changes, save what you have into your Eclipse project. Specifically, you should save it as a file called <code>ListScene.fxml</code> (use the <em>exact</em> same spelling, including uppercase and lowercase letters!), inside the <code>resources/uk/ac/aston/oop/javafx/prep</code> folder in your project.</p>
+<p><em>Step 4.</em> Go back to Eclipse, right click on your project in the "Package Explorer" and select "Refresh". By now, your project should look like this:</p>
+<p class="image-container"><img alt="ListScene.fxml location" src="./CS1OOP Lab (GUI Prep)_files/e656a09c760c466d.png"></p>
+<aside class="special"><p>The <code>resources</code> folder is used to store non-Java files that will be distributed together with your Java code. In order to have your Java code access these files correctly, it is important that we follow a similar folder structure as the actual code. We want to easily access the <code>ListScene.fxml</code> file from the <code>uk.ac.aston.oop.javafx.prep</code> package, so we placed it in a <code>uk/ac/aston/oop/javafx/prep</code> folder within <code>resources</code>, in the same way that the <code>ListController.java</code> file will go into the <code>uk/ac/aston/oop/javafx/prep</code> folder within <code>src</code>.</p>
+</aside>
+<p><em>Step 5.</em> Try opening the <code>ListScene.fxml</code> file in Eclipse. You should see something like this:</p>
+<pre><code><span class="pun">&lt;?</span><span class="pln">xml version</span><span class="pun">=</span><span class="str">"1.0"</span><span class="pln"> encoding</span><span class="pun">=</span><span class="str">"UTF-8"</span><span class="pun">?&gt;</span><span class="pln">
+
+</span><span class="pun">&lt;?</span><span class="kwd">import</span><span class="pln"> java</span><span class="pun">.</span><span class="pln">lang</span><span class="pun">.*?&gt;</span><span class="pln">
+</span><span class="pun">&lt;?</span><span class="kwd">import</span><span class="pln"> javafx</span><span class="pun">.</span><span class="pln">scene</span><span class="pun">.</span><span class="pln">layout</span><span class="pun">.*?&gt;</span><span class="pln">
+
+
+</span><span class="tag">&lt;VBox</span><span class="pln"> </span><span class="atn">maxHeight</span><span class="pun">=</span><span class="atv">"-Infinity"</span><span class="pln"> </span><span class="atn">maxWidth</span><span class="pun">=</span><span class="atv">"-Infinity"</span><span class="pln"> </span><span class="atn">minHeight</span><span class="pun">=</span><span class="atv">"-Infinity"</span><span class="pln"> </span><span class="atn">minWidth</span><span class="pun">=</span><span class="atv">"-Infinity"</span><span class="pln"> </span><span class="atn">prefHeight</span><span class="pun">=</span><span class="atv">"400.0"</span><span class="pln"> </span><span class="atn">prefWidth</span><span class="pun">=</span><span class="atv">"600.0"</span><span class="pln"> </span><span class="atn">xmlns</span><span class="pun">=</span><span class="atv">"http://javafx.com/javafx/8"</span><span class="pln"> </span><span class="atn">xmlns:fx</span><span class="pun">=</span><span class="atv">"http://javafx.com/fxml/1"</span><span class="pln"> </span><span class="tag">/&gt;</span></code></pre>
+<p>The first line says that this is an XML 1.0 document, using UTF-8 to encode characters.</p>
+<p>The next two lines import classes, much like what you would do in Java.</p>
+<p>The final line is the <code>VBox</code> that is at the root of the component hierarchy for our window. We will now complete the rest of the hierarchy, in order to get the desired look.</p>
+<h2 is-upgraded="">Rough layout</h2>
+<p><em>Step 6.</em> Go back to the Scene Builder: we need to start placing the components we will have in the main window. Before that, familiarise yourself a bit with the layout of the tool. It is divided into three parts:</p>
+<ul>
+<li>On the left:  <ul>
+<li>The "Library" section shows all the predefined containers, controls and other elements that are provided by the JavaFX library. For this lab, we will only need the "Containers" and "Controls" drawers. There is also a handy search field for quickly finding elements by name. You can drag-and-drop components from here to the "Hierarchy" section, or the central preview section.</li>
+<li>The "Document" section shows global views and options for your current <code>.fxml</code>. The "Hierarchy" drawer shows the structure of your JavaFX scene graph, and the "Controller" drawer allows you to see what attributes and methods are needed in it.</li>
+</ul>
+</li>
+<li>In the middle:  <ul>
+<li>There is a preview of your GUI, which allows for quick editing of labels, resizing and drag-and-drop of documents.</li>
+<li>You can also select elements by clicking on them and remove them by using the Delete key.</li>
+</ul>
+</li>
+<li>On the right, the "Inspector" section has three drawers:  <ul>
+<li>"Properties" drawer allows you to customize the size, looks and component-specific options of the selected element of the hierarchy.</li>
+<li>"Layout" is for changing the way in which the component is placed within its container.</li>
+<li>"Code" is for specifying an <code>fx:id</code> (the name of the attribute in the controller), and the names of the methods in the controller that will handle the various events.</li>
+</ul>
+</li>
+</ul>
+<p><em>Step 7.</em> We want to have a <code>ListView</code> and an <code>HBox</code> inside the <code>VBox</code>, and then add three <code>Button</code>s into the <code>HBox</code>. Start dragging the appropriate elements from the "Library" section into the relevant part of the "Hierarchy". You can follow these steps:</p>
+<ol type="1">
+<li>Drag a <code>ListView</code> into the <code>VBox</code>.</li>
+<li>Drag an <code>HBox</code> into the <code>VBox</code>.</li>
+<li>Drag three <code>Button</code>s into the <code>HBox</code>.</li>
+</ol>
+<p class="image-container"><img alt="Scene Builder for the List scene — rough structure" src="./CS1OOP Lab (GUI Prep)_files/990aa2de52b8971b.png"></p>
+<p><em>Step 8.</em> Before you go on, remember to save your work by using "File - Save".</p>
+<h2 is-upgraded="">Refining the layout</h2>
+<p>We have the basic structure, but it doesn't look very good. Let's improve on this.</p>
+<p><em>Step 9.</em> Double-click on the various buttons and change their labels to "Shuffle", "Remove" and "Quit". Please use these <em>exact</em> spellings, as the automated tests in AutoFeedback depend on them.</p>
+<p><em>Step 10.</em> Select the <code>VBox</code> within the "Hierarchy" drawer and go to the "Layout" drawer of the "Inspector". Enter "5" in the first "Padding" field and use the "&gt;" button to copy its value to the others. Enter "5" for the "Spacing" as well.</p>
+<p><em>Step 11.</em> Select the <code>ListView</code> and go to the "Layout" drawer. Change the "Vgrow" option to "ALWAYS", so it will always take up all remaining vertical space in its container.</p>
+<p><em>Step 12.</em> Select the <code>HBox</code> and go to "Layout". Change "Pref Width" and "Pref Height" to the special value <code>USE_COMPUTED_SIZE</code>. These tell the <code>HBox</code> to use the optimal minimum size computed by JavaFX, rather than our manual recommendations. Change "Padding" and "Spacing" to 5 as well. Go to "Properties" and change the "Alignment" to "CENTER".</p>
+<p>After you have done everything, you should have something looking like this:</p>
+<p class="image-container"><img alt="Scene Builder for the List scene — refined layout" src="./CS1OOP Lab (GUI Prep)_files/dd7557e210c809e.png"></p>
+<h2 is-upgraded="">Preparing the scene for adding behaviour</h2>
+<p>We need <code>fx:id</code>s for the components that must be accessible from the controller code. We also need to specify the names of the methods that will handle the events we are interested in.</p>
+<p><em>Step 13.</em> Select the <code>ListView</code> by clicking on it in the "Hierarchy" or in the live preview, and go to the "Code" pane in the "Inspector". Enter <code>listItems</code> in <code>fx:id</code>. This means that when our FXML file is loaded from our Java program, JavaFX will set the <code>listItems</code> field of our controller class to the <code>ListView&lt;Item&gt;</code> it created for us.</p>
+<p><em>Step 14.</em> Select the "Shuffle" <code>Button</code>. Within "Code", enter <code>shufflePressed</code> in the "On Action" field. This means that when our FXML file is loaded from our Java program, JavaFX will make it so the <code>shufflePressed</code> method of our controller class is called when the "Shuffle" button is pressed by the user.</p>
+<p><em>Step 15.</em> Do the same with the "Remove" <code>Button</code>, but enter <code>removePressed</code> instead in the "On Action" field.</p>
+<p><em>Step 16.</em> Do the same with the "Quit" <code>Button</code>, but enter <code>quitPressed</code> in the "On Action" field.</p>
+<p><em>Step 17.</em> With this, the <code>.fxml</code> is ready to be used from our Java code. Save your work with "File - Save", and exit the Scene Builder.</p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Adding behaviour to the List scene" duration="0" step="4"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">4. Adding behaviour to the List scene</h2>
+        <p>We have the basic FXML file ready: we now need to write the Java code that goes with it.</p>
+<h2 is-upgraded="">Creating a skeleton for the controller</h2>
+<p>First, we need to create a basic skeleton of the controller class that goes with our <code>ListScene.fxml</code> file.</p>
+<p><em>Step 1.</em> Go back to Eclipse. Create the <code>ListController</code> class inside the <code>uk.ac.aston.oop.javafx.prep</code> package, and ensure it has these things:</p>
+<ul>
+<li>A constructor that receives a <code>Database</code> and stores it in a private final field called <code>model</code>.</li>
+<li>A public <code>initialize</code> method that doesn't return anything and doesn't take any arguments, annotated as <code>@FXML</code>.</li>
+<li>For each component with an <code>fx:id</code> in the FXML file:  <ul>
+<li>A private field, with the same type as the component and the same name as the <code>fx:id</code>, annotated as <code>@FXML</code>.</li>
+<li>For this particular scene, it means you want a private <code>listItems</code> field of type <code>ListView&lt;Item&gt;</code> (specifically, <code>javafx.scene.control.ListView&lt;Item&gt;</code> for your import), annotated as <code>@FXML</code>.</li>
+</ul>
+</li>
+<li>For each "On ..." event handler in the FXML file:  <ul>
+<li>A public method, returning nothing and taking no arguments, with the name mentioned in the FXML file, and annotated with <code>@FXML</code>.</li>
+<li>For this particular <code>.fxml</code> file, that means you should have three such methods: <code>shufflePressed</code>, <code>removePressed</code>, and <code>quitPressed</code>.</li>
+</ul>
+</li>
+</ul>
+<p>You should end up with a class with this structure:</p>
+<p class="image-container"><img alt="ListController UML" src="./CS1OOP Lab (GUI Prep)_files/51b423c89e3b8bc8.png"></p>
+<aside class="warning"><p>Double check that you have <em>exactly</em> these spellings, letter by letter (including uppercase and lowercase), or you <em>will</em> get errors!</p>
+</aside>
+<h2 is-upgraded="">Completing the Main class</h2>
+<p>The FXML file and the first version of our controller are ready. The next part is to complete the <code>Main</code> class so we can run the application and see the main window. It won't do anything useful yet, but at least we will know we got the FXML file right.</p>
+<p><em>Step 2.</em> Go to the <code>Main</code> class, and find the <code>TODO</code> comment inside the <code>start</code> method. We will start by adding enough code to load our FXML file and associate it with our controller. Replace the <code>TODO</code> comment with new code that follows these steps:</p>
+<ol type="1">
+<li>Create an <code>FXMLLoader</code> and store it in a local variable called <code>loader</code>.</li>
+<li>Use <code>getClass().getResource("ListScene.fxml")</code> to locate the <code>ListScene.fxml</code> file you created, and store it in a local variable called <code>fxmlLocation</code> of type <code>URL</code>. Note that we could simply do <code>"ListScene.fxml"</code> because we placed the <code>.fxml</code> file in the same folder structure as <code>Main.java</code> (but within <code>resources</code>, since it is a non-Java file).</li>
+<li>Call <code>loader.setLocation</code>, giving it the <code>fxmlLocation</code> of the FXML file it should load.</li>
+<li>Create a new <code>ListController</code> (pass <code>d</code> to its constructor), and store it in a local variable called <code>lc</code>.</li>
+<li>Call <code>loader.setController</code>, giving it the <code>lc</code> controller we have just created. This tells JavaFX that after it loads the FXML file, it should fill the <code>@FXML</code> fields of <code>lc</code>, call the <code>initialize</code> method of <code>lc</code>, and associate the relevant events in the GUI to the specified <code>*Pressed</code> methods of <code>lc</code>.</li>
+<li>Call <code>loader.load()</code> in order to load the FXML file and finish setting up the controller, and assign what it returns to a local variable called <code>root</code>, of type <code>VBox</code> (just like the root element in your FXML file).</li>
+</ol>
+<aside class="warning"><p>Eclipse should be able to help you add the import for <code>VBox</code>. If it does not give you the option, try going to the "Source" menu at the top of the window and selecting "Organize imports". If that still does not work, add manually a line at the top of the file to import <code>javafx.scene.layout.VBox</code> and save.</p>
+</aside>
+<p><em>Step 3.</em> The next part is to create the <code>Scene</code> and set it up. The steps are very similar to those in the first JavaFX lecture:</p>
+<ol type="1">
+<li>Create a new <code>Scene</code>, giving it the root of the component hierarchy (<code>root</code>), the preferred width (400), and the preferred height (300). Store it in a local variable called <code>scene</code>.</li>
+<li>Call <code>primaryStage.setTitle</code>, giving it "List database" for the title of the main window.</li>
+<li>Call <code>primaryStage.setScene</code>, giving it the <code>scene</code> you created.</li>
+<li>Finally, call <code>primaryStage.show()</code> to have the window show on your screen.</li>
+</ol>
+<p><em>Step 4.</em> Try running the application by right-clicking on the <code>Main</code> class from your "Package Explorer", and selecting "Run As - Java Application". You should see a window like this one:</p>
+<p class="image-container"><img alt="Main window with no behaviour yet" src="./CS1OOP Lab (GUI Prep)_files/f87597226da23d9b.png"></p>
+<p>Nothing will work yet: we need to complete the <code>ListController</code> class. Close the window and go back to Eclipse.</p>
+<aside class="warning"><p>If you are using a Mac and the code runs but nothing is shown, go to "Run - Run Configurations... - Main" and make sure that on the "Arguments" tab, the option "Use the -XstartOnFirstThread argument when launching with SWT" is <em>unchecked</em>.</p>
+</aside>
+<h2 is-upgraded="">Handling events in the ListController</h2>
+<p>First, we will complete the <code>initialize</code> method. This method is called by the <code>FXMLLoader</code> while loading our FXML file, after it has set the <code>@FXML</code> fields. It allows us to complete the setup of the window before anyone sees it.</p>
+<p><em>Step 5.</em> Inside the <code>initialize</code> method, call <code>listItems.setItems</code>, passing it <code>model.itemsProperty()</code> (the <code>ListProperty&lt;Item&gt;</code> in <code>Database</code> that holds all the items). This one line is all we need to make the <code>ListView</code> in our GUI always show the current items, even if they change. This is thanks to the fact that a <code>ListProperty</code> is an <code>ObservableList</code>: a <code>List</code> that can be watched for changes. <code>ListView</code> is designed to watch <code>ObservableList</code>s for changes and automatically update itself as necessary.</p>
+<p><em>Step 6.</em> Complete the <code>shufflePressed</code> method: it should call the <code>FXCollections.shuffle</code> method, passing it <code>model.itemsProperty()</code>. This is equivalent to <code>Collections.shuffle</code> in the Java Collections Framework, but it is more efficient for observable collections: the <code>ListView</code> will only be redrawn once after all the swaps, instead of being redrawn for each swap (which would be very slow for large lists!).</p>
+<p><em>Step 7.</em><code>quitPressed</code> goes next: in this method, you should hide the window that the <code>ListView</code> belongs to. To do this, you will need to:</p>
+<ol type="1">
+<li>Call <code>listItems.getScene()</code> to get the <code>Scene</code> that the <code>ListView</code> belongs to, and store it in a local variable <code>scene</code>.</li>
+<li>Call <code>scene.getWindow()</code> to get the <code>Window</code> that the <code>Scene</code> belongs to, and store it in a local variable <code>window</code>.</li>
+<li>Call <code>window.hide()</code> to have the window hide (close) itself. By default, JavaFX applications terminate when all windows have been closed.</li>
+</ol>
+<p><em>Step 8.</em> The last method is <code>removePressed</code>. In this method, you should retrieve the position of the currently selected item, and use a predefined <code>Alert</code> to ask for confirmation. If the user confirms the choice, we will remove the element from the database. Follow these steps:</p>
+<ol type="1">
+<li>Call <code>listItems.getSelectionModel()</code> and store it in a local <code>selModel</code> variable. This represents the current selection in the list.</li>
+<li>Call <code>selModel.getSelectedIndex()</code> and store it in a local <code>selIndex</code> variable. This represents the position of the currently selected index, and it will be -1 if no elements are selected.</li>
+<li>If an element has been selected (the index is greater than or equal to 0):  <ol type="1">
+<li>Create a new <code>Alert</code> (specifically, a <code>javafx.scene.control.Alert</code>), passing its constructor <code>AlertType.CONFIRMATION</code> (it is a confirmation dialog), and store it in an <code>alert</code> variable.</li>
+<li>Call <code>alert.setTitle</code> to change its title to "Are you sure?".</li>
+<li>Call <code>alert.setHeaderText</code> to change its header text to "Please confirm that you want to delete this item".</li>
+<li>Call <code>alert.setContentText</code>, passing it the result of converting <code>selModel.getSelectedItem()</code> (the currently selected <code>Item</code>) to a <code>String</code> (use <code>toString()</code>).</li>
+<li>Call <code>alert.showAndWait()</code>, and store the returned value in a local variable called <code>btnType</code>. This variable is of type <code>Optional&lt;ButtonType&gt;</code>: <code>Optional&lt;T&gt;</code> is a generic type in Java which means "may or may not have a <code>T</code>", and it is a safer alternative to using <code>null</code> to indicate missing values.</li>
+<li>If <code>btnType.isPresent()</code> (the user clicked on a button), and <code>btnType.get() == ButtonType.OK</code> (the user pressed the OK button):  <ol type="1">
+<li>Remove the item at index <code>selIndex</code> from <code>model.itemsProperty()</code>.</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<p><em>Step 9.</em> Run the <code>Main</code> class again, and try using the various buttons. It should look like this:</p>
+<p class="image-container"><img alt="Main window of the application" src="./CS1OOP Lab (GUI Prep)_files/b174358d762d59dc.png"></p>
+<p>Before you move on, try to test it manually:</p>
+<ol type="1">
+<li>Shuffle should shuffle the elements, and these changes should be reflected in the GUI.</li>
+<li>Select an item, try to remove it, and cancel the dialog. Nothing should happen.</li>
+<li>Select an item, try to remove it, and exit the dialog without clicking on any buttons. Nothing should happen.</li>
+<li>Select an item, try to remove it, and confirm the dialog. The item should be removed.</li>
+<li>Keep doing this until there are no items, and then try clicking on Remove. Nothing should happen (not even an error message).</li>
+<li>Use the Quit button to quit the application.</li>
+</ol>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Creating a custom &quot;Remove&quot; dialog" duration="0" step="5" selected=""><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">5. Creating a custom "Remove" dialog</h2>
+        <p>Our client has told us that the application works fine, but she wants a custom confirmation dialog instead. In this section, you will create a second FXML file for that confirmation dialog, as well as the controller for it.</p>
+<p>The rough steps are very similar to what we have done before:</p>
+<ol type="1">
+<li>Create the <code>RemoveItem.fxml</code> file with the arrangement of components for our custom confirmation dialog.</li>
+<li>Add <code>fx:id</code>s and "On ..." method names to the <code>.fxml</code> file.</li>
+<li>Create the <code>RemoveController</code> class for the "Remove" dialog.</li>
+<li>Change <code>removePressed</code> in <code>ListController</code> so it uses this custom dialog instead of an <code>Alert</code>.</li>
+</ol>
+<h2 is-upgraded="">Designing the Scene</h2>
+<p><em>Step 1.</em> Use the Scene Builder to create a new <code>RemoveItem.fxml</code> file within <code>resources/uk/ac/aston/oop/javafx/prep</code>. Use a <code>VBox</code> as the root element, and drag and drop components to populate the "Hierarchy" like in this picture:</p>
+<p class="image-container"><img alt="Scene Builder for the custom remove dialog" src="./CS1OOP Lab (GUI Prep)_files/103f63d0cfb8f3a0.png"></p>
+<p><em>Step 2.</em> Double click on the various <code>Label</code>s and <code>Button</code>s to enter the text shown in the picture above. You can enter "Are you sure you want to remove this item?" in one line: JavaFX will wrap the text across lines for us.</p>
+<p><em>Step 3.</em> Select the <code>Label</code> inside the <code>AnchorPane</code>, and go to the "Layout" pane in the "Inspector". Make these changes:</p>
+<ol type="1">
+<li>In the "Anchor Pane Constraints", enter 15 on all four fields: this will ask JavaFX to have the 15px away from every edge.</li>
+<li>Ensure that "Pref Width" and "Pref Height" have <code>USE_COMPUTED_SIZE</code>: this will have JavaFX automatically compute its size for us. If there is a number, hover your mouse over the field, click on the gear that will appear on the right of the field, and click on "Reset to default".</li>
+<li>Set its max width to <code>MAX_VALUE</code>.</li>
+</ol>
+<p><em>Step 4.</em> Go to the "Properties" pane in the "Inspector", and make these changes:</p>
+<ol type="1">
+<li>In "Style", set the text alignment by entering <code>-fx-text-alignment</code> on the left, and <code>center</code> on the right. This is an example of how to use Cascading Style Sheets (CSS) for advanced styling of JavaFX applications. A full reference is available <a href="https://docs.oracle.com/javase/8/javafx/api/javafx/scene/doc-files/cssref.html" target="_blank">here</a>. Normally it is better to use external <code>.css</code> files with class-based rules, but this is outside the scope of this module.</li>
+<li>Tick "Wrap Text" so the text wraps around when it reaches the end of the available space.</li>
+<li>Change its "Alignment" to <code>CENTER</code>, so it will be placed right in the center of its position within the <code>VBox</code>.</li>
+</ol>
+<p><em>Step 5.</em> Select the <code>AnchorPane</code>:</p>
+<ol type="1">
+<li>In "Properties", set the "Style" to <code>-fx-background-color</code> and <code>lightgrey</code>.</li>
+<li>In "Layout", set its preferred width to 200 and preferred height to 90.</li>
+</ol>
+<p><em>Step 6.</em> Select the <code>Label</code> in the middle:</p>
+<ol type="1">
+<li>In "Properties":  <ul>
+<li>Change its "Alignment" to <code>CENTER</code>.</li>
+<li>Tick "Wrap Text".</li>
+</ul>
+</li>
+<li>In "Layout":  <ul>
+<li>Set "Vgrow" to <code>ALWAYS</code> and set "Margin" to 5.</li>
+<li>Use computed sizes for the preferred width and height.</li>
+<li>Set the maximum width and height to <code>MAX_VALUE</code>.</li>
+</ul>
+</li>
+</ol>
+<p><em>Step 7.</em> Select the <code>HBox</code>:</p>
+<ol type="1">
+<li>In "Properties":  <ul>
+<li>Change its "Alignment" to <code>BOTTOM_CENTER</code>.</li>
+</ul>
+</li>
+<li>In "Layout":  <ul>
+<li>Set "Vgrow" to <code>NEVER</code> (so it will never take up unused height).</li>
+<li>Set "Padding" and "Spacing" to 5.</li>
+<li>Use computed sizes for all dimensions.</li>
+</ul>
+</li>
+</ol>
+<p><em>Step 8.</em> Select the <code>VBox</code>: in "Layout", use computed sizes for all dimensions.</p>
+<p>You should now have a window that looks like the example at the beginning of this section. If this is not the case, double check that you have not missed any of the previous steps.</p>
+<h2 is-upgraded="">Adding IDs and handlers to the FXML file</h2>
+<p><em>Step 9.</em> Set the <code>fx:id</code> of the middle <code>Label</code> to <code>lblItem</code>, so we can access the label from the controller class.</p>
+<p><em>Step 10.</em> We will need to react to users pressing the buttons:</p>
+<ol type="1">
+<li>Set "On Action" to <code>confirmPressed</code> for the "Confirm" button.</li>
+<li>Set "On Action" to <code>cancelPressed</code> for the "Cancel" button.</li>
+</ol>
+<p><em>Step 11.</em> Save your work, close the Scene Builder, and refresh your project in Eclipse so <code>RemoveItem.fxml</code> appears in the same folder as <code>ListScene.fxml</code>.</p>
+<h2 is-upgraded="">Writing the skeleton for the controller</h2>
+<p><em>Step 12.</em> Create the <code>RemoveController</code> class in the <code>uk.ac.aston.oop.javafx.prep</code> package. Write a skeleton for it: we will do it similarly to <code>ListController</code>. Each component with an <code>fx:id</code> will turn into a field, and each "On Action" handler will turn into a method. You will also need:</p>
+<ul>
+<li>A constructor that takes the <code>Item</code> whose removal the user should be prompted about, and store it in an <code>item</code> field.</li>
+<li>A private boolean field called <code>confirmed</code>, which will be initially set to <code>false</code> (the user has not pressed "Confirm" yet).</li>
+<li>An <code>initialize</code> method with the <code>@FXML</code> annotation, like the one for <code>ListController</code>. Leave it empty for now.</li>
+<li>An <code>isConfirmed()</code> method that returns the value of the <code>confirmed</code> field.</li>
+</ul>
+<p>You should end up with a Java class with this structure:</p>
+<p class="image-container"><img alt="UML for RemoveController" src="./CS1OOP Lab (GUI Prep)_files/ef14bea56adfd953.png"></p>
+<h2 is-upgraded="">Integrating the dialog in the ListController</h2>
+<p><em>Step 13.</em> Go back to the <code>removePressed</code> method of the <code>ListController</code>: we are going to rewrite. The overall structure is the same, but the details change a bit. Here is a rough skeleton you should follow:</p>
+<pre><code><span class="lit">@FXML</span><span class="pln"> </span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> removePressed</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  </span><span class="com">// 1: get the selected index</span><span class="pln">
+  </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="com">/* 2: index shows an item was selected */</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+    </span><span class="com">// 3: get the selected item</span><span class="pln">
+
+    </span><span class="kwd">try</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      </span><span class="com">// 4: create the FXMLLoader and store it in local variable "loader"</span><span class="pln">
+      </span><span class="com">// 5: set the location of the FXML file in the loader</span><span class="pln">
+      </span><span class="com">// 6: create the RemoveController while passing the selected item</span><span class="pln">
+      </span><span class="com">// 7: set the controller in the loader</span><span class="pln">
+      </span><span class="com">// 8: load the FXML file and store the root object in a variable</span><span class="pln">
+
+      </span><span class="com">// 9: create a "new Stage()" and store it in local variable "stage"</span><span class="pln">
+      </span><span class="com">// 10: set the modality of the Stage</span><span class="pln">
+      </span><span class="com">// 11: create a new Scene with root object (250px x 200px)</span><span class="pln">
+      </span><span class="com">// 12: set the Scene of the Stage</span><span class="pln">
+      </span><span class="com">// 13: show the Stage and wait for it to be closed</span><span class="pln">
+
+      </span><span class="kwd">if</span><span class="pln"> </span><span class="pun">(</span><span class="com">/* 14: Remove controller says Confirm was pressed */</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+        </span><span class="com">// 15: remove the selected index from the items of the Database</span><span class="pln">
+      </span><span class="pun">}</span><span class="pln">
+      
+    </span><span class="pun">}</span><span class="pln"> </span><span class="kwd">catch</span><span class="pln"> </span><span class="pun">(</span><span class="typ">IOException</span><span class="pln"> ex</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+      ex</span><span class="pun">.</span><span class="pln">printStackTrace</span><span class="pun">();</span><span class="pln">
+    </span><span class="pun">}</span><span class="pln">
+  </span><span class="pun">}</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<p>Here are some tips:</p>
+<ul>
+<li>You already have the code for 1, 2, and 15.</li>
+<li>For 3, remember that you can use <code>selModel.getSelectedItem()</code> to retrieve the currently selected object.</li>
+<li>For 4-8, it's exactly how we did it for the main window in the <code>start</code> method of <code>Main</code>, except we will load <code>RemoveItem.fxml</code> and create a <code>RemoveController</code>.</li>
+<li>For 10, call <code>stage.initModality</code> and pass it the special value <code>Modality.APPLICATION_MODAL</code> to ask the dialog to be opened as "application modal": it will block all other windows in the application from receiving input until it is closed. Check <a href="https://docs.oracle.com/javase/8/javafx/api/javafx/stage/Stage.html#initModality-javafx.stage.Modality-" target="_blank">the official Javadoc</a> for the details if you are interested.</li>
+<li>For 11-12, it is the same as what we did for the main window.</li>
+<li>For 13, remember to use <code>showAndWait()</code> to show the window and wait for it to be closed.</li>
+<li>For 14, use the <code>isConfirmed()</code> method in <code>RemoveController</code>.</li>
+</ul>
+<p><em>Step 14.</em> Run <code>Main</code> and check that the dialog shows as expected. The only problem is that it does not show the details of the item, and it will never remove items even if you press the Confirm button. We need to complete the implementation of <code>RemoveController</code>.</p>
+<h2 is-upgraded="">Finishing the RemoveController</h2>
+<p><em>Step 15.</em> Complete the implementation of <code>RemoveController</code>:</p>
+<ul>
+<li><code>initialize</code> should set the text of the <code>Label</code> to the result of converting <code>selectedItem</code> into a <code>String</code> (use <code>toString()</code>).</li>
+<li><code>confirmPressed</code> should set <code>confirmed</code> to <code>true</code> and hide the window (follow the same approach as in <code>ListController</code>, but get the scene from the <code>lblItem</code>).</li>
+<li><code>cancelPressed</code> should set <code>confirmed</code> to <code>false</code> and hide the window.</li>
+</ul>
+<p><em>Step 16.</em> Run your program one last time, and check that everything works as it should.</p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Submit to AutoFeedback" duration="0" step="6"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">6. Submit to AutoFeedback</h2>
+        <p>Now that you have completed the lab, you should use the <code>Submit Lab 8 to AutoFeedback</code> file that corresponds to your operating system to submit your code to AutoFeedback.</p>
+<p>For the details on how to use AutoFeedback, please refer to the last section of Lab 1.</p>
+<p>In this lab, we didn't ask you to write any tests: instead, AutoFeedback has its own tests that check the various things you should have done as part of this lab. Please review the provided feedback, and let us know if anything is unclear.</p>
+<p>Once you have passed the tests from AutoFeedback, congratulations - you are ready to take on the assessed lab next week! You do not need to submit anything to Blackboard for this preparatory lab.</p>
+
+
+      </div></div></google-codelab-step></div><div id="controls"><div id="fabs"><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2226631-dt-content-rid-15218616_1/courses/2020_CS1OOP_P1_P2/TP2/week08-gui/oop-2021-gui-prep/index.html#" id="previous-step" title="Previous step">Back</a><div class="spacer"></div><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2226631-dt-content-rid-15218616_1/courses/2020_CS1OOP_P1_P2/TP2/week08-gui/oop-2021-gui-prep/index.html#" id="next-step" title="Next step">Next</a><a href="https://vle.aston.ac.uk/" id="done" hidden="" title="Codelab complete">Done</a></div></div></div></google-codelab>
+
+  <script src="./CS1OOP Lab (GUI Prep)_files/native-shim.js.download"></script>
+  <script src="./CS1OOP Lab (GUI Prep)_files/custom-elements.min.js.download"></script>
+  <script src="./CS1OOP Lab (GUI Prep)_files/prettify.js.download"></script>
+  <script src="./CS1OOP Lab (GUI Prep)_files/codelab-elements.js.download"></script>
+  <script src="./CS1OOP Lab (GUI Prep)_files/api.js.download"></script>
+
+
+
+</body></html>

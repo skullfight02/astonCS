@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<!-- saved from url=(0140)https://vle.aston.ac.uk/bbcswebdav/pid-2201756-dt-content-rid-14959217_1/courses/2020_CS1OOP_P1_P2/TP2/week05-uml/oop-2021-lab5/index.html#0 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  
+  <title>CS1OOP Lab 5 (UML with PlantText)</title>
+  <link rel="stylesheet" href="./CS1OOP Lab 5 (UML with PlantText)_files/css">
+  <link rel="stylesheet" href="./CS1OOP Lab 5 (UML with PlantText)_files/icon">
+  <link rel="stylesheet" href="./CS1OOP Lab 5 (UML with PlantText)_files/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+<script src="./CS1OOP Lab 5 (UML with PlantText)_files/analytics.js.download"></script></head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14" environment="web" category="null"></google-codelab-analytics>
+  <google-codelab codelab-gaid="" id="oop-2021-lab5" environment="web" feedback-link="mailto:a.garcia-dominguez@aston.ac.uk" selected="0" google-codelab-ready="" codelab-title="CS1OOP Lab 5 (UML with PlantText)" anayltics-ready="anayltics-ready"><div id="drawer"><div class="codelab-time-container" style="display: none;"></div><div class="steps"><ol><li completed="" selected=""><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2201756-dt-content-rid-14959217_1/courses/2020_CS1OOP_P1_P2/TP2/week05-uml/oop-2021-lab5/index.html#0"><span class="step"><span>Welcome</span></span></a></li><li><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2201756-dt-content-rid-14959217_1/courses/2020_CS1OOP_P1_P2/TP2/week05-uml/oop-2021-lab5/index.html#1"><span class="step"><span>Importing the project</span></span></a></li><li><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2201756-dt-content-rid-14959217_1/courses/2020_CS1OOP_P1_P2/TP2/week05-uml/oop-2021-lab5/index.html#2"><span class="step"><span>Intro to PlantUML: classes and inheritance</span></span></a></li><li><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2201756-dt-content-rid-14959217_1/courses/2020_CS1OOP_P1_P2/TP2/week05-uml/oop-2021-lab5/index.html#3"><span class="step"><span>Intro to PlantUML: abstract classes and interfaces</span></span></a></li><li><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2201756-dt-content-rid-14959217_1/courses/2020_CS1OOP_P1_P2/TP2/week05-uml/oop-2021-lab5/index.html#4"><span class="step"><span>Intro to PlantUML: relationships</span></span></a></li><li><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2201756-dt-content-rid-14959217_1/courses/2020_CS1OOP_P1_P2/TP2/week05-uml/oop-2021-lab5/index.html#5"><span class="step"><span>Drawing UML for Foxes and Rabbits</span></span></a></li><li><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2201756-dt-content-rid-14959217_1/courses/2020_CS1OOP_P1_P2/TP2/week05-uml/oop-2021-lab5/index.html#6"><span class="step"><span>Writing Java from UML: your media collection</span></span></a></li><li><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2201756-dt-content-rid-14959217_1/courses/2020_CS1OOP_P1_P2/TP2/week05-uml/oop-2021-lab5/index.html#7"><span class="step"><span>Submit to AutoFeedback and Blackboard</span></span></a></li></ol></div><div class="metadata"><a target="_blank" href="mailto:a.garcia-dominguez@aston.ac.uk"><i class="material-icons">bug_report</i> Report a mistake</a></div></div><div id="codelab-title"><div id="codelab-nav-buttons"><a href="https://vle.aston.ac.uk/" id="arrow-back"><i class="material-icons">close</i></a><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2201756-dt-content-rid-14959217_1/courses/2020_CS1OOP_P1_P2/TP2/week05-uml/oop-2021-lab5/index.html#" id="menu"><i class="material-icons">menu</i></a></div><h1 is-upgraded="" class="title">CS1OOP Lab 5 (UML with PlantText)</h1><div class="codelab-time-container" style="display: none;"></div><devsite-user></devsite-user></div><div id="main"><div id="steps"><google-codelab-step label="Welcome" duration="0" step="1" selected=""><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">1. Welcome</h2>
+        <p>This is the fifth lab of term 2 of the CS1OOP module. Work through every section of this lab in sequence, and be careful of not missing any steps.</p>
+<h2 is-upgraded="">Introduction</h2>
+<p>One common approach for designing an object-oriented system is to break down the English description of the system into CRC cards, then sketching out a first set of classes in UML, and then writing the code for those classes in your chosen language (e.g. Java). So far, you have gone straight from CRC to Java, but UML is generally a nice intermediate step closer to the code, and it looks the same regardless of the language as long as it follows an object-oriented approach.</p>
+<p>You could sketch out the UML diagrams on paper, but without practice it is hard to get a nice layout and to get the notation right: you should use a dedicated UML tool. There are a number of options out there: the lightweight tools are only for drawing diagrams (<a href="https://www.umlet.com/" target="_blank">Umlet</a> or <a href="https://www.plantuml.com/" target="_blank">PlantUML</a>), while more heavyweight tools allow you to write code generators or even simulate the system (<a href="https://www.eclipse.org/papyrus/" target="_blank">Eclipse Papyrus</a> or <a href="http://gemoc.org/studio.html" target="_blank">GEMOC Studio</a>).</p>
+<p>In this lab we will focus on just drawing, and we will teach you the basics of the <a href="https://plantuml.com/en/class-diagram" target="_blank">PlantUML class diagram mini-language</a>. Given a bit of text in the right format, PlantUML will produce a high-quality diagram for you.</p>
+<p>Once you know how to draw UML diagrams, you will write a small Java program from scratch based on a UML diagram.</p>
+<h2 is-upgraded="">What you should already know</h2>
+<p>You should be able to:</p>
+<ul>
+<li>Create classes and add fields and methods to them</li>
+<li>Create interfaces and add methods to them</li>
+<li>Remember the 3-compartment notatioin for classes and interfaces in UML</li>
+<li>Remember how to represent public/protected/private fields and methods in UML</li>
+<li>Remember how to represent static and abstract methods in UML</li>
+<li>Remember the notation for extends/implements in UML</li>
+<li>Remember the notation for associations, compositions and aggregations in UML, and understand how they differ</li>
+</ul>
+<h2 is-upgraded="">What you'll need</h2>
+<p>You will need a computer with this software installed:</p>
+<ul>
+<li>A Java 11 or newer JDK: download it from <a href="https://www.oracle.com/java/technologies/javase-downloads.html#JDK11" target="_blank">Oracle</a> or <a href="https://adoptopenjdk.net/" target="_blank">AdoptOpenJDK</a></li>
+<li><a href="https://www.eclipse.org/downloads/packages/release/2020-12/r/eclipse-ide-java-developers" target="_blank">Eclipse for Java Developers</a></li>
+</ul>
+<p>If you are using your own PC, you may also want to install the <a href="http://hallvard.github.io/plantuml/" target="_blank">Eclipse plugin for PlantUML</a>. This will be faster than using the <code>DiagramGenerator</code> in the starting code to generate UML diagrams. We have recorded a video on how to do it:</p>
+<iframe class="embedded-iframe" src="./CS1OOP Lab 5 (UML with PlantText)_files/Embed.html"></iframe>
+<aside class="warning"><p>If PlantUML complains about a missing "GraphViz" executable, <a href="http://graphviz.org/download/" target="_blank">download and install GraphViz from here</a> to install GraphViz into your computer. This seems to be a problem with the PlantUML Eclipse plugin, which does not include the minimal <code>dot.exe</code> that the standard PlantUML distributions include. You may need to tell the PlantUML Eclipse plugin where your <code>dot.exe</code> file is by going to "Window - Preferences - PlantUML".</p>
+</aside>
+<aside class="warning"><p>If neither the <code>DiagramGenerator</code> class or the PlantUML Eclipse plugin work for you, you can use <a href="https://www.planttext.com/" target="_blank">PlantText</a>, a web-based version of PlantUML. Just type in your diagram and press Alt+Enter: you'll have to copy and paste between Eclipse and your browser.</p>
+</aside>
+<p>If you are using a lab computer or a student VDI machine, launch Eclipse 2019-06 through AstonApps (you will need to launch Java 11.0.5 first). Unfortunately, you will not be able to install the Eclipse plugin for PlantUML into it, but it is optional: you can still use the <code>DiagramGenerator</code> we included in the starting code to generate your diagrams.</p>
+<h2 class="checklist" is-upgraded="">What you'll learn</h2>
+<ul class="checklist">
+<li>How to draw UML class diagrams with the PlantUML mini-language.</li>
+<li>How to write Java code from a UML class diagram.</li>
+</ul>
+<h2 is-upgraded="">What you'll do</h2>
+<p>As a quick summary:</p>
+<ul>
+<li>You will learn the basic syntax of the PlantUML mini-language for drawing class diagrams.</li>
+<li>You will draw UML class diagrams from the CRC cards of the Foxes and Rabbits simulation.</li>
+<li>You will write Java code from another set of UML diagrams.</li>
+</ul>
+<p>Check the next sections for the details!</p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Importing the project" duration="0" step="2"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">2. Importing the project</h2>
+        <p>Download the starting code from Blackboard. You don't need to unpack the <code>.zip</code> file.</p>
+<p>Import the project by using "File - Import - Existing Projects into Workspace", then pick "Archive file" and select the <code>.zip</code> file you downloaded.</p>
+<p>One project called <code>uk.ac.aston.oop.uml</code> should come up. Press OK to import this project.</p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Intro to PlantUML: classes and inheritance" duration="0" step="3"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">3. Intro to PlantUML: classes and inheritance</h2>
+        <p>Before we do any exercises, let's learn how to draw UML class diagrams with PlantUML. Here we will only teach the basics needed for the lab: the full syntax is described <a href="https://plantuml.com/en/class-diagram" target="_blank">here</a>.</p>
+<h2 is-upgraded="">Creating the minimal diagram</h2>
+<p><em>Step 1.</em> Right-click on the <code>plantuml</code> folder in the "Package Explorer", and select "New - File". Name the new file <code>01-animal-dog.txt</code>.</p>
+<p><em>Step 2.</em> In the newly opened editor, enter this text:</p>
+<pre><code><span class="lit">@startuml</span><span class="pln">
+
+</span><span class="lit">@enduml</span></code></pre>
+<p>All PlantUML diagrams start with <code>@startuml</code> and end with <code>@enduml</code>. Everything else goes between these two lines.</p>
+<p><em>Step 3.</em> Between those two lines, add this text:</p>
+<pre><code><span class="pln">title </span><span class="typ">My</span><span class="pln"> </span><span class="typ">First</span><span class="pln"> </span><span class="typ">Diagram</span></code></pre>
+<p>That tells PlantUML the title for your diagram.</p>
+<p><em>Step 4.</em> Run the <code>DiagramGenerator</code> class in the <code>uk.ac.aston.oop.uml.diagrams</code> package by right-clicking on it from the "Package Explorer", and selecting "Run As - Java Application".</p>
+<p><em>Step 5.</em> When the program finishes, right-click on your <code>uk.ac.aston.oop.uml</code> project in the "Package Explorer" and select "Refresh". In the <code>diagrams</code> folder, you should now see a pair of <code>01-animal-dog.png</code> and <code>01-animal-dog.xmi</code> files. Open the <code>.png</code> file, which should look right now like this:</p>
+<p class="image-container"><img alt="First diagram - only title" src="./CS1OOP Lab 5 (UML with PlantText)_files/fde7dc7355c58c4a.png"></p>
+<aside class="special"><p>If you have the PlantUML Eclipse plugin installed (as mentioned in the intro to this lab), you can simply open the "PlantUML" view to see what the diagram would look like, without having to run the <code>DiagramGenerator</code> program. This is optional, though: you do not need the plugin to complete this lab.</p>
+</aside>
+<aside class="warning"><p>The <code>.xmi</code> file is a computer-friendly representation of your UML diagram, which is used by AutoFeedback to check if you used PlantUML correctly.</p>
+</aside>
+<h2 is-upgraded="">Classes and inheritance</h2>
+<p><em>Step 6.</em> Now, add your first two classes. Add these lines after your <code>title</code> line, and before the <code>@enduml</code> line:</p>
+<pre><code><span class="kwd">class</span><span class="pln"> </span><span class="typ">Animal</span><span class="pln">
+
+</span><span class="kwd">class</span><span class="pln"> </span><span class="typ">Dog</span></code></pre>
+<p>Regenerate your diagram (by running <code>DiagramGenerator</code> again, or saving while the PlantUML Eclipse plugin tab is open), and you should get something like this:</p>
+<p class="image-container"><img alt="First diagram" src="./CS1OOP Lab 5 (UML with PlantText)_files/b3f5a3300a7173b9.png"></p>
+<p><em>Step 7.</em> Now, make <code>Animal</code> extend <code>Dog</code>:</p>
+<pre><code><span class="kwd">class</span><span class="pln"> </span><span class="typ">Dog</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">Animal</span></code></pre>
+<p><em>Step 8.</em> Let's add some fields and methods to <code>Animal</code>:</p>
+<pre><code><span class="kwd">class</span><span class="pln"> </span><span class="typ">Animal</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  </span><span class="pun">-</span><span class="pln"> name</span><span class="pun">:</span><span class="pln"> </span><span class="typ">String</span><span class="pln">
+  </span><span class="pun">+</span><span class="pln"> getName</span><span class="pun">():</span><span class="pln"> </span><span class="typ">String</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<p>You will notice that we write the field in the UML style, with the visibility first (<code>-</code> means private, <code>+</code> means public, and <code>#</code> means protected), then the name, then <code>:</code>, and then the type. This is different than in Java, where we do visibility, then type, then name.</p>
+<aside class="special"><p>To mark a method as abstract, add <code>{abstract}</code> between its visibility and its name, e.g. <code>+ {abstract} yourMethod(): int</code>. Abstract methods are shown in UML in italic font.</p>
+</aside>
+<p><em>Step 9.</em> Regenerate your diagram, and you should see something like this:</p>
+<p class="image-container"><img alt="Second Dog diagram" src="./CS1OOP Lab 5 (UML with PlantText)_files/f982c34cad3d50e0.png"></p>
+<p><em>Step 10.</em> Now that you know the syntax, extend <code>Dog</code> so the diagram looks like this:</p>
+<p class="image-container"><img alt="Third Dog diagram" src="./CS1OOP Lab 5 (UML with PlantText)_files/51b2b7f24ed50998.png"></p>
+<p>With this, you should know how to draw classes, their fields and their methods, and how to draw the "extends" relationship.</p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Intro to PlantUML: abstract classes and interfaces" duration="0" step="4"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">4. Intro to PlantUML: abstract classes and interfaces</h2>
+        <p>Next, you will want to know how to draw interfaces. It is very similar to Java as well.</p>
+<p><em>Step 1.</em> Create a new <code>02-interfaces.txt</code> file inside the <code>plantuml</code> folder, and start with this diagram:</p>
+<pre><code><span class="lit">@startuml</span><span class="pln">
+
+title </span><span class="typ">Interface</span><span class="pln"> diagram
+
+</span><span class="lit">@enduml</span></code></pre>
+<p><em>Step 2.</em> Instead of <code>class X</code>, we use <code>interface X</code> for interfaces like in Java. Add an interface <code>Iterable</code> to the diagram.</p>
+<p><em>Step 3.</em> Add a public <code>iterator()</code> method that returns an <code>Iterator</code> to your <code>Iterable</code> interface.</p>
+<p><em>Step 4.</em> Add an interface <code>Collection</code>, which extends <code>Iterable</code>:</p>
+<pre><code><span class="kwd">interface</span><span class="pln"> </span><span class="typ">Collection</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">Iterable</span></code></pre>
+<p>Again, the syntax is very similar to that of Java.</p>
+<p><em>Step 5.</em> Add a public <code>clear()</code> method to <code>Collection</code>, which does not return anything.</p>
+<p><em>Step 6.</em> Add an <code>abstract class AbstractList</code>, which should implement the <code>Collection</code> interface.</p>
+<p><em>Step 7.</em> Add a private <code>int</code> field named <code>size</code> to <code>AbstractList</code>, as well as a <code>public</code> method called <code>size()</code> that returns an <code>int</code>.</p>
+<p><em>Step 8.</em> Run <code>DiagramGenerator</code>. In the <code>diagrams</code> folder, <code>02-interfaces.png</code> should show something like this:</p>
+<p class="image-container"><img alt="Interfaces diagram" src="./CS1OOP Lab 5 (UML with PlantText)_files/981e55024fc8e8a8.png"></p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Intro to PlantUML: relationships" duration="0" step="5"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">5. Intro to PlantUML: relationships</h2>
+        <p>Next, we will see how to relate classes with each other.</p>
+<h2 is-upgraded="">Starting the diagram</h2>
+<p><em>Step 1.</em> In <code>plantuml</code>, create a new <code>03-relationships.txt</code> file, start a new PlantUML diagram, and add these classes:</p>
+<ul>
+<li>Lecturer</li>
+<li>Student</li>
+<li>Window</li>
+<li>Frame</li>
+<li>Room</li>
+<li>Wall</li>
+</ul>
+<p><em>Step 2.</em> Generate your diagram with the <code>DiagramGenerator</code>. In the <code>diagrams</code> folder, <code>03-relationships.png</code> should have something like this:</p>
+<p class="image-container"><img alt="Six classes" src="./CS1OOP Lab 5 (UML with PlantText)_files/25048bc41bad2544.png"></p>
+<h2 is-upgraded="">Basic associations</h2>
+<p><em>Step 3.</em> Let's try to mimic the same relationships as in the slides of the first UML lecture. First, you will need how to write associations in PlantText. The syntax in PlantText for an association <code>name</code> between <code>TypeA</code> and <code>TypeB</code> is:</p>
+<pre><code><span class="typ">TypeA</span><span class="pln"> </span><span class="pun">-</span><span class="pln"> </span><span class="typ">TypeB</span><span class="pun">:</span><span class="pln"> name</span></code></pre>
+<p>Keep in mind that <code>: name</code> is optional: an association may not need an explicit name, if it can be guessed from the types.</p>
+<p>Given this syntax, try writing the association <code>teaches</code> between <code>Lecturer</code> and <code>Student</code>. It should look like this now:</p>
+<p class="image-container"><img alt="Teaches: basic association" src="./CS1OOP Lab 5 (UML with PlantText)_files/fc328eda64e4002f.png"></p>
+<p><em>Step 4.</em> We'd prefer it if <code>Student</code> was below the <code>Lecturer</code> so it looks like the slide. To do this, change <code>-</code> to <code>-down-</code> and refresh the diagram. It should look like this:</p>
+<p class="image-container"><img alt="Teaches: Student is below" src="./CS1OOP Lab 5 (UML with PlantText)_files/a85b186317a27f0d.png"></p>
+<p>In general, you can use <code>-down-</code>, <code>-left-</code>, <code>-right-</code> and <code>-up-</code> to ensure that the type on the right appears below, to the left, to the right, or above the type on the left.</p>
+<h2 is-upgraded="">Adding multiplicities</h2>
+<p>When you do not specify anything, the default <em>multiplicities</em> of an association are "1" on both sides. This means that the diagram currently says that one Lecturer teaches one Student and that one Student is taught by one Lecturer, which is wrong. We need to specify the correct multiplicities on each side, so the right number of Lecturers and Students are related to each other. In this case, we want to say that "a Lecturer teaches many Students", and that "a Student is taught by one or more Lecturers".</p>
+<p>The full syntax of an association in PlantText, including multiplicities, name, and direction (which are all optional), is:</p>
+<pre><code><span class="typ">TypeA</span><span class="pln"> </span><span class="str">"multA"</span><span class="pln"> </span><span class="pun">-</span><span class="pln">direction</span><span class="pun">-</span><span class="pln"> </span><span class="str">"multB"</span><span class="pln"> </span><span class="typ">TypeB</span><span class="pun">:</span><span class="pln"> name</span></code></pre>
+<p><em>Step 5.</em> Use this syntax so that "1..*" Lecturers teach "*" Students, while keeping Student below Lecturer as in the slide. It should look like this:</p>
+<p class="image-container"><img alt="Teacher with multiplicities" src="./CS1OOP Lab 5 (UML with PlantText)_files/5c7faa2d1ca31535.png"></p>
+<h2 is-upgraded="">Compositions and aggregations</h2>
+<p>It's time now to try the other relationships in that slide. Window has a composition with Frame (a Frame is only in one Window and disappears if the Window disappears), and Room has an aggregation with Wall (a Wall can belong to multiple Rooms and a Room can disappear while the Wall remains).</p>
+<p>The syntax for compositions and aggregations is the same as for associations, but instead of <code>-</code> or <code>-direction-</code>, compositions (black diamond) use <code>*-</code> or <code>*-direction-</code>, and aggregations (white diamond) use <code>o-</code> or <code>o-direction-</code>.</p>
+<p><em>Step 6.</em> Extend your diagram so it looks like this:</p>
+<p class="image-container"><img alt="Full relations example" src="./CS1OOP Lab 5 (UML with PlantText)_files/8c30037831f9fb9b.png"></p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Drawing UML for Foxes and Rabbits" duration="0" step="6"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">6. Drawing UML for Foxes and Rabbits</h2>
+        <p>Once you know the basic functionality, it's time to draw a more involved UML diagram. Let's revisit the CRC cards for the Foxes and Rabbits simulation from last week:</p>
+<p class="image-container"><img alt="Animal CRC card back" src="./CS1OOP Lab 5 (UML with PlantText)_files/edc339cdd087dc74.png"><img alt="Fox CRC card back" src="./CS1OOP Lab 5 (UML with PlantText)_files/2e0db643765c7fa9.png"><img alt="Rabbit CRC card back" src="./CS1OOP Lab 5 (UML with PlantText)_files/13f39cc5dd1bc73e.png"><img alt="Grid CRC card back" src="./CS1OOP Lab 5 (UML with PlantText)_files/ab4a92d1193c2068.png"><img alt="GridCell CRC card back" src="./CS1OOP Lab 5 (UML with PlantText)_files/e82c8b0f15a13f23.png"><img alt="Field CRC card back" src="./CS1OOP Lab 5 (UML with PlantText)_files/c40802e591ad7d2e.png"><img alt="Simulator CRC card back" src="./CS1OOP Lab 5 (UML with PlantText)_files/cf3faeb1ad8018bf.png"></p>
+<h2 is-upgraded="">Drawing the classes</h2>
+<p><em>Step 1.</em> In the <code>plantuml</code> folder, create a new <code>04-foxes-rabbits.txt</code> file. Start it with the usual <code>@startuml</code>, <code>title</code> and <code>@enduml</code> lines.</p>
+<p><em>Step 2.</em> Add the seven classes from above, and generate the diagram. You should have this by now:</p>
+<p class="image-container"><img alt="Foxes and Rabbits: Step 2" src="./CS1OOP Lab 5 (UML with PlantText)_files/235d1e251489dd69.png"></p>
+<h2 is-upgraded="">Adding the relationships</h2>
+<p><em>Step 3.</em> Add the inheritance relationships between Fox and Animal, and between Rabbit and Animal.</p>
+<p><em>Step 4.</em> Add these relationships (don't forget to include multiplicities when different from 1):</p>
+<ul>
+<li>Composition "simulates" from 1 <code>Simulator</code> to 1 <code>Field</code></li>
+<li>Composition "grid" from 1 <code>Field</code> to 1 Grid</li>
+<li>Composition "cells" from 1 <code>Grid</code> to 1..* <code>GridCell</code>s</li>
+<li>Aggregation "contents" from 1 <code>GridCell</code> to * <code>Animal</code>s (the <code>Animal</code>s can move between cells, so they are not dependent on the <code>GridCell</code>)</li>
+</ul>
+<p><em>Step 5.</em> Generate your diagram again. You should see something like this:</p>
+<p class="image-container"><img alt="Foxes and Rabbits: Step 5" src="./CS1OOP Lab 5 (UML with PlantText)_files/5b4dcf0451d630b5.png"></p>
+<h2 is-upgraded="">Adding the key details</h2>
+<p><em>Step 6.</em> Mark the <code>Animal</code> class as <code>abstract</code> (use <code>abstract class Animal</code>).</p>
+<p><em>Step 7.</em> Go back to the CRC cards and add the public and protected methods that represent their key responsibilities that they offer to other classes. You should end up with the diagram below. If this diagram is too hard to read, use the diagram of the next step (which has a more "square" layout and reads better on the screen).</p>
+<p class="image-container"><img alt="Foxes and Rabbits: Step 7" src="./CS1OOP Lab 5 (UML with PlantText)_files/e0e83361fa30d6c8.png"></p>
+<p>Some considerations:</p>
+<ul>
+<li>In most UML diagrams, we typically don't include private fields as these are implementation details and would make the diagram too noisy. We want the reader to get the main gist of the classes, and not drown them in details.</li>
+<li>If you are overriding a method in a class, you should list it again on that class.</li>
+<li>Early UML diagrams (drawn straight from the CRC cards, when you don't have written any code yet) make a few assumptions for simplicity. For instance, sometimes we will omit the constructors if we think they can be guessed from the rest of the diagram.</li>
+</ul>
+<p><em>Step 8.</em> Use the <code>-down-</code> variants of the relationships to make the diagram a bit more "square":</p>
+<p class="image-container"><img alt="Foxes and Rabbits: Step 8" src="./CS1OOP Lab 5 (UML with PlantText)_files/236378b90d082ae1.png"></p>
+<p>Good job - you drew your first "real" UML diagram! You could have used a standard drawing tool, but PlantUML does most of the layouting for you, makes sure you use the right notation, and does not require clicking all over the place. PlantUML can do more than just class diagrams: check the website to see what other diagrams it can do.</p>
+<h3 is-upgraded="">Optional note about automated PlantUML diagrams</h3>
+<aside class="warning"><p>If you are not using the PlantUML Eclipse plugin, skip this.</p>
+</aside>
+<p>Try opening the PlantUML view (follow the video instructions) and selecting the <code>uk.ac.aston.oop.rdd.sim</code> package in your code from last week. You may notice some differences between the diagram you are creating and the one the plugin generated from your code:</p>
+<ul>
+<li>The automatic generation in the plugin has no way to detect automatically composition/aggregation: everything is just associations.</li>
+<li>The diagram has too much information on it: PlantUML doesn't know what's important and what's not.</li>
+<li>The diagram is following Java notation to describe fields and methods (<code>type name</code>), instead of the proper UML notation (<code>name: type</code>).</li>
+<li>All the associations have arrowheads at the end: these reflect the "navigability" of the association, meaning that you can only follow the association in that direction (e.g. for the "field" association between Simulator and Field, you can ask a Simulator for its Field but not the other way around).</li>
+</ul>
+<p>Automated generation is convenient, but if you want to be a software engineer, you should still understand how to correctly use a notation and manage levels of detail!</p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Writing Java from UML: your media collection" duration="0" step="7"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">7. Writing Java from UML: your media collection</h2>
+        <p>You know how to draw UML diagrams, and now you should practice writing Java code based on UML diagrams.</p>
+<p>In some software development firms, the analyst/architect at your software development firm will talk to the client and draw up some design specifications for you to implement: these may be in plain English, use some internal company notation, or may (ideally) follow a standardized notation like UML.</p>
+<p>Here is the UML diagram for a simple Java program which keeps track of your media library, for you to implement from scratch. The analyst in your company did not bother putting in the private fields - those are just implementation details left up to you:</p>
+<p class="image-container"><img alt="UML diagram for the media library" src="./CS1OOP Lab 5 (UML with PlantText)_files/d6aa1d7517e493a6.png"></p>
+<p>We suggest that you open this diagram in a new tab, so you can zoom in and out at will (in Chrome, you can right-click on the image and select "Open image in new tab").</p>
+<p><em>Step 1.</em> Create a new <code>uk.ac.aston.oop.uml.media</code> package in your "Package Explorer", by right-clicking on the <code>src</code> folder inside the <code>uk.ac.aston.oop.uml</code> project and selecting "New - Package".</p>
+<p><em>Step 2.</em> Within that package, create the four classes: <code>Database</code>, <code>Item</code>, <code>Video</code> and <code>CD</code>. Take care that <code>Video</code> extends <code>Item</code>, and <code>CD</code> extends <code>Item</code>.</p>
+<p><em>Step 3.</em> Write the declarations of the listed constructors and methods in the UML diagram – just enough so it compiles.</p>
+<p><em>Step 4.</em> Now that the code compiles, finish writing the constructors and methods. Add any private fields you consider necessary to support those methods, and read the notes in order to know what to do in the <code>main</code> method of <code>Database</code> and in the <code>toString</code> methods of the <code>Item</code>, <code>Video</code> and <code>CD</code> classes.</p>
+<aside class="special"><p>In UML, underlined fields and methods are <code>static</code>.</p>
+</aside>
+<aside class="special"><p>When we say "what Item::toString() returned", we mean "what the <code>toString()</code> method of the <code>Item</code> superclass would have returned". Remember how you could use <code>super.overriddenMethod()</code> to call the original version of an overridden method?</p>
+</aside>
+<aside class="special"><p>To store the items in the Database class, just use an <code>ArrayList</code>. You don't need a real database for this one!</p>
+</aside>
+<p><em>Step 5.</em> Run your <code>Database</code> class and make sure that it does what is expected: create a few items (one <code>CD</code> and one <code>Video</code> should be enough), add them to a <code>Database</code> and ask the <code>Database</code> to <code>print()</code> its contents.</p>
+<p>You are done! The key thing to consider here is how much work it would have been for us to tell you in plain English what to write at each step, and the potential risk for misunderstandings. With a UML diagram, it is much more clear what you need to write.</p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Submit to AutoFeedback and Blackboard" duration="0" step="8"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">8. Submit to AutoFeedback and Blackboard</h2>
+        <p>Now that you have completed the lab, you should use the <code>Submit Lab 5 to AutoFeedback</code> file that corresponds to your operating system to submit your code to AutoFeedback.</p>
+<p>For the details on how to use AutoFeedback, please refer to the last section of Lab 1.</p>
+<p>In this lab, we didn't ask you to write any tests: instead, AutoFeedback has its own tests that check the various things you should have done as part of this lab. Please review the provided feedback, and let us know if anything is unclear.</p>
+<p>Once you have passed the tests from AutoFeedback, you can simply upload the <code>submission.zip</code> file it generated to Blackboard.</p>
+
+
+      </div></div></google-codelab-step></div><div id="controls"><div id="fabs"><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2201756-dt-content-rid-14959217_1/courses/2020_CS1OOP_P1_P2/TP2/week05-uml/oop-2021-lab5/index.html#" id="previous-step" title="Previous step" disappear="">Back</a><div class="spacer"></div><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2201756-dt-content-rid-14959217_1/courses/2020_CS1OOP_P1_P2/TP2/week05-uml/oop-2021-lab5/index.html#" id="next-step" title="Next step">Next</a><a href="https://vle.aston.ac.uk/" id="done" hidden="" title="Codelab complete">Done</a></div></div></div></google-codelab>
+
+  <script src="./CS1OOP Lab 5 (UML with PlantText)_files/native-shim.js.download"></script>
+  <script src="./CS1OOP Lab 5 (UML with PlantText)_files/custom-elements.min.js.download"></script>
+  <script src="./CS1OOP Lab 5 (UML with PlantText)_files/prettify.js.download"></script>
+  <script src="./CS1OOP Lab 5 (UML with PlantText)_files/codelab-elements.js.download"></script>
+  <script src="./CS1OOP Lab 5 (UML with PlantText)_files/api.js.download"></script>
+
+
+
+</body></html>

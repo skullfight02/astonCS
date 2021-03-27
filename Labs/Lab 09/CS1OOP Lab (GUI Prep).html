@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<!-- saved from url=(0153)https://vle.aston.ac.uk/bbcswebdav/pid-2232304-dt-content-rid-15249818_1/courses/2020_CS1OOP_P1_P2/TP2/week09-exceptions/oop-javafx-assessed/index.html#2 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  
+  <title>CS1OOP Assessed JavaFX Lab</title>
+  <link rel="stylesheet" href="./CS1OOP Lab (GUI Prep)_files/css">
+  <link rel="stylesheet" href="./CS1OOP Lab (GUI Prep)_files/icon">
+  <link rel="stylesheet" href="./CS1OOP Lab (GUI Prep)_files/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+<script src="./CS1OOP Lab (GUI Prep)_files/analytics.js.download"></script></head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14" environment="web" category="null"></google-codelab-analytics>
+  <google-codelab codelab-gaid="" id="oop-javafx-assessed" environment="web" feedback-link="mailto:a.garcia-dominguez@aston.ac.uk" selected="2" google-codelab-ready="" codelab-title="CS1OOP Assessed JavaFX Lab" anayltics-ready="anayltics-ready"><div id="drawer"><div class="codelab-time-container" style="display: none;"></div><div class="steps"><ol><li completed=""><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2232304-dt-content-rid-15249818_1/courses/2020_CS1OOP_P1_P2/TP2/week09-exceptions/oop-javafx-assessed/index.html#0"><span class="step"><span>Welcome</span></span></a></li><li completed=""><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2232304-dt-content-rid-15249818_1/courses/2020_CS1OOP_P1_P2/TP2/week09-exceptions/oop-javafx-assessed/index.html#1"><span class="step"><span>Importing the project</span></span></a></li><li completed="" selected=""><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2232304-dt-content-rid-15249818_1/courses/2020_CS1OOP_P1_P2/TP2/week09-exceptions/oop-javafx-assessed/index.html#2"><span class="step"><span>Task to complete</span></span></a></li><li><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2232304-dt-content-rid-15249818_1/courses/2020_CS1OOP_P1_P2/TP2/week09-exceptions/oop-javafx-assessed/index.html#3"><span class="step"><span>Guidelines</span></span></a></li><li><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2232304-dt-content-rid-15249818_1/courses/2020_CS1OOP_P1_P2/TP2/week09-exceptions/oop-javafx-assessed/index.html#4"><span class="step"><span>Submit to AutoFeedback and Blackboard</span></span></a></li></ol></div><div class="metadata"><a target="_blank" href="mailto:a.garcia-dominguez@aston.ac.uk"><i class="material-icons">bug_report</i> Report a mistake</a></div></div><div id="codelab-title"><div id="codelab-nav-buttons"><a href="https://vle.aston.ac.uk/" id="arrow-back"><i class="material-icons">close</i></a><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2232304-dt-content-rid-15249818_1/courses/2020_CS1OOP_P1_P2/TP2/week09-exceptions/oop-javafx-assessed/index.html#" id="menu"><i class="material-icons">menu</i></a></div><h1 is-upgraded="" class="title">CS1OOP Assessed JavaFX Lab</h1><div class="codelab-time-container" style="display: none;"></div><devsite-user></devsite-user></div><div id="main"><div id="steps"><google-codelab-step label="Welcome" duration="0" step="1"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">1. Welcome</h2>
+        <p>This is the worksheet for the CS1OOP assessed JavaFX lab. Your submission to Blackboard will be worth 40% of the continuous assessment marks of term 2.</p>
+<h2 is-upgraded="">Introduction</h2>
+<p>In this assessed lab you will implement a simple GUI. All material needed for the lab can be found on Blackboard.</p>
+<p>You should already have practised creating a simple GUI from the prep lab. You must complete this work on your own. You must upload your code to Blackboard by the specified deadline.</p>
+<p>You will have unlimited attempts to re-submit until the deadline, so feel free to submit early and often.</p>
+<h2 is-upgraded="">What you should already know</h2>
+<p>You should have completed the preparatory lab first. You should be able to:</p>
+<ul>
+<li>Use the Scene Builder to create scenes in FXML format.</li>
+<li>Write Java code to load the FXML files from your application.</li>
+<li>Use JavaFX containers to position and dimension components.</li>
+<li>Write JavaFX controller classes to associate behaviour with GUI elements.</li>
+</ul>
+<h2 is-upgraded="">What you'll need</h2>
+<p>You will need a computer with this software installed:</p>
+<ul>
+<li>A Java 11 or newer JDK: download it from <a href="https://www.oracle.com/java/technologies/javase-downloads.html#JDK11" target="_blank">Oracle</a> or <a href="https://adoptopenjdk.net/" target="_blank">AdoptOpenJDK</a></li>
+<li><a href="https://www.eclipse.org/downloads/packages/release/2020-12/r/eclipse-ide-java-developers" target="_blank">Eclipse for Java Developers</a></li>
+<li><a href="https://www.oracle.com/java/technologies/javafxscenebuilder-1x-archive-downloads.html" target="_blank">Oracle JavaFX Scene Builder 2.0</a>, which requires registering for a free Oracle account. If this is a problem for you, try the <a href="https://gluonhq.com/products/scene-builder/" target="_blank">Gluon SceneBuilder</a>, but please do not use any of the Gluon-specific components as these are not included with standard JavaFX 11 distributions.</li>
+</ul>
+<p>If you are using a lab computer or a student VDI machine, launch Eclipse 2019-06 through AstonApps (you will need to launch Java 11.0.5 first). This should also set up the JavaFX SceneBuilder 2.0 for you: to start the Scene Builder, go to the Windows Start menu and search for "Scene Builder".</p>
+<h2 is-upgraded="">What you'll do</h2>
+<p>As a quick summary, you will start from a model solution of the JavaFX preparatory lab that is on Blackboard, and make these improvements:</p>
+<ul>
+<li>Create an FXML file for a new "Create CD" dialog according to a screenshot.</li>
+<li>Use the appropriate JavaFX containers to ensure the controls resize and reposition themselves according to another screenshot.</li>
+<li>Add a new "Add" button to the main window that shows this new dialog.</li>
+<li>Add a controller class that creates the new <code>CD</code> object and adds it to the <code>Database</code> if the user clicks on "Confirm".</li>
+</ul>
+<p>Check the next sections for the details!</p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Importing the project" duration="0" step="2"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">2. Importing the project</h2>
+        <p>Download the starting code from Blackboard. You don't need to unpack the <code>.zip</code> file.</p>
+<p>Import the project by using "File - Import - Existing Projects into Workspace", then pick "Archive file" and select the <code>.zip</code> file you downloaded.</p>
+<p>One project called <code>uk.ac.aston.oop.javafx.assessed</code> should come up. Press OK to import this project.</p>
+<p>The project is a model solution of the preparatory lab: you should already be familiar with its structure.</p>
+<p>Try running the <code>Main</code> class now, so you can be sure that the program works before you start changing it!</p>
+<aside class="warning"><p>If you are using a Mac and the code runs but nothing is shown, go to "Run - Run Configurations... - Main" and make sure that on the "Arguments" tab, the option "Use the -XstartOnFirstThread argument when launching with SWT" is unchecked.</p>
+</aside>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Task to complete" duration="0" step="3" selected=""><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">3. Task to complete</h2>
+        <p>The task is to add an "Add" button to the GUI, which will show a dialog for entering the information of a new CD. If the user fills in the details and confirms the addition, then a new CD should be added at the end of the items in the <code>Database</code> and should be listed in the main window. If the user cancels the dialog, the dialog should simply close itself without changing the <code>Database</code>.</p>
+<p>Further guidelines on how to accomplish some of these requirements are shown in the next section, and staff will be available during scheduled lab sessions to help with tooling issues and clarify the worksheet.</p>
+<h2 is-upgraded="">Task details</h2>
+<p>The main dialog should end up looking like this:</p>
+<p class="image-container"><img alt="New main dialog with Add button" src="./CS1OOP Lab (GUI Prep)_files/823aa3466cec76a1.png"></p>
+<p>The "Create CD" dialog (which should go into a <code>CreateCD.fxml</code> file in the same folder as the other <code>.fxml</code> files - use exactly this name, including uppercase and lowercase letters) should look like this ("Playing time: 1" and "Number of tracks: 0" should reflect the value of the sliders):</p>
+<p class="image-container"><img alt="New Create CD dialog" src="./CS1OOP Lab (GUI Prep)_files/8397b1eb6111610.png"></p>
+<p>You are free to use any combination of JavaFX containers to achieve the above layout. You must ensure that the text field for the title is to the right of the "Title:" label, that the text field for the artist is to the right of the "Artist:" label, and that the components are vertically ordered as shown on the picture (title, artist, own, playing time label, playing time slider, tracks label, tracks slider, and buttons).</p>
+<p>The "Own" checkbox reflects whether the <code>CD</code> is owned or not: <code>Item</code> has a pair of <code>getOwn</code>/<code>setOwn</code> methods to retrieve and store this information.</p>
+<p>The "Playing time: X" and "Number of tracks: Y" labels should be updated on the fly when the user changes the value of the slider.</p>
+<p>You should make it so the "Create CD" dialog can be resized, stretching as shown here:</p>
+<p class="image-container"><img alt="Resized Create CD dialog" src="./CS1OOP Lab (GUI Prep)_files/d99819023f9300c4.png"></p>
+<p>Our tests will check that your text fields and sliders grow to take on the additional horizontal space, and that making the window taller will result in the buttons moving further down but everything else staying in place.</p>
+<h2 is-upgraded="">Marking scheme</h2>
+<p>The marking scheme is out of 15, as follows:</p>
+<ul>
+<li>"Add" button in main window: 1 mark</li>
+<li>"Add" button shows "Create CD" dialog: 1 mark</li>
+<li>"Create CD" dialog has all the components: 2 marks</li>
+<li>"Create CD" components have the expected relative positioning: 2 marks</li>
+<li>"Create CD" resizes horizontally correctly: 1 mark</li>
+<li>"Create CD" resizes vertically correctly: 1 marks</li>
+<li>"Create CD" has slider ticks for "Playing time": 0.5 marks</li>
+<li>"Create CD" has slider ticks for "Number of tracks": 0.5 marks</li>
+<li>"Create CD" slider labels update correctly: 1 mark</li>
+<li>"Create CD" dialog is application modal: 1 mark</li>
+<li>"Create" button in "Create CD" works when "Own" is not checked: 1.5 marks</li>
+<li>"Create" button in "Create CD" works when "Own" is checked: 1.5 marks</li>
+<li>"Cancel" button in "Create CD" works: 1 mark</li>
+</ul>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Guidelines" duration="0" step="4"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">4. Guidelines</h2>
+        <p>You should already have a general idea from the preparatory lab. Regardless, here are some guidelines to help you along.</p>
+<h2 is-upgraded="">Extend the main scene with an "Add" button</h2>
+<p>The first task is to extend the main window with the "Add" button. Edit the <code>ListScene.fxml</code> file with the Scene Builder to do so.</p>
+<p>Next, you should extend the <code>ListController</code> so it can handle the event when the user clicks on the button. As a quick test, just have it print something on the console for now.</p>
+<h2 is-upgraded="">Design the "Create CD" scene</h2>
+<p>Once the "Add" button can print something, work on a first version of the FXML file for the "Create CD" dialog. Some pointers:</p>
+<ul>
+<li>First of all, think of which containers you might want to use. You will generally want to combine different containers. Hint: our model solution uses three different ones.</li>
+<li>Once you have the containers figured out, place the various components, without worrying too much about the exact looks:  <ul>
+<li>4 labels</li>
+<li>1 checkbox</li>
+<li>2 text fields</li>
+<li>2 sliders</li>
+<li>2 buttons</li>
+</ul>
+</li>
+<li>After that, tweak the options in the sliders. You will want to change the minimum/maximum values, the major tick units and the minor tick counts between each pair of major ticks.</li>
+<li>Add <code>fx:id</code>s for the text fields, the checkbox, the sliders, and the labels next to the "Playing time" and "Number of tracks" sliders.</li>
+<li>Add "onAction" handlers to the "Create" and "Cancel" buttons.</li>
+</ul>
+<p>Your JavaFX Scene Builder preview should show a window that roughly looks like the one from the previous screenshots. You will have time to make it look nicer later. It is more important to add behaviour right now.</p>
+<h2 is-upgraded="">Write the skeleton of the "Create CD" controller</h2>
+<p>Create a skeleton of the controller class for your new window. To do this, the easiest way is to go through your <code>.fxml</code> file:</p>
+<ul>
+<li>For each <code>&lt;Type ... fx:id="abc"&gt;</code>, add an <code>@FXML private Type abc;</code> field.</li>
+<li>For each <code>onAction="#yourMethod"</code>, add an <code>@FXML public void yourMethod() {}</code> method.</li>
+</ul>
+<p>It is a good idea to copy and paste names from the <code>.fxml</code> file to your Java code, to avoid wasting time on typos. Leave the event handler methods empty for now.</p>
+<h2 is-upgraded="">Making "Add" display the "Create CD" dialog</h2>
+<p>Go back to <code>ListController</code> and revise the event handler for the "Add" button, having it create a new <code>Stage</code> that displays the "Add" scene you just designed. The new window should be modal, i.e. it should not be possible to interact with the main dialog until it is closed. You may want to consult the code of the <code>removePressed</code> method in the <code>ListController</code> for pointers on how to do this.</p>
+<p>Check now that you can run the program, click on the "Add" button and see the window appear. Try clicking on the "Remove" button while "Add" is open: it shouldn't activate. Try closing the "Add" window and then clicking on "Remove": it should work now. Close the program for now.</p>
+<h2 is-upgraded="">Making the sliders in "Create CD" update</h2>
+<p>Go to the controller for your "Add" window and make sure that the labels next to the sliders update whenever the value of the slider changes.</p>
+<p>To do so, you will want to have an <code>initialize</code> method in your controller, which you will use to add listeners on the <code>valueProperty()</code> of the <code>Slider</code>s and react accordingly. Listening to properties was discussed at the end of the second JavaFX lecture.</p>
+<p>Launch the program, make sure the labels update when the sliders are manipulated, then close and go to the next step.</p>
+<h2 is-upgraded="">Creating the CD when confirmed</h2>
+<p>Time to do the last bit: fill in the event handlers for the "Create" and "Cancel" buttons in the "Add" dialog.</p>
+<p>The "Create" button should create the <code>CD</code> object from the current values in the form, add it to the <code>Database</code> and hide the window. Remember to use the checked/unchecked status of the "Own" checkbox (<code>Item</code> has a <code>setOwn</code> method).</p>
+<p>The "Cancel" button should simply hide the window, without making any changes to the <code>Database</code>.</p>
+<p>You should be able to see the new CD in the main window immediately: the <code>ListView</code> should have reacted to the change in the <code>itemsProperty()</code> of the<code>Database</code> automatically.</p>
+<h2 is-upgraded="">Fine tuning the resizing of the "Create CD" dialog</h2>
+<p>The last part is to improve the layout and styling of your "Create CD" dialog, so it looks closer to the picture.</p>
+<p>Open your <code>.fxml</code> file again in the Scene Builder and fine tune the way your components react to changes in the size of the window. Consider alignment, horizontal/vertical growth, margins, padding, spacing and preferred/maximum sizes. Do not worry about minimal sizes for this lab.</p>
+<p>Use the "Preview" menu and try resizing the window. The text fields and sliders should take up any additional space, and the buttons should stay at the bottom of the window.</p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Submit to AutoFeedback and Blackboard" duration="0" step="5"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">5. Submit to AutoFeedback and Blackboard</h2>
+        <p>Now that you have completed the task, you should use the <code>Submit Assessed JavaFX Lab to AutoFeedback</code> file that corresponds to your operating system to submit your code to AutoFeedback.</p>
+<p>For the details on how to use AutoFeedback, please refer to the last section of Lab 1.</p>
+<p>In this lab, we didn't ask you to write any tests: instead, AutoFeedback has its own tests that check the various things you should have done as part of this lab. Keep in mind that many of the tests are brought over from the preparatory lab: those do not give you marks. The ones that count for marks are marked accordingly, and they are mostly in <code>CreateCDFXMLTest</code>, <code>ListSceneFXMLTest</code>, and <code>MainWindowTest</code>. These tests add up to the same 15 marks as the marking scheme: you mark will be the same as on AutoFeedback unless otherwise noted.</p>
+<aside class="warning"><p>Make sure that you submit your code to Blackboard by the deadline, even if you do not pass all the tests. You can still get partial marks: see the marking scheme earlier in the worksheet.</p>
+</aside>
+
+
+      </div></div></google-codelab-step></div><div id="controls"><div id="fabs"><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2232304-dt-content-rid-15249818_1/courses/2020_CS1OOP_P1_P2/TP2/week09-exceptions/oop-javafx-assessed/index.html#" id="previous-step" title="Previous step">Back</a><div class="spacer"></div><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2232304-dt-content-rid-15249818_1/courses/2020_CS1OOP_P1_P2/TP2/week09-exceptions/oop-javafx-assessed/index.html#" id="next-step" title="Next step">Next</a><a href="https://vle.aston.ac.uk/" id="done" hidden="" title="Codelab complete">Done</a></div></div></div></google-codelab>
+
+  <script src="./CS1OOP Lab (GUI Prep)_files/native-shim.js.download"></script>
+  <script src="./CS1OOP Lab (GUI Prep)_files/custom-elements.min.js.download"></script>
+  <script src="./CS1OOP Lab (GUI Prep)_files/prettify.js.download"></script>
+  <script src="./CS1OOP Lab (GUI Prep)_files/codelab-elements.js.download"></script>
+  <script src="./CS1OOP Lab (GUI Prep)_files/api.js.download"></script>
+
+
+
+</body></html>

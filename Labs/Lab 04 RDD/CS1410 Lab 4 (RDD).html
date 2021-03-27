@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<!-- saved from url=(0145)https://vle.aston.ac.uk/bbcswebdav/pid-2187684-dt-content-rid-14871317_1/courses/2020_CS1OOP_P1_P2/TP2/week04-int2-rdd/jpd-2021-lab4/index.html#0 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  
+  <title>CS1410 Lab 4 (RDD)</title>
+  <link rel="stylesheet" href="./CS1410 Lab 4 (RDD)_files/css">
+  <link rel="stylesheet" href="./CS1410 Lab 4 (RDD)_files/icon">
+  <link rel="stylesheet" href="./CS1410 Lab 4 (RDD)_files/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+<script src="./CS1410 Lab 4 (RDD)_files/analytics.js.download"></script></head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14" environment="web" category="null"></google-codelab-analytics>
+  <google-codelab codelab-gaid="" id="jpd-2021-lab4" environment="web" feedback-link="mailto:a.garcia-dominguez@aston.ac.uk" selected="0" google-codelab-ready="" codelab-title="CS1410 Lab 4 (RDD)" anayltics-ready="anayltics-ready"><div id="drawer"><div class="codelab-time-container" style="display: none;"></div><div class="steps"><ol><li completed="" selected=""><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2187684-dt-content-rid-14871317_1/courses/2020_CS1OOP_P1_P2/TP2/week04-int2-rdd/jpd-2021-lab4/index.html#0"><span class="step"><span>Welcome</span></span></a></li><li><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2187684-dt-content-rid-14871317_1/courses/2020_CS1OOP_P1_P2/TP2/week04-int2-rdd/jpd-2021-lab4/index.html#1"><span class="step"><span>Importing the project</span></span></a></li><li><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2187684-dt-content-rid-14871317_1/courses/2020_CS1OOP_P1_P2/TP2/week04-int2-rdd/jpd-2021-lab4/index.html#2"><span class="step"><span>From English to CRC cards: a walkthrough</span></span></a></li><li><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2187684-dt-content-rid-14871317_1/courses/2020_CS1OOP_P1_P2/TP2/week04-int2-rdd/jpd-2021-lab4/index.html#3"><span class="step"><span>Using Random to simulate random events</span></span></a></li><li><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2187684-dt-content-rid-14871317_1/courses/2020_CS1OOP_P1_P2/TP2/week04-int2-rdd/jpd-2021-lab4/index.html#4"><span class="step"><span>Implementing Grid: 2D arrays</span></span></a></li><li><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2187684-dt-content-rid-14871317_1/courses/2020_CS1OOP_P1_P2/TP2/week04-int2-rdd/jpd-2021-lab4/index.html#5"><span class="step"><span>Implementing GridCell: adjacent cells</span></span></a></li><li><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2187684-dt-content-rid-14871317_1/courses/2020_CS1OOP_P1_P2/TP2/week04-int2-rdd/jpd-2021-lab4/index.html#6"><span class="step"><span>Environmentally-friendly foxes with interface inheritance</span></span></a></li><li><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2187684-dt-content-rid-14871317_1/courses/2020_CS1OOP_P1_P2/TP2/week04-int2-rdd/jpd-2021-lab4/index.html#7"><span class="step"><span>Submit to AutoFeedback and Blackboard</span></span></a></li></ol></div><div class="metadata"><a target="_blank" href="mailto:a.garcia-dominguez@aston.ac.uk"><i class="material-icons">bug_report</i> Report a mistake</a></div></div><div id="codelab-title"><div id="codelab-nav-buttons"><a href="https://vle.aston.ac.uk/" id="arrow-back"><i class="material-icons">close</i></a><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2187684-dt-content-rid-14871317_1/courses/2020_CS1OOP_P1_P2/TP2/week04-int2-rdd/jpd-2021-lab4/index.html#" id="menu"><i class="material-icons">menu</i></a></div><h1 is-upgraded="" class="title">CS1410 Lab 4 (RDD)</h1><div class="codelab-time-container" style="display: none;"></div><devsite-user></devsite-user></div><div id="main"><div id="steps"><google-codelab-step label="Welcome" duration="0" step="1" selected=""><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">1. Welcome</h2>
+        <p>This is the fourth lab of term 2 of the CS1OOP module. Work through every section of this lab in sequence, and be careful of not missing any steps.</p>
+<h2 is-upgraded="">Introduction</h2>
+<p>In this lab you will complete the code for a small simulation about a natural environment, with foxes and rabbits moving around and interacting with each other. You will then make the foxes a bit more mindful of not eating all the rabbits.</p>
+<h2 is-upgraded="">What you should already know</h2>
+<p>You should be able to:</p>
+<ul>
+<li>Create classes and add fields and methods to them</li>
+<li>Create interfaces and add methods to them</li>
+<li>Write conditionals (<code>if (condition) {} else {}</code>)</li>
+<li>Write loops (at least <code>for (;;)</code> and <code>for (e : l)</code>)</li>
+<li>Work with regular one-dimensional arrays (<code>T[]</code>)</li>
+<li>Work with <code>ArrayList</code>s</li>
+<li>Understand the concept of a "responsibility" from Responsibility-Driven Design</li>
+</ul>
+<h2 is-upgraded="">What you'll need</h2>
+<p>You will need a computer with this software installed:</p>
+<ul>
+<li>A Java 11 or newer JDK: download it from <a href="https://www.oracle.com/java/technologies/javase-downloads.html#JDK11" target="_blank">Oracle</a> or <a href="https://adoptopenjdk.net/" target="_blank">AdoptOpenJDK</a></li>
+<li><a href="https://www.eclipse.org/downloads/packages/release/2020-12/r/eclipse-ide-java-developers" target="_blank">Eclipse for Java Developers</a></li>
+</ul>
+<p>If you are using a lab computer or a student VDI machine, launch Eclipse 2019-06 through AstonApps (you will need to launch Java 11.0.5 first). Eclipse will start on its default workspace, which already has all dependencies set up. Eclipse should ask you to pick a workspace folder: you should pick a folder in your home drive (e.g. <code>H:\CS1OOP\eclipse</code>), so your projects are created inside that folder and are preserved after you turn off the lab PC.</p>
+<h2 class="checklist" is-upgraded="">What you'll learn</h2>
+<ul class="checklist">
+<li>How to simulate random events and draw random values in a range with the Java <code>Random</code> class.</li>
+<li>How to turn responsibilities from CRC cards into code in a step-by-step basis.</li>
+<li>How to create arrays of arrays (<code>T[][]</code>) and work with them.</li>
+<li>How to use nested loops to find adjacent cells within a grid.</li>
+<li>How to use inheritance extension to mark certain classes as having additional useful methods to others, without coupling classes directly to each other.</li>
+</ul>
+<h2 is-upgraded="">What you'll do</h2>
+<p>As a quick summary:</p>
+<ul>
+<li>You will read a walkthrough that shows how we create CRC cards from a plain English description of the system.</li>
+<li>You will translate two of the CRC cards to actual Java code, while learning how to construct and populate arrays of arrays (<em>two-dimensional</em> arrays) in Java and practicing with nested loops.</li>
+<li>You will adapt the code to have most classes rely on an interface instead of a base class for flexibility, and use a subinterface to allow a <code>Simulator</code> class to provide more information to certain classes without explicitly knowing their names.</li>
+</ul>
+<p>Check the next sections for the details!</p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Importing the project" duration="0" step="2"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">2. Importing the project</h2>
+        <p>Download the starting code from Blackboard. You don't need to unpack the <code>.zip</code> file.</p>
+<p>Import the project by using "File - Import - Existing Projects into Workspace", then pick "Archive file" and select the <code>.zip</code> file you downloaded.</p>
+<p>One project called <code>uk.ac.aston.oop.rdd</code> should come up. Press OK to import this project.</p>
+<aside class="warning"><p>You will notice that the project will have a number of compilation errors. This is OK: we have removed large pieces of the code, and we expect you to write that code as part of your lab.</p>
+<p>At some points, this means you will get a warning from Eclipse asking if you would like to proceed with running the program even with errors: for sections 4 and 5, just click on "Proceed". From the end of section 6, the program should run with no errors about compilation issues.</p>
+</aside>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="From English to CRC cards: a walkthrough" duration="0" step="3"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">3. From English to CRC cards: a walkthrough</h2>
+        <p>In this lab, we will complete the implementation of a system based on a set of CRC cards. The CRC cards have already been produced from an English description of the system, which we wrote after talking to our client. Before working on the next sections, read through this section, which explains what the system does and creates the CRC cards from it. You will be writing Java code based on the CRC cards.</p>
+<h2 is-upgraded="">Description of the system</h2>
+<p>We are creating a simulator of a natural environment, where different kinds of animals interact with each other in a field. After much discussion, we have extracted the following requirements for the simulator from our client:</p>
+<ul>
+<li>The field is organized into a grid of rows and columns: each grid cell can have zero or more animals.</li>
+<li>The simulator runs for a number of steps: in each step, animals will act according to their own rules.</li>
+<li>Animals die when they reach a certain age (measured in steps).</li>
+<li>On each step, under a certain probability animals will breed a litter of a random size on random adjacent positions.</li>
+<li>Two kinds of animals are needed:  <ul>
+<li>Rabbits will just move to a random adjacent position of the field.</li>
+<li>Foxes will try to hunt a Rabbit in an adjacent position: if there isn't one, it will move to a random adjacent position.</li>
+</ul>
+</li>
+<li>Before the first step of the simulation, it should populate the field, looping over each cell and adding a rabbit or a fox under a certain probability.</li>
+<li>After each step, we want to show on the screen what the field looks like, and how many there are of each type.</li>
+</ul>
+<aside class="special"><p>This simulation is a simplification of the "Foxes and Rabbits" simulation in the "Objects First with Java" book that is in the reading list. Give it a look if you want to see a more complete example, with foxes going hungry, random initial ages for the starting populations and other details!</p>
+</aside>
+<h2 is-upgraded="">Identifying the candidates</h2>
+<p>We start looking for the various candidates in this program. We have identified the following:</p>
+<ul>
+<li>Animal</li>
+<li>Field</li>
+<li>Fox</li>
+<li>Grid</li>
+<li>Rabbit</li>
+<li>Simulator</li>
+<li>Launcher: we added this one, as showing things on the screen and interacting with the user should not be responsibilities of the field or the simulator. This way, we improve the cohesion of Simulator and Field (they are focused on the simulation and on organising things), and in the we can design different kinds of user interfaces in the future.</li>
+</ul>
+<p>A few things did not make the cut to be a candidate:</p>
+<ul>
+<li>Rows and columns could be just positions in an array, so we don't need a class for them.</li>
+<li>Likewise, steps would just be calls to a function, so they wouldn't count as candidates.</li>
+<li>Age would be just a number that we will keep in Animal.</li>
+<li>A litter is just a collection of Animal objects, we could use the Java ArrayList class for it.</li>
+</ul>
+<p>We will explain how to simulate random events that happen under a certain probability later in the lab: Java has a Random class for it.</p>
+<h2 is-upgraded="">Front of the CRC cards</h2>
+<p>The next step is to think about the roles, then write a few sentences on the front of the card fleshing out how the candidate fits that role. This gives us the front of the cards:</p>
+<p class="image-container"><img alt="Animal CRC card - front" src="./CS1410 Lab 4 (RDD)_files/53d3a7536356c660.png"></p>
+<p class="image-container"><img alt="Field CRC card - front" src="./CS1410 Lab 4 (RDD)_files/95ca96af40b218aa.png"></p>
+<p class="image-container"><img alt="Fox CRC card - front" src="./CS1410 Lab 4 (RDD)_files/9a6b6d580e454f8b.png"></p>
+<p class="image-container"><img alt="Grid CRC card - front" src="./CS1410 Lab 4 (RDD)_files/8b868d50e04e1909.png"></p>
+<p class="image-container"><img alt="GridCell CRC card - front" src="./CS1410 Lab 4 (RDD)_files/6b47730fbabfc1c8.png"></p>
+<p class="image-container"><img alt="Rabbit CRC card - front" src="./CS1410 Lab 4 (RDD)_files/270b34f7d86bf26a.png"></p>
+<p class="image-container"><img alt="Simulator CRC card - front" src="./CS1410 Lab 4 (RDD)_files/f9e56affff1cd3a2.png"></p>
+<p class="image-container"><img alt="Launcher CRC card - front" src="./CS1410 Lab 4 (RDD)_files/e07a7800e6904878.png"></p>
+<h2 is-upgraded="">Back of the CRC cards</h2>
+<p>We have to think about what the responsibilities for each class should be. Usually these will be based on the purposes, but we will usually flesh them out a bit more. For instance, we have to think carefully about who is responsible for creating instances of the other classes. Sometimes we have to consider who to give a particular responsibility to, as there may be multiple options. Doing this exercise can tell us if we're giving a single class too many different responsibilities (low cohesion, which is bad).</p>
+<p>After we have decided on the responsibilities, we will read each responsibility in our minds, and think about who each class will need to talk to in order to achieve that responsibility. That will give us the collaborators: they are a useful tool to see if a class is related to too many things at once (high coupling, which is bad).</p>
+<p>Having thought these out, we can draw the responsibilities. We will go now through the backs of the cards, and talk a bit about some of them.</p>
+<h3 is-upgraded="">Animal</h3>
+<p class="image-container"><img alt="Animal CRC card - back" src="./CS1410 Lab 4 (RDD)_files/edc339cdd087dc74.png"></p>
+<p>This is an interesting one: we are considering it as a base class for the specific kinds of animal we will do later (Fox and Rabbit). It's mostly to avoid repetition between the specific kinds of animals.</p>
+<p>You will see that it mentions probabilities: the thing is that probably Animal itself doesn't know the exact probability, as it depends on the specific animal. It does know it needs <em>a</em> probability for breeding, for instance, so most likely this will become an abstract method (a gap for subclasses to fill) when implemented in Java.</p>
+<h3 is-upgraded="">Field</h3>
+<p class="image-container"><img alt="Field CRC card - back" src="./CS1410 Lab 4 (RDD)_files/c40802e591ad7d2e.png"></p>
+<p>You will notice the mention of "Creates". This is something you may not focus on too much while doing the front of the cards, but someone has to create  the grid at some point!</p>
+<h3 is-upgraded="">Fox</h3>
+<p class="image-container"><img alt="Fox CRC card - back" src="./CS1410 Lab 4 (RDD)_files/2e0db643765c7fa9.png"></p>
+<p>Nothing too interesting here - we just add an extra responsibility to hunt on top of Animal.</p>
+<h3 is-upgraded="">Grid</h3>
+<p class="image-container"><img alt="Grid CRC card - back" src="./CS1410 Lab 4 (RDD)_files/ab4a92d1193c2068.png"></p>
+<p>This one is responsible for creating the cells, and it has a certain width and height. Most likely, we will just specify the width + height in the constructor and make it create and arrange all the cells.</p>
+<h3 is-upgraded="">GridCell</h3>
+<p class="image-container"><img alt="GridCell CRC card - back" src="./CS1410 Lab 4 (RDD)_files/e82c8b0f15a13f23.png"></p>
+<p>Note that here, we decided to give the responsibilities of knowing the adjacent cells to the GridCell rather than to the Grid. We decided to do this by playing out in our heads the two possibilities when starting from a Grid and when starting from a GridCell:</p>
+<ul>
+<li>With GridCell taking on the responsibility of giving adjacent cells:  <ul>
+<li>I have a Grid - I ask the Grid to give me the GridCell at (row, column), and I ask the GridCell to give me its adjacent cells.</li>
+<li>I have a GridCell - I ask it to give me its adjacent cells.</li>
+</ul>
+</li>
+<li>With Grid taking on the responsibility of giving adjacent cells:  <ul>
+<li>I have a Grid - I ask the GridCell to give me its row and column, and I ask the Grid to give me the adjacent cells at (row, column).</li>
+<li>I have a GridCell - I ask it to give me its Grid, row, and column, then I ask its Grid to give me the adjacent cells at (row, column).</li>
+</ul>
+</li>
+</ul>
+<p>Just by wording it out like this, you can see that if GridCell takes on the responsibility the interactions are similar for when I start from a Grid, but much simpler for when I start from a GridCell. This is how you sometimes decide between two different design options, by playing out how it would work before you write a single line of code.</p>
+<h3 is-upgraded="">Rabbit</h3>
+<p class="image-container"><img alt="Rabbit CRC card - back" src="./CS1410 Lab 4 (RDD)_files/13f39cc5dd1bc73e.png"></p>
+<p>Again, just adding some responsibilities on top of Animal.</p>
+<h3 is-upgraded="">Simulator</h3>
+<p class="image-container"><img alt="Simulator CRC card - back" src="./CS1410 Lab 4 (RDD)_files/cf3faeb1ad8018bf.png"></p>
+<p>It does have quite a few responsibilities, but it is not trying to do <em>everything</em>. This is the point of distributing responsibilities: you don't end up with one big mess of a class that tries to do everything!</p>
+<p>Again, don't worry about the "randomness" part: next section will be about how to simulate random numbers with Java. There is something that is not said directly here: if we are populating a field randomly, we'll need to know the probability of putting a Fox or a Rabbit in each cell as well. Sometimes, some of the responsibilities can be just inferred from the existing ones. It's a matter of style whether you write them all or only the ones that cannot be inferred from the others.</p>
+<h3 is-upgraded="">Launcher</h3>
+<p class="image-container"><img alt="Launcher CRC card - back" src="./CS1410 Lab 4 (RDD)_files/81269a60ea50a307.png"></p>
+<p>We need to have a <code>main()</code> in our program and show something on the screen, but ideally we'd want to keep the simulation itself independent of any user interface. We may want in future labs to give this a nicer look with a graphical user interface, so we want to keep the simulation and the user interface decoupled from each other.</p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Using Random to simulate random events" duration="0" step="4"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">4. Using Random to simulate random events</h2>
+        <p>In general, computers are deterministic: given the same inputs, you will get the same result. However, sometimes we need to have random events in programs:</p>
+<ul>
+<li>In the above simulation, at each step each animal will do some things under certain probabilities (e.g. animals breeding in our simulation).</li>
+<li>Other times, we will need to draw a random value from a range (e.g. deciding on a random free adjacent location).</li>
+</ul>
+<p>One way would be to plug your computer to a source of real "random" data, like an antenna that collects atmospheric noise, but most of the time we don't need "true" randomness. Instead, we will "fake" the random events by using what is known as a <a href="https://en.wikipedia.org/wiki/Pseudorandom_number_generator" target="_blank"><em>pseudo-random number generator</em></a> (PRNG). PRNGs are algorithms that use an initial "seed" value to produce a sequence of "random-looking" (hence the "pseudo-random" part) numbers that match a certain probability distribution. The Java standard libraries include the <code>Random</code> class in the <code>java.util</code> package, which implements a PRNG for the uniform distribution (where all options are equally likely): this is enough for our simulation.</p>
+<p>Before we start with the simulation, you should first get a feel for how <code>Random</code> works. Follow these steps:</p>
+<p><em>Step 1.</em> Open the <code>LearnRandom</code> class in the <code>uk.ac.aston.oop.rdd</code> package. You will see that it's a fairly simple class: <code>main()</code> creates a <code>Random</code> object and gives it to <code>useRandom()</code>, which is currently empty. Let's add some code at the beginning of <code>useRandom()</code>. Inside a loop that runs 10 times, do these things:</p>
+<ol type="1">
+<li>Call <code>rnd.nextDouble()</code> and store the result in a variable named <code>p</code> of type <code>double</code>. This will produce a random number which is uniformly distributed between 0 and 1.</li>
+<li>If <code>p</code> is less than 0.20, use <code>System.out</code> to print a message saying "The random event with probability 20% took place". In general, if you need to simulate an event taking place with a probability of P% at each step of the simulation, you need to compare the result of <code>rnd.nextDouble()</code> with <code>P/100.0</code>.</li>
+</ol>
+<p><em>Step 2.</em> Try running <code>LearnRandom</code> a few times by right-clicking on it in the "Package Explorer" and selecting "Run As - Java Application". If you get any warnings about errors, just click on Proceed: we will fix those errors later. How many times are you seeing that line of text in the output? Is it always the same number?</p>
+<p><em>Step 3.</em> Let's try to use <code>Random</code> to roll 6-sided dice. Add code at the end of <code>useRandom()</code> for another loop that runs 10 times, and follow these steps inside this loop:</p>
+<ol type="1">
+<li>Call <code>rnd.nextInt(6)</code> and store the result in a variable named <code>roll0</code> of type <code>int</code>. <code>rnd.nextInt(6)</code> will give you a random integer between 0 and 6 - 1 = 5, where each result is just as likely.</li>
+<li>Using <code>System.out</code>, print out the value of <code>roll0 + 1</code>: we add 1 in order to get numbers from 1 to 6, instead of getting numbers from 0 to 5.</li>
+</ol>
+<p><em>Step 4.</em> Try running the program a few more times (again, just click on "Proceed" when it mentions compilation issues). Do the dice rolls seem fair? Are the results always the same?</p>
+<p><em>Step 5.</em> You should have been seeing results that change on every run, because the "seed" value of the PRNG in <code>Random</code> has been different each time. When constructed without an explicit seed value (as in <code>new Random()</code>), Java will pick a value that is likely to change on each execution for you (most likely the current time, but not necessarily). Sometimes you will want to control the seed value in order to get a <em>repeatable</em> sequence of random-looking numbers. This is useful for testing, for instance: if you had a bug in your randomized simulation that only happened sometimes, you could note down the seed and recreate the problem by forcing <code>Random</code> to use it.</p>
+<p>Let's give our <code>Random</code> object a specific seed value. Change the <code>new Random()</code> at the beginning of the <code>main()</code> method to <code>new Random(42)</code>: this will make <code>Random</code> use 42 as its seed value.</p>
+<p><em>Step 6.</em> Try running the program a few times. Do you notice anything?</p>
+<p><em>Step 7.</em> Try changing 42 for something else and running the program a few more times. What is the difference?</p>
+<h2 is-upgraded="">Optional reading</h2>
+<ul>
+<li><a href="https://www.random.org/" target="_blank">Random.org</a> is a very, very old website that produces "true random" results from atmospheric noise.</li>
+<li>PRNGs are not the only option for generating "random-looking" data: for instance, <a href="https://www.youtube.com/watch?v=LWFzPP8ZbdU&amp;ab_channel=GDC" target="_blank">noise functions</a> have good applications for generating random- but also natural-looking terrain in videogames.</li>
+<li><code>Random</code> actually is not a very good PRNG, but it's convenient to use. <a href="https://www.javamex.com/tutorials/random_numbers/" target="_blank">There are other options</a> for Java.</li>
+</ul>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Implementing Grid: 2D arrays" duration="0" step="5"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">5. Implementing Grid: 2D arrays</h2>
+        <p>Having gained a grasp on how to simulate random events, we can now start to complete the code. First, we will need to write the code for the <code>Grid</code> class that is needed by the <code>Field</code> class that has already been implemented for you. Let's revisit the back of the card for <code>Grid</code> and write code so it can meet its responsibilities:</p>
+<p class="image-container"><img alt="Grid CRC card - back" src="./CS1410 Lab 4 (RDD)_files/ab4a92d1193c2068.png"></p>
+<p><em>Step 1.</em> Create the <code>Grid</code> and <code>GridCell</code> classes in the <code>uk.ac.aston.oop.rdd.sim</code> package. This is the package responsible for the simulation itself. Notice how the Grid CRC card mentions how it stores and retrieves <code>GridCell</code>s but it does not ask them to do anything: for <code>Grid</code>, having the <code>GridCell</code> class exist is enough.</p>
+<p><em>Step 2.</em> We know from the Grid CRC card that it "Has a width and height", so we need that information to be stored in <code>Grid</code> objects. First, add two private final <code>int</code> fields to <code>Grid</code>: one called <code>width</code>, and one called <code>height</code>. We want to make them final, as it would be very inconvenient to have the width and height change after we set up the <code>Grid</code>!</p>
+<p><em>Step 3.</em> If a field is <code>final</code>, it needs to be set from the constructor (to be never changed again). Add a constructor to <code>Grid</code> that takes the desired height (in rows) and width (in columns), <em>in that order</em>, and stores them in the <code>height</code> and <code>width</code> fields.</p>
+<p><em>Step 4.</em> Other classes will need to access the width and height of the <code>Grid</code>. Add a <code>getWidth()</code> method and a <code>getHeight()</code> method that return their values.</p>
+<p><em>Step 5.</em> The next responsibility in the card is "Creates and contains rows of GridCells". First, we will need to make <code>Grid</code> store those rows. Add a private final field called <code>rows</code> of type <code>GridCell[][]</code> (an array of arrays of <code>GridCell</code> objects). We want to make it final, because we do not want anyone making <code>rows</code> refer to a different array of arrays by mistake and losing our current elements.</p>
+<p>The next steps require having a good grasp on arrays. To help frame things, we are going to set up the <code>rows</code> variable like this:</p>
+<p class="image-container"><img alt="2D array" src="./CS1410 Lab 4 (RDD)_files/8c1803be49e3327a.png"></p>
+<p><code>rows</code> will point to an array of arrays with as many positions as we have rows. Then, each of those positions will point to an array with as many positions as we have columns. Each of those positions will have a GridCell object inside it.</p>
+<p><em>Step 6.</em> We need to set the value of <code>rows</code> in the constructor. Set <code>rows</code> to a new array with space for <code>height</code> rows of <code>GridCell</code>s (the height of the grid). Keep in mind that in order to create a new array of arrays of <code>T</code> (a <code>T[][]</code>) with space for <code>N</code> arrays, you will need to do <code>new T[N][]</code>.</p>
+<p><em>Step 7.</em> Just doing that won't be enough: at this stage, <code>rows</code> will just have <code>null</code> values in every position. Loop over every position of <code>rows</code> (e.g. start at <code>i=0</code> and increment while <code>i &lt; rows.length</code>), and do the following:</p>
+<ol type="1">
+<li>Set <code>rows[i]</code> to a new array of <code>GridCell</code>s with space for <code>width</code> positions.</li>
+<li>Loop over every position in <code>rows[i]</code>, and set it to a new <code>GridCell</code>.</li>
+</ol>
+<p><em>Step 8.</em> We only have one more responsibility to go: "Get GridCell by row and column". Add a <code>get</code> method that takes two integers (<code>row</code> and <code>column</code>, <em>in that order</em>), and returns the <code>GridCell</code> at that <code>row</code> and <code>column</code>. Check the figure above for the syntax on accessing a specific position within an array of arrays.</p>
+<p><em>Step 9.</em> We have set up AutoFeedback to allow you to do interim submissions in this lab. Try submitting to AutoFeedback now, and make sure that you pass <code>GridTest</code> before you go on. Don't worry about the other tests: we'll get to those later.</p>
+<h2 is-upgraded="">Optional</h2>
+<p>You don't really need the <code>width</code> and <code>height</code> fields. Can you come up with a way to implement <code>getWidth()</code> and <code>getHeight()</code> by just using <code>rows</code>?</p>
+<p><em>Hint</em>: use the <code>.length</code> field that every array has.</p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Implementing GridCell: adjacent cells" duration="0" step="6"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">6. Implementing GridCell: adjacent cells</h2>
+        <p>We have implemented <code>Grid</code>, and we can move on to <code>GridCell</code> now. Let's review the back of the card:</p>
+<p class="image-container"><img alt="GridCell CRC card - back" src="./CS1410 Lab 4 (RDD)_files/e82c8b0f15a13f23.png"></p>
+<p>Let's start writing code to meet those responsibilities. We will go in a certain order, tackling the most basic responsibilities first.</p>
+<p><em>Step 1.</em> The first one is "Contains Animals". You will need a field to store the animals, you will need to set it up when the <code>GridCell</code> is created, and you will need to provide a public method to let other classes access it. In more concrete terms:</p>
+<ol type="1">
+<li>Add a private field called <code>contents</code> of type <code>ArrayList&lt;Animal&gt;</code>. A normal array won't be good here, as we don't know how many animals may live in the same <code>GridCell</code>.</li>
+<li>Create a constructor that takes no parameters (for now), which sets <code>contents</code> to a new <code>ArrayList&lt;Animal&gt;</code>.</li>
+<li>Add a <code>getContents()</code> method that returns the <code>contents</code> so other classes can use it.</li>
+</ol>
+<p><em>Step 2.</em> The next one is "Knows row and column in the Grid". This means we need to store that information in the <code>GridCell</code>, and it has to be set from somewhere. Since cells shouldn't change row and column after they are created, we can make their fields final and set them from the constructor. Follow these steps:</p>
+<ol type="1">
+<li>Add two private final fields of type <code>int</code>, called <code>row</code> and <code>column</code>.</li>
+<li>Change the constructor so it also takes the <code>row</code> and <code>column</code> as parameters, and sets your new fields to their values.</li>
+<li>Change the constructor of <code>Grid</code> so it will pass the appropriate arguments when creating the <code>GridCell</code>s.</li>
+<li>Add <code>getRow()</code> and <code>getColumn()</code> methods that return their values.</li>
+</ol>
+<p><em>Step 3.</em> The third responsibility is "Knows Grid it belongs to". This relationship is needed to allow the <code>GridCell</code> to find out about its adjacent <code>GridCell</code>s in its <code>Grid</code>. Again, we will need a final field to keep this information (cells don't jump between grids!), a place to set it, and a place that other classes can access it from. Follow these steps:</p>
+<ol type="1">
+<li>Add a private final field of type <code>Grid</code> to the <code>GridCell</code> class. It should be called <code>grid</code>.</li>
+<li>Change the constructor of <code>GridCell</code> so it now takes a <code>Grid</code>, the <code>row</code>, and the <code>column</code> (in that order). In the constructor, set the <code>grid</code> field to the <code>Grid</code> that you have been given.</li>
+<li>Change the constructor of <code>Grid</code> so it will provide a reference to itself (<code>this</code>) when constructing the <code>GridCell</code> objects.</li>
+<li>Add a <code>getGrid()</code> method to <code>GridCell</code> that returns <code>grid</code>.</li>
+</ol>
+<p><em>Step 4.</em> We have all the basic responsibilities done, now it's time to do the more advanced ones! Let's continue with "Get the adjacent cells". To understand what we mean with adjacent, consider this figure, where adjacent cells to each of the labelled cells are colored:</p>
+<p class="image-container"><img alt="Adjacent cells" src="./CS1410 Lab 4 (RDD)_files/8fe6efb6c9b42395.png"></p>
+<p>"a" here is at a corner, so it only has three adjacent cells to it (we consider diagonal and orthogonal adjacency). "b" is at an edge, so it has a few more (5). "c" is in the middle of the grid, so it has the maximum of 8 adjacent cells. You need to add a method called <code>getAdjacent()</code> to <code>GridCell</code> that will return an <code>ArrayList&lt;GridCell&gt;</code> with all the adjacent cells. Here is one possible outline for the method:</p>
+<ol type="1">
+<li>Create a new <code>ArrayList&lt;GridCell&gt;</code> and put it a local variable called <code>results</code>.</li>
+<li>Consider the case of "c" from above: you may need to visit the row above, the row you are in, and the row below yours. Write a loop that goes from <code>row-1</code> to <code>row+1</code> (both included), and inside the loop:  <ol type="1">
+<li>Write a loop to visit the column to your left, your column, and the column to the right. It should go from <code>column-1</code> to <code>column+1</code> (both included), and in each iteration it should:  <ol type="1">
+<li>If the position you are visiting is your own position, do nothing.</li>
+<li>Otherwise, if the position is not valid (negative row/column, or it goes beyond the height/width of the Grid), do nothing.</li>
+<li>Otherwise, add the <code>GridCell</code> at that position in the <code>Grid</code> (use <code>grid.get(...)</code>) to the <code>results</code>.</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>Return the results.</li>
+</ol>
+<p><em>Step 5.</em> Next one is "Get free adjacent cells". For this one, you can rely on the "Get the adjacent cells" responsibility that you just implemented. Add a <code>getFreeAdjacent()</code> method that returns an <code>ArrayList&lt;GridCell&gt;</code> with only the cells from <code>getAdjacent()</code> that do not have any animals inside them. Remember that you can check if an <code>ArrayList</code> is empty by calling its <code>isEmpty()</code> method.</p>
+<p><em>Step 6.</em> Finally, the last one is "Get random free adjacent cell". Remember what we did in Step 3 on Section 4, where we rolled a die? We will be doing that here. Add a <code>getRandomFreeAdjacent</code> method that takes a <code>Random</code> parameter named <code>rnd</code>, and returns a <code>GridCell</code>. It should follow these steps:</p>
+<ol type="1">
+<li>Call <code>getFreeAdjacent()</code> and store the result in a local variable called <code>freeAdjacent</code>.</li>
+<li>If the result is an empty list, return <code>null</code>.</li>
+<li>Otherwise, pick a random position in <code>freeAdjacent</code> (combine <code>rnd.nextInt(...)</code> and <code>freeAdjacent.size()</code>) and return the <code>GridCell</code> in that position.</li>
+</ol>
+<p><em>Step 7.</em> By now, the simulation should run. Right-click on <code>Launcher</code> and select "Run As - Java Application". You should see the field evolve over each step of the simulation: <code>F</code>s are foxes, <code>r</code>s are rabbits, and <code>.</code> are empty spaces. The last step will be something like this (the exact situation will change, as we are using a <code>Random</code> without a predefined seed):</p>
+<pre><code><span class="typ">Step</span><span class="pun">:</span><span class="pln"> </span><span class="lit">49</span><span class="pln">
+</span><span class="typ">Foxes</span><span class="pun">:</span><span class="pln"> </span><span class="lit">75</span><span class="pln">
+</span><span class="typ">Rabbits</span><span class="pun">:</span><span class="pln"> </span><span class="lit">0</span><span class="pln">
+
+</span><span class="pun">...</span><span class="pln">F</span><span class="pun">..........................</span><span class="pln">
+</span><span class="pun">........................</span><span class="pln">FF</span><span class="pun">....</span><span class="pln">
+</span><span class="pun">......</span><span class="pln">F</span><span class="pun">..................</span><span class="pln">F</span><span class="pun">..</span><span class="pln">F</span><span class="pun">.</span><span class="pln">
+</span><span class="pun">..</span><span class="pln">F</span><span class="pun">.....................</span><span class="pln">F</span><span class="pun">....</span><span class="pln">F
+</span><span class="pun">....................</span><span class="pln">F</span><span class="pun">.....</span><span class="pln">FFF</span><span class="pun">.</span><span class="pln">
+</span><span class="pun">.................</span><span class="pln">F</span><span class="pun">.....</span><span class="pln">F</span><span class="pun">......</span><span class="pln">
+</span><span class="pun">...................</span><span class="pln">F</span><span class="pun">........</span><span class="pln">F</span><span class="pun">.</span><span class="pln">
+</span><span class="pun">......</span><span class="pln">F</span><span class="pun">..</span><span class="pln">F</span><span class="pun">..</span><span class="pln">F</span><span class="pun">.....</span><span class="pln">F</span><span class="pun">..........</span><span class="pln">F
+</span><span class="pun">.</span><span class="pln">FF</span><span class="pun">...........................</span><span class="pln">
+</span><span class="pun">......</span><span class="pln">F</span><span class="pun">..</span><span class="pln">F</span><span class="pun">..</span><span class="pln">FF</span><span class="pun">................</span><span class="pln">
+</span><span class="pun">.</span><span class="pln">F</span><span class="pun">...........</span><span class="pln">F</span><span class="pun">...</span><span class="pln">F</span><span class="pun">....</span><span class="pln">F</span><span class="pun">.......</span><span class="pln">
+</span><span class="pun">.......</span><span class="pln">F</span><span class="pun">.</span><span class="pln">F</span><span class="pun">....................</span><span class="pln">
+</span><span class="pun">...................</span><span class="pln">F</span><span class="pun">.......</span><span class="pln">F</span><span class="pun">..</span><span class="pln">
+F</span><span class="pun">.....................</span><span class="pln">F</span><span class="pun">.......</span><span class="pln">
+</span><span class="pun">..</span><span class="pln">F</span><span class="pun">.....</span><span class="pln">F</span><span class="pun">.....................</span><span class="pln">
+</span><span class="pun">.</span><span class="pln">FF</span><span class="pun">.......</span><span class="pln">F</span><span class="pun">.......</span><span class="pln">F</span><span class="pun">...........</span><span class="pln">
+F</span><span class="pun">.............................</span><span class="pln">
+</span><span class="pun">.......</span><span class="pln">F</span><span class="pun">........</span><span class="pln">FF</span><span class="pun">.......</span><span class="pln">F</span><span class="pun">....</span><span class="pln">
+</span><span class="pun">...........</span><span class="pln">F</span><span class="pun">...</span><span class="pln">F</span><span class="pun">.</span><span class="pln">F</span><span class="pun">......</span><span class="pln">F</span><span class="pun">.....</span><span class="pln">
+</span><span class="pun">.............</span><span class="pln">F</span><span class="pun">.............</span><span class="pln">F</span><span class="pun">..</span><span class="pln">
+</span><span class="pun">.......</span><span class="pln">F</span><span class="pun">...</span><span class="pln">F</span><span class="pun">....</span><span class="pln">F</span><span class="pun">.............</span><span class="pln">
+</span><span class="pun">.</span><span class="pln">F</span><span class="pun">..........</span><span class="pln">F</span><span class="pun">.................</span><span class="pln">
+</span><span class="pun">........</span><span class="pln">F</span><span class="pun">.</span><span class="pln">F</span><span class="pun">...........</span><span class="pln">F</span><span class="pun">....</span><span class="pln">F</span><span class="pun">..</span><span class="pln">
+</span><span class="pun">......</span><span class="pln">FFF</span><span class="pun">.......</span><span class="pln">F</span><span class="pun">......</span><span class="pln">F</span><span class="pun">......</span><span class="pln">
+</span><span class="pun">..............................</span><span class="pln">
+</span><span class="pun">.......</span><span class="pln">F</span><span class="pun">..........</span><span class="pln">F</span><span class="pun">...........</span><span class="pln">
+</span><span class="pun">....</span><span class="pln">F</span><span class="pun">....................</span><span class="pln">F</span><span class="pun">....</span><span class="pln">
+</span><span class="pun">..............................</span><span class="pln">
+</span><span class="pun">...</span><span class="pln">F</span><span class="pun">..........................</span><span class="pln">
+</span><span class="pun">..................</span><span class="pln">F</span><span class="pun">...........</span></code></pre>
+<p><em>Step 8.</em> Submit your current code to AutoFeedback, and check that it passes all the <code>GridTests</code> and <code>GridCellTests</code> before you continue.</p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Environmentally-friendly foxes with interface inheritance" duration="0" step="7"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">7. Environmentally-friendly foxes with interface inheritance</h2>
+        <p>You may have noticed in a few simulations that all rabbits end up being eaten. We may want to make foxes a bit more careful of not eating all the rabbits! Before we do that, we will try to generalize our simulation so it can work with anything that can <code>act</code> and be put on a cell of a field: we will call that an <code>Actor</code>. After we do that, we will create a particular kind of <code>Actor</code>: a <code>CountAwareActor</code> that can take into account how many actors of a certain kind remain in the simulation. We will then have <code>Fox</code> implement <code>CountAwareActor</code> and be more mindful of how many rabbits are left, and have <code>Simulation</code> tell <code>CountAwareActor</code>s about how many rabbits are left before they <code>act</code>.</p>
+<p>That's quite a bit, so let's go step by step!</p>
+<h2 is-upgraded="">Introduce an Actor interface</h2>
+<p><em>Step 1.</em> Create a new interface called <code>Actor</code> in the <code>uk.ac.aston.oop.rdd.sim</code> package, by right-clicking on the package in the "Package Explorer" and selecting "New - Interface". Copy over the declarations of the <code>getCell()</code>, <code>setCell()</code>, <code>getField()</code>, <code>setField()</code> and <code>act()</code> methods from <code>Animal</code> to the interface, but remove the body (remember that non-default methods in interfaces do not have a body).</p>
+<p><em>Step 2.</em> Make <code>Animal</code> implement <code>Actor</code>, and add <code>@Override</code> annotations to the methods it is implementing from <code>Actor</code>: <code>getCell()</code>, <code>setCell()</code>, <code>getField()</code>, <code>setField()</code> and <code>act()</code>. <code>@Override</code> protects you against minor typos and problems that mean you wouldn't really be implementing something from <code>Actor</code>.</p>
+<p><em>Step 3.</em> Change all mentions of <code>Animal</code> in <code>Launcher</code>, <code>Field</code>, <code>GridCell</code> and <code>Simulator</code> to use <code>Actor</code> instead. In the <code>Fox</code> class, replace the mention of <code>Animal</code> in the <code>findAdjacentRabbit()</code> method to <code>Actor</code> as well.</p>
+<p><em>Step 4.</em> Run <code>Launcher</code> again, checking that the simulation works just like before. What we have done is ensuring most of the program is independent of the details of the <code>Animal</code> hierarchy: strictly speaking, extending the simulation only requires implementing the methods in <code>Actor</code>.</p>
+<h2 is-upgraded="">Create a CountAwareActor subinterface</h2>
+<p><em>Step 5.</em> We now want to create a special kind of <code>Actor</code> that can take into account how many of a certain type of <code>Actor</code> exists elsewhere in the simulation. For instance, foxes that stop hunting if there aren't many rabbits left. Create a new <code>CountAwareActor</code> interface in the <code>uk.ac.aston.oop.rdd.sim</code> package, and make it extend <code>Actor</code>.</p>
+<p><em>Step 6.</em> Add to <code>CountAwareActor</code> a method called <code>setActorCount</code>, which doesn't return anything, and takes two parameters: a <code>Class</code> called <code>actorClass</code>, and an <code>int</code> called count. It should have no body (instead of the usual <code>{}</code>, just add a semicolon).</p>
+<h2 is-upgraded="">Make Fox implement CountAwareActor</h2>
+<p><em>Step 7.</em> Make <code>Fox</code> implement <code>CountAwareActor</code> in addition to extending <code>Animal</code>. This means that a <code>Fox</code> now is-an <code>Animal</code>, is-an <code>Actor</code>, <em>and</em> is-a <code>CountAwareActor</code>. You will notice a red wavy underline around <code>public class Fox</code>: this is the Java compiler complaining we haven't implemented the <code>setActorCount</code> method in <code>CountAwareActor</code>. The easiest solution is to left click on the lightbulb on the left of that line of code, and left click on "Add unimplemented methods". Eclipse will add an empty version of <code>setActorCount</code> for you at the end of the class.</p>
+<p><em>Step 8.</em> Before we finish implementing <code>setActorCount</code>, we need to add two new variables to <code>Fox</code>. First, add a public <code>static final double</code> variable called <code>DEFAULT_HUNT_PROBABILITY</code> and set it to 1. Then, add a private <code>double</code> variable called <code>huntProbability</code>, and set it to <code>DEFAULT_HUNT_PROBABILITY</code> when the <code>Fox</code> is created.</p>
+<p><em>Step 9.</em> Scroll down to <code>setActorCount</code>, and add code to it so it follows these steps:</p>
+<ol type="1">
+<li>If the actorClass is equal to <code>Rabbit.class</code>:  <ol type="1">
+<li>If the count is less than or equal to 2, set <code>huntProbability</code> to 0 (the <code>Fox</code> should not hunt at all).</li>
+<li>Otherwise, if the count is less than or equal to 20, set <code>huntProbability</code> to <code>count / 100.0</code> (it is unlikely the <code>Fox</code> will hunt).</li>
+<li>Otherwise, set <code>huntProbability</code> to <code>DEFAULT_HUNT_PROBABILITY</code> (the <code>Fox</code> will always hunt, given <code>DEFAULT_HUNT_PROBABILITY</code> is 1).</li>
+</ol>
+</li>
+</ol>
+<p>By the way, <code>Rabbit.class</code> is a special Java notation that refers to the <code>Class</code> object that represents the <code>Rabbit</code> class. We can use it for <em>reflection</em>: we discussed this in the Inheritance I lecture on week 2. <code>Rabbit.class</code> is more convenient than creating a <code>Rabbit</code> and asking for its class, using <code>new Rabbit().getClass()</code>.</p>
+<p><em>Step 10.</em> Go to the <code>hunt</code> method of <code>Fox</code> and give it a quick read. You will notice it basically works by checking first if the fox is alive. If it is alive, it will try to find an adjacent rabbit. If there is an adjacent rabbit, it will move to where it is and kill it; otherwise, it will move to a random free adjacent cell.</p>
+<p><em>Step 11.</em> Change the <code>hunt</code> method so that if there is a <code>Rabbit</code> adjacent to it (<code>rabbit != null</code>), it will only move to it under a certain <code>huntProbability</code>. Otherwise, it will move to a random free adjacent cell. Remember how you did it for the <code>LearnRandom</code> class, and apply it here!</p>
+<h2 is-upgraded="">Providing Fox with the Rabbit count from Simulator</h2>
+<p>We are almost done: <code>Fox</code> will consider how many rabbits are left when deciding how likely it is it will hunt. The last step is changing <code>Simulator</code> so it will provide that information to any <code>CountAwareActor</code>s in the simulation.</p>
+<p><em>Step 12.</em> Go to the <code>Simulator</code> class and skim over the <code>act()</code> method. You will see that it increments the <code>step</code> and then loops over all the <code>Actor</code>s in the simulation, asking each one of them to <code>act</code>.</p>
+<p><em>Step 13.</em> Inside the <code>for</code> loop and before the call to <code>act</code>, add code that follows these steps:</p>
+<ol type="1">
+<li>If <code>a</code> is a <code>CountAwareActor</code> (use <code>instanceof</code>):  <ol type="1">
+<li>Downcast <code>a</code> into a <code>CountAwareActor</code> variable (pick any name you like).</li>
+<li>Call <code>setActorCount</code> on the <code>CountAwareActor</code> variable, passing <code>Rabbit.class</code> as its first parameter (meaning you are telling it how many rabbits there are), and <code>field.getCount(Rabbit.class)</code> as its second parameter (the number of rabbits in the field right now).</li>
+</ol>
+</li>
+</ol>
+<p><em>Step 14.</em> Run <code>Launcher</code> again a few times, and watch what the field looks like at the end of the simulation. Most of the time, you should always have at least a few rabbits by the end of the simulation: the foxes now hold back a little when there aren't many rabbits left.</p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Submit to AutoFeedback and Blackboard" duration="0" step="8"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">8. Submit to AutoFeedback and Blackboard</h2>
+        <p>Now that you have completed the lab, you should use the <code>Submit Lab 4 to AutoFeedback</code> file that corresponds to your operating system to submit your code to AutoFeedback.</p>
+<p>For the details on how to use AutoFeedback, please refer to the last section of Lab 1.</p>
+<p>In this lab, we didn't ask you to write any tests: instead, AutoFeedback has its own tests that check the various things you should have done as part of this lab. Please review the provided feedback, and let us know if anything is unclear.</p>
+<p>Once you have passed the tests from AutoFeedback, you can simply upload the <code>submission.zip</code> file it generated to Blackboard.</p>
+
+
+      </div></div></google-codelab-step></div><div id="controls"><div id="fabs"><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2187684-dt-content-rid-14871317_1/courses/2020_CS1OOP_P1_P2/TP2/week04-int2-rdd/jpd-2021-lab4/index.html#" id="previous-step" title="Previous step" disappear="">Back</a><div class="spacer"></div><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2187684-dt-content-rid-14871317_1/courses/2020_CS1OOP_P1_P2/TP2/week04-int2-rdd/jpd-2021-lab4/index.html#" id="next-step" title="Next step">Next</a><a href="https://vle.aston.ac.uk/" id="done" hidden="" title="Codelab complete">Done</a></div></div></div></google-codelab>
+
+  <script src="./CS1410 Lab 4 (RDD)_files/native-shim.js.download"></script>
+  <script src="./CS1410 Lab 4 (RDD)_files/custom-elements.min.js.download"></script>
+  <script src="./CS1410 Lab 4 (RDD)_files/prettify.js.download"></script>
+  <script src="./CS1410 Lab 4 (RDD)_files/codelab-elements.js.download"></script>
+  <script src="./CS1410 Lab 4 (RDD)_files/api.js.download"></script>
+
+
+
+</body></html>

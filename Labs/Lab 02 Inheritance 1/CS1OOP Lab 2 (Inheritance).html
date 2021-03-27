@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<!-- saved from url=(0161)https://vle.aston.ac.uk/bbcswebdav/pid-2167627-dt-content-rid-14676940_1/courses/2020_CS1OOP_P1_P2/TP2/week02-orgjava-inh1/jpd-2021-lab2-inheritance/index.html#0 -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <meta name="theme-color" content="#4F7DC9">
+  
+  <title>CS1OOP Lab 2 (Inheritance)</title>
+  <link rel="stylesheet" href="./CS1OOP Lab 2 (Inheritance)_files/css">
+  <link rel="stylesheet" href="./CS1OOP Lab 2 (Inheritance)_files/icon">
+  <link rel="stylesheet" href="./CS1OOP Lab 2 (Inheritance)_files/codelab-elements.css">
+  <style>
+    .success {
+      color: #1e8e3e;
+    }
+    .error {
+      color: red;
+    }
+  </style>
+<script src="./CS1OOP Lab 2 (Inheritance)_files/analytics.js.download"></script></head>
+<body>
+  <google-codelab-analytics gaid="UA-49880327-14" environment="web" category="null"></google-codelab-analytics>
+  <google-codelab codelab-gaid="" id="jpd-2021-lab2-inheritance" environment="web" feedback-link="mailto:a.garcia-dominguez@aston.ac.uk" selected="0" google-codelab-ready="" codelab-title="CS1OOP Lab 2 (Inheritance)" anayltics-ready="anayltics-ready"><div id="drawer"><div class="codelab-time-container" style="display: none;"></div><div class="steps"><ol><li completed="" selected=""><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2167627-dt-content-rid-14676940_1/courses/2020_CS1OOP_P1_P2/TP2/week02-orgjava-inh1/jpd-2021-lab2-inheritance/index.html#0"><span class="step"><span>Preparing your environment</span></span></a></li><li><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2167627-dt-content-rid-14676940_1/courses/2020_CS1OOP_P1_P2/TP2/week02-orgjava-inh1/jpd-2021-lab2-inheritance/index.html#1"><span class="step"><span>Importing the project</span></span></a></li><li><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2167627-dt-content-rid-14676940_1/courses/2020_CS1OOP_P1_P2/TP2/week02-orgjava-inh1/jpd-2021-lab2-inheritance/index.html#2"><span class="step"><span>Reuse by inheritance: Shape hierarchy</span></span></a></li><li><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2167627-dt-content-rid-14676940_1/courses/2020_CS1OOP_P1_P2/TP2/week02-orgjava-inh1/jpd-2021-lab2-inheritance/index.html#3"><span class="step"><span>Reusing overriden methods with super.method()</span></span></a></li><li><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2167627-dt-content-rid-14676940_1/courses/2020_CS1OOP_P1_P2/TP2/week02-orgjava-inh1/jpd-2021-lab2-inheritance/index.html#4"><span class="step"><span>Reuse by composition: Frame</span></span></a></li><li><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2167627-dt-content-rid-14676940_1/courses/2020_CS1OOP_P1_P2/TP2/week02-orgjava-inh1/jpd-2021-lab2-inheritance/index.html#5"><span class="step"><span>Documenting with Javadoc</span></span></a></li><li><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2167627-dt-content-rid-14676940_1/courses/2020_CS1OOP_P1_P2/TP2/week02-orgjava-inh1/jpd-2021-lab2-inheritance/index.html#6"><span class="step"><span>Submit to AutoFeedback and Blackboard</span></span></a></li></ol></div><div class="metadata"><a target="_blank" href="mailto:a.garcia-dominguez@aston.ac.uk"><i class="material-icons">bug_report</i> Report a mistake</a></div></div><div id="codelab-title"><div id="codelab-nav-buttons"><a href="https://vle.aston.ac.uk/" id="arrow-back"><i class="material-icons">close</i></a><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2167627-dt-content-rid-14676940_1/courses/2020_CS1OOP_P1_P2/TP2/week02-orgjava-inh1/jpd-2021-lab2-inheritance/index.html#" id="menu"><i class="material-icons">menu</i></a></div><h1 is-upgraded="" class="title">CS1OOP Lab 2 (Inheritance)</h1><div class="codelab-time-container" style="display: none;"></div><devsite-user></devsite-user></div><div id="main"><div id="steps"><google-codelab-step label="Preparing your environment" duration="0" step="1" selected=""><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">1. Preparing your environment</h2>
+        <p>This lab requires Java 11 or newer, and a recent installation of <a href="https://www.eclipse.org/downloads/packages/release/2020-12/r/eclipse-ide-java-developers" target="_blank">Eclipse for Java Developers</a>.</p>
+<h2 is-upgraded="">Using a lab computer?</h2>
+<p>If you are using a lab computer or a student VDI machine, launch Eclipse 2019-06 through AstonApps (you will need to launch Java 11.0.5 first). Eclipse will start on its default workspace, which already has all dependencies set up. Eclipse should ask you to pick a workspace folder: you should pick a folder in your home drive (e.g. <code>H:\CS1OOP\eclipse</code>), so your projects are created inside that folder and are preserved after you turn off the lab PC.</p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Importing the project" duration="0" step="2"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">2. Importing the project</h2>
+        <p>Follow the same approach as in last lab: download the starting code from Blackboard, and do not unpack the <code>.zip</code> file.</p>
+<p>Import the project by using "File - Import - Existing Projects into Workspace", then pick "Archive file" and select the <code>.zip</code> file you downloaded.</p>
+<p>One project called <code>uk.ac.aston.oop.inheritance</code> should come up. Press OK to import this project.</p>
+<p>Make sure the project works: go to the "Package Explorer" view and run the <code>Run Inheritance GUI</code> launch file that is appropriate to your operating system, by right-clicking on it and selceting "Run As - Run Inheritance GUI". You should see something like this:</p>
+<p class="image-container"><img alt="Screenshot of initial version" src="./CS1OOP Lab 2 (Inheritance)_files/2064580d2c982c67.png"></p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Reuse by inheritance: Shape hierarchy" duration="0" step="3"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">3. Reuse by inheritance: Shape hierarchy</h2>
+        <p>Look at the classes in the <code>uk.ac.aston.oop.inheritance.shapes</code> package. Compare <code>Circle</code>, <code>Ellipse</code> and <code>Rectangle</code>. Do you see the similarities?</p>
+<p>They all have <code>getX</code>, <code>getY</code>, <code>getWidth</code>, <code>getHeight</code> and <code>draw</code>. There is too much repeated code here. We are going to use inheritance to avoid this repetition.</p>
+<h2 is-upgraded="">Creating the base Shape class</h2>
+<p>We want to extract all the common parts of these classes to a <code>Shape</code> superclass.</p>
+<p><em>Step 1.</em> Create a <code>Shape</code> class inside the <code>uk.ac.aston.oop.inheritance.shapes</code> package, by right-clicking on the package and selecting <code>New - Class</code>. Enter "Shape" in the "Name" field and press "Finish". You will find that Eclipse has created the file with this starting code for you:</p>
+<pre><code><span class="kwd">package</span><span class="pln"> uk</span><span class="pun">.</span><span class="pln">ac</span><span class="pun">.</span><span class="pln">aston</span><span class="pun">.</span><span class="pln">oop</span><span class="pun">.</span><span class="pln">inheritance</span><span class="pun">.</span><span class="pln">shapes</span><span class="pun">;</span><span class="pln">
+
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">Shape</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+
+</span><span class="pun">}</span></code></pre>
+<p><em>Step 2.</em> If you look at <code>Rectangle</code> and <code>Ellipse</code>, you will see that they store the position of the upper left corner, and their width and height. This is more flexible than <code>Circle</code> (which just stores the center and the radius), so we will use their approach to represent shapes. Add <code>private double</code> fields to <code>Shape</code> to store the upper left corner's X position, the upper left corner's Y position, the width, and the height.</p>
+<p><em>Step 3.</em> Add a constructor that takes four <code>double</code> parameters and stores them into the fields you added in the previous step. Remember that a <code>public</code> constructor for a type <code>Type</code> is declared this way:</p>
+<pre><code><span class="kwd">public</span><span class="pln"> </span><span class="typ">Type</span><span class="pun">(</span><span class="pln">parameters</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  body
+</span><span class="pun">}</span></code></pre>
+<p><em>Step 4.</em> Add the appropriate getter methods for the fields: <code>getX()</code>, <code>getY()</code>, <code>getWidth()</code>, and <code>getHeight()</code>. These methods should just return the value of those fields: you need them because the fields are <code>private</code> (to help with encapsulation and implementation hiding) and they will not be accessible from outside the class otherwise.</p>
+<p><em>Step 5.</em> Add a public <code>draw</code> method that takes a <code>GraphicsContextWrapper</code> (you will need to import it from <code>uk.ac.aston.oop.inheritance.util</code>) and does not return anything (<code>void</code>): we will have subclasses override it. Since this is a generic shape, you cannot really draw it: just print a message with <code>System.out.println()</code> telling developers that you cannot really draw a Shape.</p>
+<h2 is-upgraded="">Make Rectangle extend Shape</h2>
+<p><em>Step 1.</em> Update <code>Rectangle</code> so it extends <code>Shape</code> (meaning that all <code>Rectangle</code>s are <code>Shape</code>s, so they should inherit everything from <code>Shape</code>):</p>
+<pre><code><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">Rectangle</span><span class="pln"> </span><span class="kwd">extends</span><span class="pln"> </span><span class="typ">Shape</span><span class="pln"> </span><span class="pun">{</span></code></pre>
+<p><em>Step 2.</em> Remove all the fields and methods from <code>Rectangle</code> that <code>Shape</code> already has, except for <code>draw</code> which is different in this class.</p>
+<p><em>Step 3.</em> Change the constructor so it only calls the constructor of <code>Shape</code> (its <code>super</code> class) on its first line:</p>
+<pre><code><span class="kwd">public</span><span class="pln"> </span><span class="typ">Rectangle</span><span class="pun">(</span><span class="kwd">double</span><span class="pln"> ulX</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">double</span><span class="pln"> ulY</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">double</span><span class="pln"> width</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">double</span><span class="pln"> height</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">super</span><span class="pun">(</span><span class="pln">ulX</span><span class="pun">,</span><span class="pln"> ulY</span><span class="pun">,</span><span class="pln"> width</span><span class="pun">,</span><span class="pln"> height</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<p><em>Step 4.</em> Add the <code>@Override</code> annotation to <code>draw</code>, so the Java compiler will ensure that it is really overriding something in <code>Shape</code>:</p>
+<pre><code><span class="lit">@Override</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">void</span><span class="pln"> draw</span><span class="pun">(</span><span class="typ">GraphicsContextWrapper</span><span class="pln"> gc</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></code></pre>
+<p><em>Step 5.</em> You will notice that <code>draw</code> still has a number of compilation issues, since <code>upperLeftX</code> and other fields are no longer available (they are <code>private</code> in <code>Shape</code>). Change the code so it uses the accessor methods instead: for instance, replace all mentions of <code>upperLeftX</code> with calls to <code>getX()</code>.</p>
+<aside class="special"><p>Note that instead of rewriting <code>draw</code> to use the accessor methods in <code>Shape</code>, we could have made those fields <code>protected</code> in <code>Shape</code>. However, generally this is not recommended unless you have very strong reasons, as it goes against the principle of implementation hiding.</p>
+</aside>
+<p><em>Step 6.</em> Once the class compiles fine again, try renaming <code>draw</code> to <code>drew</code> for a moment: it should give an error message. What happens if you remove <code>@Override</code> while it's still called <code>drew</code>, and why do you think this happens? Return it to <code>draw</code> with the <code>@Override</code> annotation once you are done experimenting.</p>
+<h2 is-upgraded="">Make Ellipse extend Shape</h2>
+<p>We are going to follow a very similar approach for <code>Ellipse</code>.</p>
+<p><em>Step 1.</em> Make <code>Ellipse</code> extend <code>Shape</code>.</p>
+<p><em>Step 2.</em> Remove all the fields and methods of <code>Ellipse</code> that <code>Shape</code> already has, except for <code>draw</code> which is different in this class.</p>
+<p><em>Step 3.</em> Change the constructor so it only has one line which calls the constructor of the superclass, <code>Shape</code>:</p>
+<pre><code><span class="kwd">public</span><span class="pln"> </span><span class="typ">Ellipse</span><span class="pun">(</span><span class="kwd">double</span><span class="pln"> upperLeftX</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">double</span><span class="pln"> upperLeftY</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">double</span><span class="pln"> width</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">double</span><span class="pln"> height</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span><span class="pln">
+  </span><span class="kwd">super</span><span class="pun">(</span><span class="pln">upperLeftX</span><span class="pun">,</span><span class="pln"> upperLeftY</span><span class="pun">,</span><span class="pln"> width</span><span class="pun">,</span><span class="pln"> height</span><span class="pun">);</span><span class="pln">
+</span><span class="pun">}</span></code></pre>
+<p><em>Step 4.</em> Add the <code>@Override</code> annotation to the <code>draw</code> method, and change the code so it uses the <code>get*()</code> methods in <code>Shape</code> instead of the fields.</p>
+<h2 is-upgraded="">Make Circle extend Ellipse</h2>
+<p>We will do something similar to <code>Circle</code>, but it will extend <code>Ellipse</code> rather than <code>Shape</code>. This means we will inherit everything from both <code>Shape</code> and <code>Ellipse</code>. Follow these steps:</p>
+<p><em>Step 1.</em> Make <code>Circle</code> extend <code>Ellipse</code>.</p>
+<p><em>Step 2.</em> Change the constructor so it only calls its superclass constructor. The <code>Shape</code> constructor wants the upper left corner positions, the width, and the height of the shape: you will have to calculate those yourself in the arguments you give to <code>super(...)</code>.</p>
+<p><em>Step 3.</em> Remove all the <code>get*</code> methods: the versions in <code>Shape</code> are enough, since in the constructor you already set the fields inherited from <code>Shape</code>.</p>
+<p><em>Step 4.</em> Remove the <code>draw</code> method: the version you inherited from <code>Ellipse</code> is enough, because it will call <code>gc.oval()</code> with the right values anyway.</p>
+<p><em>Step 5.</em> Change the <code>getRadius()</code> method so it computes it from <code>getWidth()</code> or <code>getHeight()</code>: that way you won't need <code>radius</code> anymore.</p>
+<p><em>Step 6.</em> Remove the <code>centerX</code>, <code>centerY</code>, and <code>radius</code> fields: you do not need these anymore.</p>
+<h2 is-upgraded="">In closing</h2>
+<ul>
+<li>You should by now have a new class <code>Shape</code>, which has helped reduce duplication across your other shape classes.</li>
+<li><code>Rectangle</code> and <code>Ellipse</code> should now extend <code>Shape</code>.</li>
+<li><code>Circle</code> should now extend <code>Ellipse</code>.</li>
+<li>The program should run the same as before, and you should have no compilation issues.</li>
+</ul>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Reusing overriden methods with super.method()" duration="0" step="4"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">4. Reusing overriden methods with super.method()</h2>
+        <p>We want to create <code>FilledRectangle</code>, a variant of <code>Rectangle</code> that adds a fill to the rectangle of the user's choosing. To do it, we will reuse as much of <code>Rectangle</code> as possible.</p>
+<p><em>Step 1.</em> Create the <code>FilledRectangle</code> class, and have it extend <code>Rectangle</code>.</p>
+<p><em>Step 2.</em> Add a private field called <code>fill</code> of type <code>javafx.scene.paint.Color</code> (you can just type <code>Color</code> and have Eclipse help you import the right class).</p>
+<p><em>Step 3.</em> Create a constructor that takes a <code>Color</code> and the four usual arguments for a <code>Rectangle</code> (upper left corner X, upper left corner Y, width, and height). In its first line, it should call the <code>super(...)</code> constructor, and then it should set the <code>fill</code> field to the provided color.</p>
+<p><em>Step 4.</em> Add a public <code>getFill</code> method that returns the <code>fill</code>, in case some other class needs to know which fill was chosen.</p>
+<p><em>Step 5.</em> Now, write a <code>draw</code> method that <code>@Override</code>s the one in <code>Rectangle</code>. It should use <code>gc.fill</code> to set the fill color, then use <code>gc.fillRect</code> to draw a filled rectangle, and finally use <code>super.draw(gc)</code> to call the version of <code>draw</code> in <code>Rectangle</code> which will draw the border.</p>
+<p>Keep in mind that <code>super</code> refers here to the part of the current object (<code>this</code>) that is inherited from the <code>Rectangle</code> superclass, so with <code>super.draw(gc)</code> we mean "call the <code>draw</code> method inherited from <code>Rectangle</code>".</p>
+<p><em>Step 6.</em> Change the <code>draw</code> method in <code>Launcher</code>, replacing the line that creates a <code>Rectangle</code> with a line that creates a <code>FilledRectangle</code> (giving it <code>Color.RED</code> as its first argument). Try running the program: do you notice the difference?</p>
+<p><em>Step 7.</em> Add this at the beginning of the <code>draw</code> method of <code>Rectangle</code>:</p>
+<pre><code><span class="pln">gc</span><span class="pun">.</span><span class="pln">lineWidth</span><span class="pun">(</span><span class="lit">5</span><span class="pun">);</span></code></pre>
+<p>Try running the program again. Do you see the difference?</p>
+<p><em>Step 8.</em> Change <code>draw</code> in <code>FilledRectangle</code>, moving the <code>super.draw</code> call to the top of the function. Try to run the program again: do you see the difference? This is an example of how the exact place where you call the inherited version of a method can be important.</p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Reuse by composition: Frame" duration="0" step="5"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">5. Reuse by composition: Frame</h2>
+        <p>You have seen how we can reuse code through inheritance, where we inherit fields and methods from a superclass, and we can override some methods with our own versions. We can also reuse the inherited versions with <code>super.xyz(...)</code> while we are overriding a method, as you saw in the previous section.</p>
+<p>In this section, you are going to do what is called "reuse by composition". We are going to create <code>Frame</code>, a subclass of <code>Shape</code> that looks like a picture frame. Instead of implementing it fully ourselves, we are going to have <code>Frame</code> contain two <code>Rectangle</code>s: to <code>draw</code> a <code>Frame</code>, we will just ask its two <code>Rectangle</code>s to <code>draw</code> themselves.</p>
+<p><em>Step 1.</em> Create a <code>Frame</code> class that extends <code>Shape</code>.</p>
+<p><em>Step 2.</em> Add two protected fields of type <code>Rectangle</code>: one called <code>outerRectangle</code>, and one  called <code>innerRectangle</code>.</p>
+<aside class="warning"><p>Make sure you use these exact names and that they are protected - AutoFeedback will be looking out for that. We made them protected so AutoFeedback will be able to check you are using them correctly: the tests in AF belong to the same package as <code>Frame</code>, and <code>protected</code> allows access from subclasses <em>and</em> classes in the same package.</p>
+</aside>
+<p><em>Step 3.</em> Add a <code>private static final int</code> field called <code>FRAME_THICKNESS</code>: this will be the thickness of our frame. Set it to 10.</p>
+<p><em>Step 4.</em> Create a constructor that takes the usual four <code>double</code>s: upper left X coordinate, upper left Y coordinate, width and height. It should follow these steps:</p>
+<ol type="1">
+<li>Call the <code>super(...)</code> constructor.</li>
+<li>Set <code>outerRectangle</code> to a new <code>Rectangle</code> with the provided four <code>double</code>s.</li>
+<li>Set <code>innerRectangle</code> to a new <code>Rectangle</code> where the upper left corner is <code>FRAME_THICKNESS</code> units down and to the right (add <code>FRAME_THICKNESS</code> to the upper left coordinates), and its width an height are decreased by <code>FRAME_THICKNESS * 2</code>.</li>
+</ol>
+<p><em>Step 5.</em> Create a <code>draw</code> method that overrides the one from <code>Shape</code>: it should simply ask both <code>Rectangle</code>s to <code>draw</code> themselves.</p>
+<p><em>Step 6.</em> Change the <code>draw</code> method of <code>Launcher</code>, so it will create and draw a <code>Frame</code> instead. For instance, you could put the upper left corner at (200, 120), and give it 50 for the width and the height.</p>
+<p><em>Step 7.</em> Try running the application once more. You should be seeing the <code>Frame</code> and the <code>FilledRectangle</code> show up, like this:</p>
+<p class="image-container"><img alt="Screenshot of completed application" src="./CS1OOP Lab 2 (Inheritance)_files/3ffcd9d62b40f592.png"></p>
+<p>Congratulations, you now know how to do reuse by composition! Simply put, it's implementing something new by combining (composing) things we already have.</p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Documenting with Javadoc" duration="0" step="6"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">6. Documenting with Javadoc</h2>
+        <p>When developing a large system, in addition to writing the code, it is important to document what the different packages and classes are for, and how to best use them. Even if it is just you writing the code, you will appreciate having something that reminds you about how you are supposed to call that function you wrote a month ago!</p>
+<p>Most modern programming languages have tools to write documentation, and Java has a tool called <code>javadoc</code> for it. In this section, you will describe all your shapes and your two main packages, and you will document in depth the <code>Shape</code> class (since it is the base class for all your shapes).</p>
+<h2 is-upgraded="">Describing our classes</h2>
+<p>First, we want to describe what our classes are. Add a Javadoc comment at the top of each class in the <code>uk.ac.aston.oop.inheritance.shapes</code> package saying what the class represents.</p>
+<p>For instance, for <code>Circle</code> you might write something like this:</p>
+<pre><code><span class="com">/**
+ * Circle, specified as center + radius. 
+ */</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">class</span><span class="pln"> </span><span class="typ">Circle</span><span class="pln"> </span><span class="pun">...</span></code></pre>
+<p>Don't just state the obvious: it's important that people know that <code>Circle</code> needs a center and a radius, and it may be important to let people know that <code>Shape</code> is specified through its upper left corner, width, and height.</p>
+<p>Keep in mind that Javadoc comments use <code>/** */</code>, instead of <code>/* */</code> like normal comments.</p>
+<h2 is-upgraded="">Describing our packages</h2>
+<p>Next, we want to describe what our packages are for. Each package should be a logical grouping of classes around the same idea. For instance, the <code>uk.ac.aston.oop.inheritance</code> package is the main package of the application and includes the main class, and the <code>uk.ac.aston.oop.inheritance.shapes</code> package contains all the geometrical shapes to be drawn.</p>
+<p>If you want to describe a package with the <code>javadoc</code> tool, you need to create a <code>package-info.java</code> file inside the package, and add a Javadoc comment right above the <code>package</code> declaration.</p>
+<p><em>Step 1.</em> Right-click on the <code>uk.ac.aston.oop.inheritance</code> package in the "Package Explorer", and select "New - File". Enter <code>package-info.java</code> as the file name and click on "Finish".</p>
+<p><em>Step 2.</em> Write this into the file:</p>
+<pre><code><span class="com">/**
+ * Main package of the inheritance lab program.
+ *
+ * @author (your name)
+ * @version 1.0
+ */</span><span class="pln">
+
+</span><span class="kwd">package</span><span class="pln"> uk</span><span class="pun">.</span><span class="pln">ac</span><span class="pun">.</span><span class="pln">aston</span><span class="pun">.</span><span class="pln">oop</span><span class="pun">.</span><span class="pln">inheritance</span><span class="pun">;</span></code></pre>
+<p>The first sentence gives a short summary of what the package is about.</p>
+<p>The <code>@author</code> line says who wrote it.</p>
+<p>The <code>@version</code> line mentions the version of the package ("1.0" is typically chosen for the first public release of a program).</p>
+<p><em>Step 3.</em> Do the same for the <code>uk.ac.aston.oop.inheritance.shapes</code> package: create the <code>package-info.java</code> file, and fill it in.</p>
+<h2 is-upgraded="">Describing Shape in depth</h2>
+<p><code>Shape</code> is a very important class, because all our shapes inherit from it. We should document all its public methods and its constructor, so everyone knows how to use it.</p>
+<p><em>Step 1.</em> Add a Javadoc comment right above the constructor, like this:</p>
+<pre><code><span class="com">/**
+ * Creates a new instance.
+ *
+ * @param ulX X coordinate of the upper left corner.
+ * @param ulY Y coordinate of the upper left corner.
+ */</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="typ">Shape</span><span class="pun">(</span><span class="kwd">double</span><span class="pln"> ulX</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">double</span><span class="pln"> ulY</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">double</span><span class="pln"> width</span><span class="pun">,</span><span class="pln"> </span><span class="kwd">double</span><span class="pln"> height</span><span class="pun">)</span><span class="pln"> </span><span class="pun">{</span></code></pre>
+<p>Here, the first sentence summarizes what the constructor does, and then you have one <code>@param name description</code> line for each parameter. Add <code>@param</code> lines for <code>width</code> and <code>height</code>.</p>
+<p><em>Step 2.</em> Add a Javadoc comment right above the <code>getX()</code> method, like this:</p>
+<pre><code><span class="com">/**
+ * Returns the X coordinate of the upper left corner.
+ *
+ * @return X coordinate of upper left corner.
+ */</span><span class="pln">
+</span><span class="kwd">public</span><span class="pln"> </span><span class="kwd">double</span><span class="pln"> getX</span><span class="pun">()</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> </span><span class="kwd">return</span><span class="pln"> upperLeftX</span><span class="pun">;</span><span class="pln"> </span><span class="pun">}</span></code></pre>
+<p>This is the same approach, except here we have no <code>@param</code> lines (because we do not take any parameters). We do have a <code>@return</code> line explaining what the method returns.</p>
+<p><em>Step 3.</em> Add Javadoc comments to all the other public methods (all the <code>get*</code> methods and <code>draw</code>). Make sure to use <code>@param</code> and <code>@return</code> as needed.</p>
+<h2 is-upgraded="">Generating documentation in HTML format</h2>
+<p>Now that we have added these comments, we can use <code>javadoc</code> to generate documentation in a convenient web-based format. There are many ways to call the tool, but for this lab you will use a <code>.launch</code> file that we have prepared for you.</p>
+<p><em>Step 1.</em> Right-click on "Generate Javadocs (Inheritance Lab)" and select "Run As - Generate Javadocs". After some time, it should complete with <code>BUILD SUCCESS</code>: if it doesn't, you may have to fix your code or your Javadoc comments (check the "Console" tab for hints).</p>
+<p><em>Step 2.</em> In the "Package Explorer", open the <code>target</code> folder, then open <code>site</code> and <code>apidocs</code>, and then double click on <code>index.html</code>. You will see the generated documentation in HTML format.</p>
+<p><em>Step 3.</em> If you have done things correctly, the packages will have descriptions. If they do not show up, check your <code>package-info.java</code> files.</p>
+<p><em>Step 4.</em> Click on the <code>uk.ac.aston.oop.inheritance.shapes</code> package. If you have added Javadoc comments to each shape correctly, every class should have a description.</p>
+<p><em>Step 5.</em> Click on the <code>Shape</code> class. If you did it right, every method should have a description.</p>
+<p>The idea is that you could then upload this <code>apidocs</code> folder to your website, and share that documentation with the other developers.</p>
+<p>Java itself has Javadocs-based documentation, which you can check <a href="https://docs.oracle.com/en/java/javase/11/docs/api/index.html" target="_blank">here</a>. You should bookmark it for future reference!</p>
+
+
+      </div></div></google-codelab-step><google-codelab-step label="Submit to AutoFeedback and Blackboard" duration="0" step="7"><div class="instructions"><div class="inner"><h2 is-upgraded="" class="step-title">7. Submit to AutoFeedback and Blackboard</h2>
+        <p>Now that you have completed the lab, you should use the <code>Submit Lab 2 to AutoFeedback</code> file that corresponds to your operating system to submit your code to AutoFeedback.</p>
+<p>For the details on how to use AutoFeedback, please refer to the last section of Lab 1.</p>
+<p>In this lab, we didn't ask you to write any tests: instead, AutoFeedback has its own tests that check the various things you should have done as part of this lab. It will check you used inheritance, <code>super.draw</code> and composition correctly, and it will check that you wrote the Javadoc comments we were looking for. Please review the provided feedback, and let us know if anything is unclear.</p>
+<p>Once you have passed the tests from AutoFeedback, you can simply upload the <code>submission.zip</code> file it generated to Blackboard.</p>
+
+
+      </div></div></google-codelab-step></div><div id="controls"><div id="fabs"><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2167627-dt-content-rid-14676940_1/courses/2020_CS1OOP_P1_P2/TP2/week02-orgjava-inh1/jpd-2021-lab2-inheritance/index.html#" id="previous-step" title="Previous step" disappear="">Back</a><div class="spacer"></div><a href="https://vle.aston.ac.uk/bbcswebdav/pid-2167627-dt-content-rid-14676940_1/courses/2020_CS1OOP_P1_P2/TP2/week02-orgjava-inh1/jpd-2021-lab2-inheritance/index.html#" id="next-step" title="Next step">Next</a><a href="https://vle.aston.ac.uk/" id="done" hidden="" title="Codelab complete">Done</a></div></div></div></google-codelab>
+
+  <script src="./CS1OOP Lab 2 (Inheritance)_files/native-shim.js.download"></script>
+  <script src="./CS1OOP Lab 2 (Inheritance)_files/custom-elements.min.js.download"></script>
+  <script src="./CS1OOP Lab 2 (Inheritance)_files/prettify.js.download"></script>
+  <script src="./CS1OOP Lab 2 (Inheritance)_files/codelab-elements.js.download"></script>
+  <script src="./CS1OOP Lab 2 (Inheritance)_files/api.js.download"></script>
+
+
+
+</body></html>
